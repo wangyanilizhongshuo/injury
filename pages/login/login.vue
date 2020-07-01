@@ -5,22 +5,39 @@
 		 </view>
 		 <view class="uni-msg">
 			  <view class="uni-msg-title">
-				  <text class="login" @tab="switchTab('login')">登录
+				  <text class="login" @click="switchTab('login')">登录
 				  </text>
-				  <text class="register" @tab="switchTab('resister')">注册</text>
+				  <text class="register" @click="switchTab('register')">注册</text>
 				  <text class="line"></text>
 			  </view>
 			  <!-- 登录注册 -->
 			  <view class="login-msg" v-if="type==='login'" >
 				  <view class="uni-input">
-					  <input v-model="phone" class="username" type="text" placeholder-style="color:#B7BAC4;line-height:40rpx;font-size:30rpx;" placeholder="请输入您的账号" @input='inputPhone'/>
+					  <input v-model="phone" class="username" type="text" placeholder-style="color:#B7BAC4;text-indent:24rpx;font-size:30rpx;" placeholder="请输入您的账号" @input='inputPhone'/>
 				  </view>
 				  <view class="uni-input">
-					 <input v-model="password" class="passWord " type="text" placeholder="请输入您的密码" placeholder-style="color:#B7BAC4;font-size:30rpx;" /> 
+					 <input v-model="password" class="passWord " type="text" placeholder="请输入您的密码" placeholder-style="text-indent:24rpx;color:#B7BAC4;font-size:30rpx;" /> 
+				  </view>
+				  <view class="choice-login">
+					  <text class="word-style">手机验证码登录</text>
+					  <text class="word-style">忘记密码</text>
+				  </view>
+				  <view class="uni-btn">
+					  登录
+				  </view>
+				 <view class="weixin-login">
+					  <image class="img" src="../../static/image/login_wechat.png"></image>
+					  <view class="word">微信登录</view>
+				  </view>
+				  <view class="protocol">
+					  <text class="left-1">登录即代表您同意</text>
+					  <text class="left-2">《用户协议》</text>
+					  <text class="left-1 right-1">和</text>
+					  <text class="left-2 right-2">《隐私政策》</text>
 				  </view>
 			  </view>
-			  <view class="register-msg" v-if="type ==='register'">
-                 <view>注册</view>
+			  <view class="register-msg" v-else-if="type=='register'">
+                reigste
 			  </view>
 		 </view>
 	</view>
@@ -49,6 +66,7 @@
 			},
 			
 			switchTab(type){
+				   console.log(type)
 					uni.hideKeyboard();//隐藏软键盘
 					this.type=type;
 					this.phone='';
@@ -95,6 +113,7 @@
 		  .line{
 			  position: absolute;
 			  bottom: 0rpx;
+			  left:0rpx;
 			  width:110rpx;
 			  height:16rpx;
 			  background:linear-gradient(90deg,rgba(18,92,212,1) 0%,rgba(34,165,255,0) 100%);
@@ -107,17 +126,61 @@
 			  width: 630rpx;
 			  border-bottom:2rpx solid #ECECEC;
 			  margin-top:40rpx;
+			  height:80rpx; 
 		  }
-		  .username{
-			  // margin-bottom: 69rpx;
-			  height:80rpx;
+		  .choice-login{
+			  width:630rpx;
+			  display: flex;
+			  justify-content: space-between;
+			  // margin-top:33rpx;
+			  // margin-bottom:112rpx;
+			  margin: 33rpx 0rpx 112rpx;
+			  .word-style{
+				  font-size: 26rpx;
+				  color:#44464A;
+			  }
+		  }
+		  .uni-btn{
+			  width: 540rpx;
+              margin :0 auto;
+			  height:90rpx;
+			  line-height:90rpx;
+			  background:rgba(209,224,255,1);
+			  border-radius:45rpx;
+			  font-size: 36rpx;
+			  color: #FFFFFF;
+			  text-align: center;
+		  }
+		  .protocol{
+			  margin:0 auto;
 			  
+			  .left-1{
+				  font-size: 28rpx;
+				  color: #747F9B;
+			  }
+			  .left-2{
+				  color: #125CD4;
+				  font-size: 28rpx;
+				  
+			  }
 		  }
-		  .passWord{
-			  height: 80rpx;
-			  // margin-top:69rpx;
+		  .weixin-login{
+			  width: 150rpx;
+			  margin: 150rpx auto 100rpx;
+			  display: flex;
+			  flex-direction: column;
+			  align-items: center;
+			  .img{
+				  width: 78rpx;
+				  height: 78rpx;
+				  margin-bottom: 31rpx;
+			  }
+			  .word{
+				  color: #44464A;
+				  font-size: 26rpx;
+				  
+			  }
 		  }
-		  
 	  }
 	  // 注册样式
 	  .register-msg{

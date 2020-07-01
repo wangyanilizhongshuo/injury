@@ -163,6 +163,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -186,6 +203,7 @@ var _default =
     },
 
     switchTab: function switchTab(type) {
+      console.log(type);
       uni.hideKeyboard(); //隐藏软键盘
       this.type = type;
       this.phone = '';

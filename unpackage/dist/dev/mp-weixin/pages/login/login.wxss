@@ -59,6 +59,7 @@
 .uni-msg .uni-msg-title .line.data-v-10672ed6 {
   position: absolute;
   bottom: 0rpx;
+  left: 0rpx;
   width: 110rpx;
   height: 16rpx;
   background: -webkit-gradient(linear, left top, right top, from(#125cd4), to(rgba(34, 165, 255, 0)));
@@ -70,11 +71,65 @@
   width: 630rpx;
   border-bottom: 2rpx solid #ECECEC;
   margin-top: 40rpx;
-}
-.uni-msg .login-msg .username.data-v-10672ed6 {
   height: 80rpx;
 }
-.uni-msg .login-msg .passWord.data-v-10672ed6 {
-  height: 80rpx;
+.uni-msg .login-msg .choice-login.data-v-10672ed6 {
+  width: 630rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  margin: 33rpx 0rpx 112rpx;
+}
+.uni-msg .login-msg .choice-login .word-style.data-v-10672ed6 {
+  font-size: 26rpx;
+  color: #44464A;
+}
+.uni-msg .login-msg .uni-btn.data-v-10672ed6 {
+  width: 540rpx;
+  margin: 0 auto;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #d1e0ff;
+  border-radius: 45rpx;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  text-align: center;
+}
+.uni-msg .login-msg .protocol.data-v-10672ed6 {
+  margin: 0 auto;
+}
+.uni-msg .login-msg .protocol .left-1.data-v-10672ed6 {
+  font-size: 28rpx;
+  color: #747F9B;
+}
+.uni-msg .login-msg .protocol .left-2.data-v-10672ed6 {
+  color: #125CD4;
+  font-size: 28rpx;
+}
+.uni-msg .login-msg .weixin-login.data-v-10672ed6 {
+  width: 150rpx;
+  margin: 150rpx auto 100rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.uni-msg .login-msg .weixin-login .img.data-v-10672ed6 {
+  width: 78rpx;
+  height: 78rpx;
+  margin-bottom: 31rpx;
+}
+.uni-msg .login-msg .weixin-login .word.data-v-10672ed6 {
+  color: #44464A;
+  font-size: 26rpx;
 }
 
