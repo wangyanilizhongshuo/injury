@@ -1,0 +1,89 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		 {
+		     "path" : "pages/login/login",
+		     "style" : {
+		 		 "navigationStyle":"custom"
+		 	}
+		 },
+		{
+            "path" : "pages/home-page/home-page",
+            "style" : {
+				// "navigationBarTitleText": "首页",
+				"navigationStyle":"custom"
+			}
+        },{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "我的推广"
+			}
+		}
+        ,{
+            "path" : "pages/injury-report/injury-report",
+            "style" : {
+				"navigationBarTitleText": "工伤报案"
+			}
+        }
+        ,{
+            "path" : "pages/insurance-scheme/insurance-scheme",
+            "style" : {
+				"navigationBarTitleText": "保险方案"
+			}
+        }
+        ,{
+            "path" : "pages/work-bench/work-bench",
+            "style" : {
+				"navigationBarTitleText": "工作台"
+			}
+        }
+		
+        
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		// "navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#1159D2",
+		"backgroundColor": "#1159D2"
+	},
+	"tabBar": {
+			"color" : "#656565",
+			    	"borderStyle" : "black",
+			    	"selectedColor" : "1159D2",
+			    	"backgroundColor" : "#FFFFFF",
+				    "list": [
+						        {
+						        	"pagePath" : "pages/home-page/home-page",
+						        	"iconPath" : "/static/image/icon_homepage2.png",
+						        	"selectedIconPath" : "/static/image/icon_homepage2.png",
+						        	"text" : "首页"
+						        },
+								{
+									"pagePath" : "pages/work-bench/work-bench",
+									"iconPath" : "/static/image/icon_classification1.png",
+									"selectedIconPath" : "/static/image/icon_classification1.png",
+									"text" : "工作台"
+								},
+								{
+									"pagePath" : "pages/injury-report/injury-report",
+									"iconPath" : "/static/image/release.png",
+									"selectedIconPath" : "/static/image/release.png",
+									"text" : "工伤报案"
+								},
+								{
+									"pagePath" : "pages/insurance-scheme/insurance-scheme",
+									"iconPath" : "/static/image/icon_homepage2.png",
+									"selectedIconPath" : "/static/image/icon_homepage2.png",
+									"text" : "保险方案"
+								},
+						        {
+				        			"pagePath" : "pages/index/index",
+				        			"iconPath" : "/static/image/icon_extension1.png",
+				        			"selectedIconPath" : "/static/image/icon_extension1.png",
+				        			"text" : "我的推广"
+				        		}
+						]
+				
+							
+							}
+	
+}

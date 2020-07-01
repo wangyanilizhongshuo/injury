@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/home-page/home-page",
+    "pages/index/index",
+    "pages/injury-report/injury-report",
+    "pages/insurance-scheme/insurance-scheme",
+    "pages/work-bench/work-bench"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#1159D2",
+    "backgroundColor": "#1159D2"
+  },
+  "tabBar": {
+    "color": "#656565",
+    "borderStyle": "black",
+    "selectedColor": "1159D2",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/home-page/home-page",
+        "iconPath": "/static/image/icon_homepage2.png",
+        "selectedIconPath": "/static/image/icon_homepage2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/work-bench/work-bench",
+        "iconPath": "/static/image/icon_classification1.png",
+        "selectedIconPath": "/static/image/icon_classification1.png",
+        "text": "工作台"
+      },
+      {
+        "pagePath": "pages/injury-report/injury-report",
+        "iconPath": "/static/image/release.png",
+        "selectedIconPath": "/static/image/release.png",
+        "text": "工伤报案"
+      },
+      {
+        "pagePath": "pages/insurance-scheme/insurance-scheme",
+        "iconPath": "/static/image/icon_homepage2.png",
+        "selectedIconPath": "/static/image/icon_homepage2.png",
+        "text": "保险方案"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/static/image/icon_extension1.png",
+        "selectedIconPath": "/static/image/icon_extension1.png",
+        "text": "我的推广"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置将作为我们的依据对其进行访问"
+    }
+  },
+  "usingComponents": {}
+}
