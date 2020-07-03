@@ -33,8 +33,8 @@
   width: 500rpx;
 }
 .uni-login .uni-nav .uni-img.data-v-b237504c {
-  width: 18rpx;
-  height: 18rpx;
+  width: 36rpx;
+  height: 36rpx;
   margin-left: 30rpx;
 }
 .uni-msg.data-v-b237504c {
@@ -99,6 +99,7 @@
   position: absolute;
   right: 0rpx;
   bottom: 36rpx;
+  z-index: 3;
 }
 .uni-msg .login-msg .choice-login.data-v-b237504c {
   width: 630rpx;
@@ -187,6 +188,7 @@
   position: absolute;
   right: 0rpx;
   top: 0rpx;
+  z-index: 2;
 }
 .uni-msg .register-msg .next-btn.data-v-b237504c {
   margin: 64rpx auto 27rpx;

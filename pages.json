@@ -1,17 +1,7 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-		    "path" : "pages/forgetPassword/forgetPassword",
-		    "style" : {
-				"navigationStyle":"custom"
-			}
-		},
-		{
-		     "path" : "pages/login/login",
-		     "style" : {
-		 		 "navigationStyle":"custom"
-		 	}
-		 },
+     
+    
 		{
             "path" : "pages/home-page/home-page",
             "style" : {
@@ -41,14 +31,71 @@
             "style" : {
 				"navigationBarTitleText": "工作台"
 			}
+        },
+		{
+			 "path" : "pages/login/login",
+			 "style" : {
+				 "navigationStyle":"custom"
+			}
+		} ,
+		{
+		     "path" : "pages/forgetPassword/forgetPassword",
+		     "style" : {
+		 		"navigationBarBackgroundColor":"#fff",
+		 		"navigationBarTextStyle":"black"
+		 	}
+		 }
+        ,{
+            "path" : "pages/phoneVerification/phoneVerification",
+            "style" : {
+				"navigationBarBackgroundColor":"#fff",
+				"navigationBarTextStyle":"black"
+			}
         }
-        
+        ,{
+            "path" : "pages/setLoginPwd/setLoginPwd",
+            "style" : {
+				"navigationBarBackgroundColor":"#fff",
+				"navigationBarTextStyle":"black"
+			}
+        },
+		{
+		    "path" : "pages/setVerificateCode/setVerificateCode",
+		    "style" : {
+				"navigationBarBackgroundColor":"#fff",
+				"navigationBarTextStyle":"black"
+			}
+		},
+		{
+		     "path" : "pages/resetLoginPwd/resetLoginPwd",
+		     "style" : {
+		 		"navigationBarBackgroundColor":"#fff",
+		 		"navigationBarTextStyle":"black"
+		 	}
+		 },
+		 {
+		     "path" : "pages/home-hotDataDetail/home-hotDataDetail",
+		     "style" : {
+		 		"navigationBarTitleText": "资讯详情",
+		 		"navigationBarBackgroundColor":"#fff",
+		 		"navigationBarTextStyle":"black"
+		 	}
+		 },
+		 {
+		     "path" : "pages/home-hotDataList/home-hotDataList",
+		     "style" : {
+		 		 "navigationBarTitleText": "资讯列表",
+		 		 "navigationBarBackgroundColor":"#fff",
+		 		 "navigationBarTextStyle":"black"
+		 	}
+		 }
+       
+       
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		// "navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#1159D2",
-		"backgroundColor": "#1159D2"
+		"navigationBarBackgroundColor": "#F7F7F7",
+		"backgroundColor": "#fff"
 	},
 	"tabBar": {
 			"color" : "#656565",

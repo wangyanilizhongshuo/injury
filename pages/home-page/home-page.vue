@@ -12,10 +12,14 @@
 			</view>
 			<view class="uni-up">
 				<view class="first up-style">
-					  <input class="uni-input left" type="text"  v-model="input" />
+					<view class="first-input">
+						 <input class="uni-input left" type="text"  v-model="input" />
+						 <image v-show="!loginFlag"  class="img" src="../../static/image/down.png"></image>
+					</view>
 					  <view class="right">
+						  <!-- {{type==='forget'?'忘记密码':'登录'}} -->
 						  <image class="img" src="../../static/image/account.png"></image>
-						  <text class="word-login">请登录</text>
+						  <text class="word-login">{{loginFlag?'请登录':'个人中心'}}</text>
 					  </view>
 				</view>
 				<view class="second up-style">
@@ -25,7 +29,6 @@
 						  <text class="word-login">消息</text>
 					  </view>
 				</view>
-				
 			</view>
 			<view class="uni-down">
 				<image class="img" src="../../static/image/banner.png"></image>
@@ -80,7 +83,7 @@
 					   <text >热点资讯</text>
 					   <image class="img-right" src="../../static/image/decorate2.png"></image>
 					</view>
-					<view class="right">查看更多>></view>
+					<view class="right" @click="dataListJump()">查看更多>></view>
 				</view>
 				<view class="hot-content">
 					<view class="bgp">
@@ -88,7 +91,7 @@
 						 <view class="word">签订定金协议有哪些注意事项</view>
 					</view>
                     <view class="list-content" v-for="i in loop" :key="i">
-						 <view class="list">
+						 <view class="list" @click="dataDetaiJump()">
 							 <view class="word">签订定金协议时为减少纠纷和避免不必要的经济损失的发生，主要应注意以下几方面问题,定金协议是主...</view>
 						     <image class="img" src="../../static/image/news_pic.png"></image>
 						 </view>
@@ -103,7 +106,8 @@
 		data() {
 			return {
 				input:'你好',
-				loop:4
+				loop:4,
+				loginFlag:false
 			}
 		},
 		components: { 
@@ -113,7 +117,18 @@
 		    
 		  },
 		methods: {
-			
+			//咨询列表页面
+			dataListJump(){
+				uni.navigateTo({
+					url:'../home-hotDataList/home-hotDataList'
+				})
+			},
+			//资讯详情页
+			dataDetaiJump(){
+				uni.navigateTo({
+					url:'../home-hotDataDetail/home-hotDataDetail'
+				})
+			}
 			
 		}
 	}
@@ -155,6 +170,16 @@
 	.uni-up{
 		.first{
 		  margin-top:70rpx;
+		  .first-input{
+			  position: relative;
+			  .img{
+				  width:20rpx;
+				  height:20rpx;
+				  position: absolute;
+				  top:31rpx;
+				  right:29rpx
+			  }
+		  }
 		}
 		.up-style{
 			display: flex;
@@ -176,7 +201,7 @@
 			.right{
 				display: flex;
 				flex-direction: column;
-				width:60rpx;
+				width:80rpx;
 				height: 80rpx;
 				justify-content: space-between;
 				align-items: center;

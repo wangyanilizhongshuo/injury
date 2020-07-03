@@ -62,6 +62,16 @@
 .uni-title .uni-up .first.data-v-78b9e582 {
   margin-top: 70rpx;
 }
+.uni-title .uni-up .first .first-input.data-v-78b9e582 {
+  position: relative;
+}
+.uni-title .uni-up .first .first-input .img.data-v-78b9e582 {
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  top: 31rpx;
+  right: 29rpx;
+}
 .uni-title .uni-up .up-style.data-v-78b9e582 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -92,7 +102,7 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
-  width: 60rpx;
+  width: 80rpx;
   height: 80rpx;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;

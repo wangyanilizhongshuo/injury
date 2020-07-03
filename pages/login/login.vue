@@ -21,7 +21,7 @@
 					 <input v-model="password" class="passWord inStyle" password="true"  type="text"  placeholder="请输入您的密码" placeholder-style="color:#B7BAC4;font-size:30rpx;" /> 
 				  </view>
 				  <view class="choice-login">
-					  <text class="word-style">手机验证码登录</text>
+					  <text class="word-style" @click="phoneVerifi()">手机验证码登录</text>
 					  <text class="word-style" @click="forPwd()" >忘记密码</text>
 				  </view>
 				  <view :class="(phone||password)?'unibtn1':'unibtn2'" class="uni-btn">
@@ -45,14 +45,13 @@
 					 <image  v-if="phone" class="img" @click="loginclearPhone()" src="../../static/image/del_icon.png"></image>
 			   </view>
 			   <view class="next-btn">
-				    <view :class="phone?'next-jump1':'next-jump2'" class="next-jump">下一步</view>
+				    <view :class="phone?'next-jump1':'next-jump2'" @click="jumps()" class="next-jump">下一步</view>
 			   </view>
 			   <view class="protocol">
 				   <text class="left">点击"下一步"即同意</text>
                    <text class="right">《用户协议》</text> 
 				   <text class="left">和</text>
-				   <text class="right">《隐私政策》</text>
-                                
+				   <text class="right">《隐私政策》</text>           
 			   </view>
 			  </view>
 		 </view>
@@ -81,10 +80,21 @@
 			},
 			//忘记密码
 			forPwd(){
-				console.log('forgetpwd')
-				uni.redirectTo({
-				    url: '../forgetPassword/forgetPassword'
-				});
+				uni.navigateTo({
+					  url: '../forgetPassword/forgetPassword'
+				})
+			},
+			//手机验证码登录
+			phoneVerifi(){
+				uni.navigateTo({
+					  url: '../phoneVerification/phoneVerification'
+				})
+			},
+			//注册成功之后 重新设置登录密码
+			jumps(){
+				uni.navigateTo({
+					url:'../setLoginPwd/setLoginPwd'
+				})
 			},
 			loginclearPhone(){
 				this.phone='';
@@ -109,8 +119,8 @@
 		  line-height: 80rpx;
 		  width:500rpx;
 		  .uni-img{
-			  width: 18rpx;
-			  height: 18rpx;
+			  width: 36rpx;
+			  height: 36rpx;
 			  margin-left:30rpx;
 		  }
 	 }
@@ -179,6 +189,7 @@
 				  position: absolute;
 				  right:0rpx;
 				  bottom:36rpx;
+				  z-index:3;
 			  }
 		  }
 		  .choice-login{
@@ -264,6 +275,7 @@
 				 position: absolute;
 				 right:0rpx;
 				 top:0rpx;
+				 z-index:2;
 			 }
   		  }
           .next-btn{

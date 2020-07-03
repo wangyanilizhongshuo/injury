@@ -1,18 +1,24 @@
 {
   "pages": [
-    "pages/forgetPassword/forgetPassword",
-    "pages/login/login",
     "pages/home-page/home-page",
     "pages/index/index",
     "pages/injury-report/injury-report",
     "pages/insurance-scheme/insurance-scheme",
-    "pages/work-bench/work-bench"
+    "pages/work-bench/work-bench",
+    "pages/login/login",
+    "pages/forgetPassword/forgetPassword",
+    "pages/phoneVerification/phoneVerification",
+    "pages/setLoginPwd/setLoginPwd",
+    "pages/setVerificateCode/setVerificateCode",
+    "pages/resetLoginPwd/resetLoginPwd",
+    "pages/home-hotDataDetail/home-hotDataDetail",
+    "pages/home-hotDataList/home-hotDataList"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarBackgroundColor": "#1159D2",
-    "backgroundColor": "#1159D2"
+    "navigationBarBackgroundColor": "#F7F7F7",
+    "backgroundColor": "#fff"
   },
   "tabBar": {
     "color": "#656565",
