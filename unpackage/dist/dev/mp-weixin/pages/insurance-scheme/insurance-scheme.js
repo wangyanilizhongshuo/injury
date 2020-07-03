@@ -128,7 +128,20 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -137,11 +150,44 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
-
+    var date = new Date();
+    var years = [];
+    var year = date.getFullYear();
+    var months = [];
+    var month = date.getMonth() + 1;
+    var days = [];
+    var day = date.getDate();
+    for (var i = 1990; i <= date.getFullYear(); i++) {
+      years.push(i);
+    }
+    for (var _i = 1; _i <= 12; _i++) {
+      months.push(_i);
+    }
+    for (var _i2 = 1; _i2 <= 31; _i2++) {
+      days.push(_i2);
+    }
+    return {
+      title: 'picker-view',
+      years: years,
+      year: year,
+      months: months,
+      month: month,
+      days: days,
+      day: day,
+      value: [9999, month - 1, day - 1],
+      visible: true,
+      indicatorStyle: "height: ".concat(Math.round(uni.getSystemInfoSync().screenWidth / (750 / 100)), "px;") };
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    bindChange: function bindChange(e) {
+      console.log(2134);
+      var val = e.detail.value;
+      this.year = this.years[val[0]];
+      this.month = this.months[val[1]];
+      this.day = this.days[val[2]];
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

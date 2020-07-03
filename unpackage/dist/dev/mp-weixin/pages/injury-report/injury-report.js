@@ -260,14 +260,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
+
     return {
       //companyAddress:'杭州市杭州彼信信息科技有限公司'
       companyAddress: '',
+      companyList: ['北京市乐华娱乐有限公司', '北京市哇唧唧哇有限公司', '北京市华谊兄弟有限公司', '北京市新湃传媒有限公司'],
+      companyListIndex: -1,
       phone: '',
-      person: 'd',
+      person: '',
+      personList: ['张伟', '王伟', '李伟', '刘伟', '李娜'],
+      personListIndex: -1,
       ID: '',
       commercialnsurance: '',
       accidentTime: '',
@@ -276,26 +324,74 @@ var _default =
       witnessPhone: '',
       hospitalAddress: '',
       choiceBody: '',
-      idPhoteUrl: '' };
+      idPhoteUrl: '',
+      bodyPhotoUrl: '',
+      injuryBodyList: ['头部鼻梁骨折', '胸部肋骨骨折', '头部鼻梁骨折', '胸部肋骨骨折', '头部鼻梁骨折',
+      '胸部肋骨骨折', '头部鼻梁骨折', '胸部肋骨骨折', '头部鼻梁骨折', '胸部肋骨骨折'] };
+
+
 
   },
   methods: {
     formSubmit: function formSubmit() {},
     getidPicture: function getidPicture() {
       // console.log(2222)
+      var _that = this;
       uni.chooseImage({
         count: 1, //上传图片的数量，默认是9
         sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-        sourceType: ['album'], //从相册选择
+        sourceType: ['album', 'camera'], //从相册选择
         success: function success(res) {
           var tempFilePaths = res.tempFilePaths; //拿到选择的图片，是一个数组
-          this.idPhoteUrl = res.tempFilePaths[0];
-          console.log(this.idPhoteUrl);
+          _that.idPhoteUrl = res.tempFilePaths[0];
+
         } });
 
 
     },
     switchChange: function switchChange() {
+
+    },
+    //选择公司的picker的弹框
+    comPickerChange: function comPickerChange(e) {
+      this.companyListIndex = e.target.value;
+      this.companyAddress = this.companyList[this.companyListIndex];
+    },
+    //选择人员的picker的弹框
+    personPickerChange: function personPickerChange(e) {
+      this.personListIndex = e.target.value;
+      this.person = this.personList[this.personListIndex];
+    },
+    //身体受伤部位照片的List
+    bodyPhoto: function bodyPhoto() {
+      var _that = this;
+      uni.chooseImage({
+        count: 9, //上传图片的数量，默认是9
+        sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album', 'camera'], //从相册选择
+        success: function success(res) {
+          var tempFilePaths = res.tempFilePaths; //拿到选择的图片，是一个数组
+          _that.bodyPhotoUrl = res.tempFilePaths;
+
+        } });
+
+    },
+    //添加受伤部位照片
+    bodyPhotoAdd: function bodyPhotoAdd() {
+      var _that = this;
+      var lls = _that.bodyPhotoUrl;
+      uni.chooseImage({
+        count: 8 - lls.length, //上传图片的数量，默认是9
+        sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album', 'camera'], //从相册选择
+        success: function success(res) {
+          var tempFilePaths = res.tempFilePaths; //拿到选择的图片，是一个数组
+          _that.bodyPhotoUrl = _lls.concat(res.tempFilePaths);
+
+        } });
+
+    },
+    submit: function submit() {
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

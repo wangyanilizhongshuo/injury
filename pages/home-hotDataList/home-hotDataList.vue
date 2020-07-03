@@ -5,7 +5,7 @@
 			 <view class="word">签订定金协议有哪些注意事项</view>
 		</view>
 		<view class="list-content" v-for="i in loop" :key="i">
-			 <view class="list">
+			 <view class="list" @click="jumpDetail()">
 				 <view class="word">签订定金协议时为减少纠纷和避免不必要的经济损失的发生，主要应注意以下几方面问题,定金协议是主...</view>
 			     <image class="img" src="../../static/image/news_pic.png"></image>
 			 </view>
@@ -22,7 +22,11 @@
 			}
 		},
 		methods: {
-			
+			jumpDetail(){
+				uni.navigateTo({
+					url:'../home-hotDataDetail/home-hotDataDetail'
+				})
+			}
 		}
 	}
 </script>

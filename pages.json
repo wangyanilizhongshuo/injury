@@ -91,6 +91,13 @@
 		 }
        
        
+        ,{
+            "path" : "pages/injuryBodyChoice/injuryBodyChoice",
+            "style" : {
+				"navigationBarTitleText": "受伤部位",
+		 		 "navigationBarBackgroundColor":"#fff",
+		 		 "navigationBarTextStyle":"black"}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

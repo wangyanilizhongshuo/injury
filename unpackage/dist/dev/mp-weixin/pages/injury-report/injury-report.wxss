@@ -101,6 +101,10 @@
   background: white;
   margin-bottom: 12rpx;
 }
+.uni-injury .uni-content .forth .uni-form-item.data-v-d96d4a48 {
+  height: 94rpx;
+  margin-bottom: 0rpx;
+}
 .uni-injury .uni-content .forth .uploadimg.data-v-d96d4a48 {
   position: relative;
   margin-left: 24rpx;
@@ -118,5 +122,79 @@
   position: absolute;
   bottom: 83rpx;
   text-align: center;
+}
+.uni-injury .uni-content .ten.data-v-d96d4a48 {
+  background: white;
+}
+.uni-injury .uni-content .ten .reasonList.data-v-d96d4a48 {
+  width: 630rpx;
+  margin: 0 auto;
+  border-top: 1rpx solid #E5E5E5;
+}
+.uni-injury .uni-content .ten .reasonList .list.data-v-d96d4a48 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  padding-top: 27rpx;
+}
+.uni-injury .uni-content .ten .reasonList .list .listStyle.data-v-d96d4a48 {
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #f1f6ff;
+  border: 2px solid #4189ff;
+  border-radius: 4px;
+  color: #4189FF;
+  font-size: 24rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.uni-injury .uni-content .eleven.data-v-d96d4a48 {
+  background: white;
+  border-radius: 8rpx;
+  padding: 36rpx 0rpx 24rpx 24rpx;
+}
+.uni-injury .uni-content .eleven .ele-title.data-v-d96d4a48 {
+  color: #303133;
+  font-size: 28rpx;
+}
+.uni-injury .uni-content .eleven .ele-title .nece.data-v-d96d4a48 {
+  color: #FF0000;
+}
+.uni-injury .uni-content .eleven .ele-pic.data-v-d96d4a48 {
+  padding-top: 53rpx;
+}
+.uni-injury .uni-content .eleven .ele-pic .img.data-v-d96d4a48 {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+}
+.uni-injury .uni-content .eleven .ele-pic .getPhone.data-v-d96d4a48 {
+  width: 630rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.uni-injury .uni-content .eleven .ele-pic .getPhone .img.data-v-d96d4a48 {
+  margin-bottom: 24rpx;
+  margin-right: 10rpx;
+  border-radius: 10rpx;
+}
+.subBtn.data-v-d96d4a48 {
+  width: 750rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  background-color: #125CD4;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 46rpx;
 }
 

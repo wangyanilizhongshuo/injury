@@ -8,11 +8,13 @@
 						<text class="neceWrite">(必填)</text>
 					</view>
 					<view class="right">
-						
-						<text class="word" type="text"     placeholder="请选择或者输入公司名称" placeholder-style="color:#B7BAC4;">
-							{{companyAddress}}
-						</text>
-						<image  class="img" src="../../static/image/inter.png"></image>
+							 <text v-if="companyAddress" class="word">{{companyAddress}}</text>
+							 <text v-if="!companyAddress" class="word" style="color:#B7BAC4;">请选择或者输入公司名称</text>
+							<!-- <input class="word" type="text"    :value="companyAddress" placeholder="请选择或者输入公司名称" placeholder-style="color:#B7BAC4;"/> -->
+							 <picker @change="comPickerChange" :value="companyListIndex" :range="companyList">
+								 
+							   <image  class="img" src="../../static/image/inter.png"></image>
+						     </picker>
 					</view>
 				</view>
 				<view class="uni-form-item second">
@@ -22,7 +24,9 @@
 					</view>
 					<view class="right">
 						<input class="word" type="text" :value="person" placeholder="请选择或者输入受伤员工" placeholder-style="color:#B7BAC4;"/>
-						<image  class="img" src="../../static/image/inter.png"></image>
+						<picker @change="personPickerChange" :value="personListIndex" :range="personList">
+						  <image  class="img" src="../../static/image/inter.png"></image>
+						</picker>
 					</view>
 				</view>
 				<view class="uni-form-item third">
@@ -44,16 +48,20 @@
 						</view>
 					</view>
 					<view style="width:620rpx;height:1rpx;background:rgba(229,229,229,1);margin:0 0 28rpx 24rpx;"></view>
-					<view class="uploadimg"  >
-						 <image @click="getidPicture()" class="img" src="../../static/image/pic_upload.png"></image>
-						 <view class="explain">
-							 <view>
-                                请上传受伤人员的身份证正面照片
-							 </view>
-							 <view>
-								如该员工已录入个人信息，则会直接显示
-							 </view>
-						 </view>
+					<view class="uploadimg"   @click="getidPicture()" >
+							 <image v-if="!idPhoteUrl" class="img" src="../../static/image/pic_upload.png"></image>
+						     <view v-if="!idPhoteUrl" class="explain">
+								 <view>
+									请上传受伤人员的身份证正面照片
+								 </view>
+								 <view>
+									如该员工已录入个人信息，则会直接显示
+								 </view>
+						     </view>
+						<view>
+							<image v-if="idPhoteUrl" class="img" :src="idPhoteUrl"></image>
+						</view>
+						
 					</view>
 					
 				</view>
@@ -73,7 +81,10 @@
 					</view>
 					<view class="right">
 						<input class="word" type="text" :value="accidentTime" placeholder="请选择事故时间" placeholder-style="color:#B7BAC4;"/>
+						
 						<image  class="img" src="../../static/image/inter.png"></image>
+						
+						
 					</view>
 				</view>
 				<view class="uni-form-item sixth">
@@ -82,8 +93,16 @@
 						<text class="neceWrite">(必填)</text>
 					</view>
 					<view class="right">
-						<input class="word" type="text" :value="accidentReason" placeholder="请填写受伤原因" placeholder-style="color:#B7BAC4;"/>
+						<input class="word" type="text" :value="accidentReason" placeholder="请选择事故地点" placeholder-style="color:#B7BAC4;"/>
 						<image  class="img" src="../../static/image/inter.png"></image>
+					</view>
+				</view>
+				<view class="uni-form-item twenlve">
+					<view class="left">
+						<text class="name">受伤原因</text>
+					</view>
+					<view class="right noimg">
+						<input class="word" type="text" :value="witness" placeholder="请填写受伤原因" placeholder-style="color:#B7BAC4;"/>
 					</view>
 				</view>
 				<view class="uni-form-item seven">
@@ -112,30 +131,59 @@
 						<image  class="img" src="../../static/image/inter.png"></image>
 					</view>
 				</view>
-				<view class="uni-form-item ten">
-					<view class="left">
-						<text class="name">受伤部位</text>
-						<text class="neceWrite">(必填)</text>
-					</view>
-					<view class="right">
-						<input class="word" type="text" :value="choiceBody" placeholder="请选择受伤的部位(可多选)" placeholder-style="color:#B7BAC4;"/>
-						<image  class="img" src="../../static/image/inter.png"></image>
-					</view>
+				<view class="ten">
+					<view class="uni-form-item ">
+						<view class="left">
+							<text class="name">受伤部位</text>
+							<text class="neceWrite">(必填)</text>
+					    </view>
+					    <view class="right">
+							<input class="word" type="text" :value="choiceBody" placeholder="请选择受伤的部位(可多选)" placeholder-style="color:#B7BAC4;"/>
+							<image  class="img" src="../../static/image/inter.png"></image>
+					    </view>
+				    </view>
 				</view>
-				<image v-if="idPhoteUrl" style="width: 200rpx;height: 300rpx;" :src="idPhoteUrl"></image>
+				<!-- 在ten 里面输入填入的时候的样式 -->
+					<!-- <view class="reasonList">
+						 <view class="list">
+							  <view class="listStyle" v-for="(item,index) in injuryBodyList " :key="index">
+									{{item}}
+							  </view>
+						 </view>
+					</view> -->
+					<view class="eleven">
+						<view  class="ele-title">
+                                请上传伤者受伤部位和受伤现场照片
+								<text class="nece">(必填)</text>
+						</view>
+						<view class="ele-pic">
+							<image v-if="!bodyPhotoUrl" @click="bodyPhoto()" class="img" src="../../static/image/pic_uplloads.png"></image>
+							<view class="getPhone" v-else-if="bodyPhotoUrl">
+								<image  v-for="(item,index) in bodyPhotoUrl" :key="index" class="img" :src="item"></image>
+								<image v-if="bodyPhotoUrl.length>0 ||bodyPhotoUrl.length<=8" @click="bodyPhotoAdd()" class="img" src="../../static/image/pic_uplloads.png"></image>
+							</view>
+						</view>
+					</view>
+				
 			</form>
 		</view>
+		<button class="subBtn" @click="submit()">提交</button>
 	</view>
 </template>
 
 <script>
 	export default {
 		data() {
+			  
 			return {
 				//companyAddress:'杭州市杭州彼信信息科技有限公司'
 				companyAddress:'',
+				companyList: ['北京市乐华娱乐有限公司', '北京市哇唧唧哇有限公司', '北京市华谊兄弟有限公司', '北京市新湃传媒有限公司'],
+				companyListIndex:-1,
 				phone:'',
-				person:'d',
+				person:'',
+				personList:['张伟','王伟','李伟','刘伟','李娜'],
+				personListIndex:-1,
 				ID:'',
 				commercialnsurance:'',
 				accidentTime:'',
@@ -144,26 +192,74 @@
 				witnessPhone:'',
 				hospitalAddress:'',
 				choiceBody:'',
-				idPhoteUrl:''
+				idPhoteUrl:'',
+				bodyPhotoUrl:'',
+				injuryBodyList:['头部鼻梁骨折','胸部肋骨骨折','头部鼻梁骨折','胸部肋骨骨折','头部鼻梁骨折',
+				               '胸部肋骨骨折','头部鼻梁骨折','胸部肋骨骨折','头部鼻梁骨折','胸部肋骨骨折']
+		
+		
 			}
 		},
 		methods: {
 			formSubmit(){},
 			getidPicture(){
 				// console.log(2222)
+				let _that=this;
 				uni.chooseImage({
 				    count: 1, //上传图片的数量，默认是9
 				    sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-				    sourceType: ['album'], //从相册选择
+				    sourceType: ['album','camera'], //从相册选择
 				    success: function (res) {
 				        const tempFilePaths = res.tempFilePaths;    //拿到选择的图片，是一个数组
-						this.idPhoteUrl=res.tempFilePaths[0]
-						console.log(this.idPhoteUrl)
+						_that.idPhoteUrl=res.tempFilePaths[0]
+						
 				    }
 				});
 				
 			},
 			switchChange(){
+				
+			},
+			//选择公司的picker的弹框
+			comPickerChange(e) {
+				this.companyListIndex = e.target.value;
+				this.companyAddress=this.companyList[this.companyListIndex]
+            },
+			//选择人员的picker的弹框
+			personPickerChange(e){
+				this.personListIndex = e.target.value;
+				this.person=this.personList[this.personListIndex]
+			},
+			//身体受伤部位照片的List
+			bodyPhoto(){
+				let _that=this;
+				uni.chooseImage({
+				    count:9 , //上传图片的数量，默认是9
+				    sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+				    sourceType: ['album','camera'], //从相册选择
+				    success: function (res) {
+				        const tempFilePaths = res.tempFilePaths;    //拿到选择的图片，是一个数组
+						_that.bodyPhotoUrl=res.tempFilePaths
+						
+				    }
+				});
+			},
+			//添加受伤部位照片
+			 bodyPhotoAdd(){
+				 let _that=this;
+				 let lls=_that.bodyPhotoUrl
+				 uni.chooseImage({
+				     count:8-lls.length, //上传图片的数量，默认是9
+				     sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+				     sourceType: ['album','camera'], //从相册选择
+				     success: function (res) {
+				         const tempFilePaths = res.tempFilePaths;     //拿到选择的图片，是一个数组
+				 		 _that.bodyPhotoUrl=_lls.concat(res.tempFilePaths)
+						
+				     }
+				 });
+			 },
+			submit(){
 				
 			}
 			
@@ -237,6 +333,10 @@
 		  }
 		 //身份证重新定义css
 		 .forth{
+			 .uni-form-item{
+				 height: 94rpx;
+				 margin-bottom: 0rpx;
+			 }
 			 width:690rpx;
 			 background:rgba(255,255,255,1);
 			 margin-bottom: 12rpx;
@@ -244,11 +344,11 @@
 				 position: relative;
 				 margin-left:24rpx;
 				 padding-bottom: 35rpx;
-				 .img{
+				.img{
 					width: 620rpx;
 			        height: 390rpx;
 					margin-left:6rpx;
-				 }
+				}
 				 .explain{
 					 width:620rpx;
 					 color:#B7BAC4;
@@ -256,12 +356,81 @@
 					 position: absolute;
 					 bottom:83rpx;
 					 text-align: center;
-					 
 				 }
-				
+			 }
+		 }
+		 .ten{
+			 // .uni-form-item{
+				//  height:94rpx;
+				//  margin-bottom: 0rpx;
+			 // }
+			 background:rgba(255,255,255,1);
+			 .reasonList{
+				 width:630rpx;
+				 margin:0 auto;
+				 border-top:1rpx solid #E5E5E5;
+				 .list{
+					 display: flex;
+					 justify-content: space-between;
+					 flex-wrap: wrap;
+					 padding-top:27rpx;
+					 .listStyle{
+						 width:180rpx;
+						 height: 60rpx;
+						 line-height: 60rpx;
+						 background:rgba(241,246,255,1);
+						 border:2px solid rgba(65,137,255,1);
+						 border-radius:4px;
+						 color: #4189FF;
+						 font-size: 24rpx;
+						 text-align: center;
+						 margin-bottom: 30rpx;
+					 }
+				 }
 			 }
 			
 		 }
+         .eleven{
+			  background:rgba(255,255,255,1);
+			  border-radius:8rpx;
+			  padding:36rpx 0rpx 24rpx 24rpx;
+			  .ele-title{
+				 color: #303133;
+				 font-size: 28rpx;
+				 .nece{
+					 color: #FF0000;
+				 }
+			 }
+			 .ele-pic{
+				 padding-top: 53rpx;
+				 .img{
+					 width:200rpx;
+					 height:200rpx;
+					 border-radius:10rpx;
+				 }
+				 .getPhone{
+					 width:630rpx;
+					 display: flex;
+					 flex-wrap: wrap;
+					 .img{
+						 margin-bottom: 24rpx;
+						 margin-right:10rpx;
+						 border-radius:10rpx;
+					 }
+					 
+				 }
+			 }
+		 }
    }
+ }
+ .subBtn{
+	 width:750rpx;
+	 height:98rpx;
+	 line-height:98rpx;
+	 background-color: #125CD4;
+	 font-size: 36rpx;
+	 color:#FFFFFF;
+	 text-align: center;
+	 margin-top:46rpx;
  }
 </style>

@@ -12,7 +12,8 @@
     "pages/setVerificateCode/setVerificateCode",
     "pages/resetLoginPwd/resetLoginPwd",
     "pages/home-hotDataDetail/home-hotDataDetail",
-    "pages/home-hotDataList/home-hotDataList"
+    "pages/home-hotDataList/home-hotDataList",
+    "pages/injuryBodyChoice/injuryBodyChoice"
   ],
   "subPackages": [],
   "window": {
