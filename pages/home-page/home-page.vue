@@ -2,14 +2,18 @@
 	<view class="uni-home">
 	   <!-- <view  style="width:200rpx;height:var(--status-bar-height);background-color: red;;">sdfsd</view> -->
 		<view class="uni-title">
-			<view class="gettAddress"   >
-				<view class="uni-add-box" > 
+			<!-- :style="{height:naveHeight+'px'}" -->
+			
+			<navigation-custom class="navigationCustom" style="background-color: red;"  :config="config"  @customConduct="customConduct" :scrollMaxHeight="scrollMaxHeight"/>
+			 <!-- <view class="gettAddress"   :style="{height:naviHeight+'rpx'}">
+			 </view> -->
+			<!-- <view class="gettAddress"   :style="{height:naveHeight+'px'}">
+				 <view class="uni-add-box" :style="{height:naveHeight+'px'}" > 
 					 <image class="image" src="../../static/image/location.png" ></image>
-			         <!-- <text class="uni-input" placeholder="自动获得焦点"</text> /> -->
+			        
 					 <text class="uni-text"> 浙江省杭州市江干区</text>
-				</view>
-			  
-			</view>
+				</view> 
+			 </view> -->
 			<view class="uni-up">
 				<view class="first up-style">
 					<view class="first-input">
@@ -57,7 +61,7 @@
 				    </view>
 					<view class="con-div">
 						<view class="con-list">
-						   <image class="left con-pic" src="../../static/image/pic2.png"></image>
+						   <image class="left con-pic" src="../../static/image/pic1.png"></image>
 						   <view class="right">
 							 <view class="up">百万守护意外伤害保险产品计划</view>                               
 							 <view class="down">因意外伤害，或等待期180天后因意外伤害以外的原因导致重大</view>
@@ -66,7 +70,7 @@
 					</view>
 					<view class="con-div">
 						<view class="con-list">
-						   <image class="left con-pic" src="../../static/image/pic3.png"></image>
+						   <image class="left con-pic" src="../../static/image/pic1.png"></image>
 						   <view class="right">
 							 <view class="up">诺享无忧意外伤害保险产品计划</view>
 							 <view class="down">因意外伤害，或等待期180天后因意外伤害以外的原因导致重大因意外伤害以外的原因导致重大</view>
@@ -102,21 +106,48 @@
 	</view>
 </template>
 <script>
+	import navigationCustom from "../../components/struggler-navigationCustom/navigation-custom.vue"
 	export default {
 		data() {
 			return {
 				input:'你好',
 				loop:4,
-				loginFlag:false
+				loginFlag:false,
+				naviHeight:'',
+				 config:{
+				                    title:"我是标题我是标题我是标题", //title
+				                    bgcolor:"#1159D2", //背景颜色
+				                    // fontcolor:"red", //文字颜色，默认白色
+				                    type:3, //type 1，3胶囊 2，4无胶囊模式
+				                    transparent:true, //是否背景透明 默认白色
+				                    linear:true, //是为开启下滑渐变
+				                    share:true, //是否将主页按钮显示为分享按钮
+				                     menuIcon:"../../static/image/location.png", 
+									 // 当type为3或者4的时候左边的icon文件位置，注意位置与当前页面不一样
+				                    //menuText:"返回", 当type为3或4的时候icon右边的文字
+				                },
+				                scrollTop:0 ,// 当linear为true的时候需要通过onpagescroll传递参数
+				                scrollMaxHeight:200 //滑动的高度限制，超过这个高度即背景全部显示
 			}
 		},
 		components: { 
-			
+			navigationCustom
 	    },
-		 computed: {
+		computed: {
 		    
-		  },
+		},
+		onLoad(){
+			 this.getdata();
+		},
+		  
 		methods: {
+			 customConduct(){
+				 // console.log(2222)
+			 },
+			 // 获取navigation的高度
+			getdata(){
+				
+			},
 			//咨询列表页面
 			dataListJump(){
 				uni.navigateTo({
@@ -142,18 +173,17 @@
 	background-color:#1159D2 ;
 	height: auto;
 	.gettAddress{
-		height:80rpx;
-		//padding-top:(var(--status-bar-height))  ;
-		//margin-bottom:(var(--status-bar-height));
+		   height:88rpx;
+		   
 		.uni-add-box{
 			position: fixed;
 			display: flex;
-			z-index:10;
-			height:80rpx;
 			align-items: center;
+			z-index:10;
+			 height:88rpx;
 			width:750rpx;
 			background-color:#1159D2 ;
-			padding-top:(var(--status-bar-height))  ;
+			padding-top:(var(--status-bar-height));
 		.image{
 			width:26rpx;
 			height:30rpx;
@@ -169,7 +199,7 @@
 	}
 	.uni-up{
 		.first{
-		  margin-top:70rpx;
+		  margin-top:20rpx;
 		  .first-input{
 			  position: relative;
 			  .img{

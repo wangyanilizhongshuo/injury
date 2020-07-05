@@ -24,31 +24,31 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.uni-Login-Pwd .uni-msg.data-v-226e59b4 {
+.uni-Login-Pwd .uni-msg.data-v-341b931a {
   width: 630rpx;
   margin: 0 auto;
 }
-.uni-Login-Pwd .uni-msg .uni-title.data-v-226e59b4 {
+.uni-Login-Pwd .uni-msg .uni-title.data-v-341b931a {
   color: #303133;
   font-size: 50rpx;
   font-weight: bold;
   margin-top: 90rpx;
 }
-.uni-Login-Pwd .uni-msg .uni-input.data-v-226e59b4 {
+.uni-Login-Pwd .uni-msg .uni-input.data-v-341b931a {
   position: relative;
   width: 630rpx;
   border-bottom: 2rpx solid #ECECEC;
 }
-.uni-Login-Pwd .uni-msg .uni-input .reg-phone.data-v-226e59b4 {
+.uni-Login-Pwd .uni-msg .uni-input .reg-phone.data-v-341b931a {
   margin: 109rpx 0rpx 25rpx 24rpx;
 }
-.uni-Login-Pwd .uni-msg .uni-input .re-phone.data-v-226e59b4 {
+.uni-Login-Pwd .uni-msg .uni-input .re-phone.data-v-341b931a {
   margin: 69rpx 0rpx 25rpx 24rpx;
 }
-.uni-Login-Pwd .uni-msg .uni-jump.data-v-226e59b4 {
+.uni-Login-Pwd .uni-msg .uni-jump.data-v-341b931a {
   margin-top: 170rpx;
 }
-.uni-Login-Pwd .uni-msg .uni-jump .next-jump.data-v-226e59b4 {
+.uni-Login-Pwd .uni-msg .uni-jump .next-jump.data-v-341b931a {
   width: 540rpx;
   margin: 0 auto;
   height: 90rpx;
@@ -58,10 +58,10 @@
   font-size: 36rpx;
   text-align: center;
 }
-.uni-Login-Pwd .uni-msg .uni-jump .nextJump1.data-v-226e59b4 {
+.uni-Login-Pwd .uni-msg .uni-jump .nextJump1.data-v-341b931a {
   background-color: #D1E0FF;
 }
-.uni-Login-Pwd .uni-msg .uni-jump .nextJump2.data-v-226e59b4 {
+.uni-Login-Pwd .uni-msg .uni-jump .nextJump2.data-v-341b931a {
   background-color: #125CD4;
 }
 

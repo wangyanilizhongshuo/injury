@@ -6,7 +6,7 @@
             "path" : "pages/home-page/home-page",
             "style" : {
 				// "navigationBarTitleText": "首页",
-				"navigationStyle":"custom"
+				 "navigationStyle":"custom"
 			}
         },{
 			"path": "pages/index/index",
@@ -101,7 +101,7 @@
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarBackgroundColor": "#F7F7F7",
+		"navigationBarBackgroundColor": "#fff",
 		"backgroundColor": "#fff"
 	},
 	"tabBar": {

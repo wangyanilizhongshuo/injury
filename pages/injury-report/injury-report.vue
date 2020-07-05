@@ -7,28 +7,38 @@
 						<text class="name">选择公司</text>
 						<text class="neceWrite">(必填)</text>
 					</view>
-					<view class="right">
+					<view class="right"> 
+			             <picker @change="comPickerChange" :value="companyListIndex" :range="companyList">
 							 <text v-if="companyAddress" class="word">{{companyAddress}}</text>
 							 <text v-if="!companyAddress" class="word" style="color:#B7BAC4;">请选择或者输入公司名称</text>
-							<!-- <input class="word" type="text"    :value="companyAddress" placeholder="请选择或者输入公司名称" placeholder-style="color:#B7BAC4;"/> -->
-							 <picker @change="comPickerChange" :value="companyListIndex" :range="companyList">
-								 
-							   <image  class="img" src="../../static/image/inter.png"></image>
-						     </picker>
+							 <!-- <input class="word" type="text"    :value="companyAddress" placeholder="请选择或者输入公司名称" placeholder-style="color:#B7BAC4;"/> -->
+							 <image  class="img" src="../../static/image/inter.png"></image>
+						 </picker>
 					</view>
 				</view>
-				<view class="uni-form-item second">
-					<view class="left">
+					<picker  @change="personPickerChange" :value="personListIndex" :range="personList">
+				 <!--  <view></view> -->
+					 <view class="uni-form-item second">
+						<view class="left">
 						<text class="name">选择人员</text>
 						<text class="neceWrite">(必填)</text>
 					</view>
 					<view class="right">
-						<input class="word" type="text" :value="person" placeholder="请选择或者输入受伤员工" placeholder-style="color:#B7BAC4;"/>
-						<picker @change="personPickerChange" :value="personListIndex" :range="personList">
+						  <input class="word" type="text" @click.stop.native="choicePerson()" :value="person" placeholder="请选择或者输入受伤员工" placeholder-style="color:#B7BAC4;"/>
+						  <image  class="img" src="../../static/image/inter.png"></image>
+					</view>
+					 </view>
+					
+						
+					</picker>
+					
+					<!-- <view class="right">
+						<input class="word" type="text" @input.stop.native="choicePerson()" :value="person" placeholder="请选择或者输入受伤员工" placeholder-style="color:#B7BAC4;"/>
+						<picker  @change="personPickerChange" :value="personListIndex" :range="personList">
 						  <image  class="img" src="../../static/image/inter.png"></image>
 						</picker>
-					</view>
-				</view>
+					</view> -->
+				
 				<view class="uni-form-item third">
 					<view class="left">
 						<text class="name">手机号码</text>
@@ -48,8 +58,8 @@
 						</view>
 					</view>
 					<view style="width:620rpx;height:1rpx;background:rgba(229,229,229,1);margin:0 0 28rpx 24rpx;"></view>
-					<view class="uploadimg"   @click="getidPicture()" >
-							 <image v-if="!idPhoteUrl" class="img" src="../../static/image/pic_upload.png"></image>
+					<view class="uploadimg"   >
+							 <image v-if="!idPhoteUrl"  @click="getidPicture()" class="img" src="../../static/image/pic_upload.png"></image>
 						     <view v-if="!idPhoteUrl" class="explain">
 								 <view>
 									请上传受伤人员的身份证正面照片
@@ -59,7 +69,7 @@
 								 </view>
 						     </view>
 						<view>
-							<image v-if="idPhoteUrl" class="img" :src="idPhoteUrl"></image>
+							<image @tap="previewImageID"  v-if="idPhoteUrl" class="img" :src="idPhoteUrl"></image>
 						</view>
 						
 					</view>
@@ -74,19 +84,20 @@
 						<!-- <input class="word" type="text" :value="commercialnsurance" placeholder="请输入手机号码" placeholder-style="color:#B7BAC4;"/> -->
 					</view>
 				</view>
-				<view class="uni-form-item sixth">
-					<view class="left">
-						<text class="name">事故时间</text>
-						<text class="neceWrite">(必填)</text>
-					</view>
-					<view class="right">
-						<input class="word" type="text" :value="accidentTime" placeholder="请选择事故时间" placeholder-style="color:#B7BAC4;"/>
-						
-						<image  class="img" src="../../static/image/inter.png"></image>
-						
-						
-					</view>
-				</view>
+				<e-picker  mode="dateTime" :showValue="accidentTime" @change="acciPickerTime" >
+					<view class="uni-form-item sixth">
+						<view class="left">
+							<text class="name">事故时间</text>
+							<text class="neceWrite">(必填)</text>
+						</view>
+						<view class="right"> 
+								<!-- <input class="word" type="text" :value="accidentTime" placeholder="请选择事故时间" placeholder-style="color:#B7BAC4;"/> -->
+								<text  v-if="accidentTime" class="word">{{accidentTime}}</text>
+								<text v-if="!accidentTime" class="word" style="color:#B7BAC4;">请选择事故时间</text> 
+								<image  class="img" src="../../static/image/inter.png"></image>
+						</view>
+					</view>	
+				</e-picker>
 				<view class="uni-form-item sixth">
 					<view class="left">
 						<text class="name">事故地点</text>
@@ -159,8 +170,8 @@
 						<view class="ele-pic">
 							<image v-if="!bodyPhotoUrl" @click="bodyPhoto()" class="img" src="../../static/image/pic_uplloads.png"></image>
 							<view class="getPhone" v-else-if="bodyPhotoUrl">
-								<image  v-for="(item,index) in bodyPhotoUrl" :key="index" class="img" :src="item"></image>
-								<image v-if="bodyPhotoUrl.length>0 ||bodyPhotoUrl.length<=8" @click="bodyPhotoAdd()" class="img" src="../../static/image/pic_uplloads.png"></image>
+								<image @tap="injuryPreviewImage(index)"  v-for="(item,index) in bodyPhotoUrl" :key="index" class="img" :src="item"></image>
+								<image v-if="bodyPhotoUrl.length>=0 && bodyPhotoUrl.length<9" @click="bodyPhotoAdd()" class="img" src="../../static/image/pic_uplloads.png"></image>
 							</view>
 						</view>
 					</view>
@@ -172,6 +183,7 @@
 </template>
 
 <script>
+	import ePicker from "../../components/e-picker/e-picker.vue"
 	export default {
 		data() {
 			  
@@ -195,15 +207,20 @@
 				idPhoteUrl:'',
 				bodyPhotoUrl:'',
 				injuryBodyList:['头部鼻梁骨折','胸部肋骨骨折','头部鼻梁骨折','胸部肋骨骨折','头部鼻梁骨折',
-				               '胸部肋骨骨折','头部鼻梁骨折','胸部肋骨骨折','头部鼻梁骨折','胸部肋骨骨折']
+				               '胸部肋骨骨折','头部鼻梁骨折','胸部肋骨骨折','头部鼻梁骨折','胸部肋骨骨折'],
+				date:"",
 		
 		
 			}
 		},
+		components:{
+			 ePicker
+		},
 		methods: {
+			// form的提交
 			formSubmit(){},
+			//身份证图片的获取
 			getidPicture(){
-				// console.log(2222)
 				let _that=this;
 				uni.chooseImage({
 				    count: 1, //上传图片的数量，默认是9
@@ -212,11 +229,20 @@
 				    success: function (res) {
 				        const tempFilePaths = res.tempFilePaths;    //拿到选择的图片，是一个数组
 						_that.idPhoteUrl=res.tempFilePaths[0]
-						
 				    }
 				});
 				
 			},
+			// 对身份证的图片进行预览
+			  previewImageID() {
+				uni.previewImage({
+				  current: this.idPhoteUrl,
+				  urls: [this.idPhoteUrl],
+				  indicator:"number"
+				  
+				})
+			  },
+		
 			switchChange(){
 				
 			},
@@ -229,6 +255,15 @@
 			personPickerChange(e){
 				this.personListIndex = e.target.value;
 				this.person=this.personList[this.personListIndex]
+			},
+			//选择事故发生的时间
+			acciPickerTime(e){
+				this.accidentTime=e;
+			},
+			//选择人员input 输入框
+			choicePerson(){
+				
+			
 			},
 			//身体受伤部位照片的List
 			bodyPhoto(){
@@ -248,16 +283,27 @@
 			 bodyPhotoAdd(){
 				 let _that=this;
 				 let lls=_that.bodyPhotoUrl
+				 console.log(lls.length)
 				 uni.chooseImage({
-				     count:8-lls.length, //上传图片的数量，默认是9
+				     count:9-lls.length, //上传图片的数量，默认是9
 				     sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
 				     sourceType: ['album','camera'], //从相册选择
 				     success: function (res) {
 				         const tempFilePaths = res.tempFilePaths;     //拿到选择的图片，是一个数组
-				 		 _that.bodyPhotoUrl=_lls.concat(res.tempFilePaths)
-						
+				 		 _that.bodyPhotoUrl=lls.concat(res.tempFilePaths)
+						 console.log(res.tempFilePaths)
+						console.log(_that.bodyPhotoUrl)
 				     }
 				 });
+			 },
+			 // 受伤部位照片预览
+			 injuryPreviewImage(index){
+			 	console.log(this.bodyPhotoUrl)
+			 	uni.previewImage({
+			 	  current: this.bodyPhotoUrl[index],
+			 	  urls: this.bodyPhotoUrl,
+			 	  indicator:"number"
+			 	})
 			 },
 			submit(){
 				
@@ -318,8 +364,8 @@
 					 width: 12rpx;
 					 height: 20rpx;
 					 margin-left:18rpx;
-					 position:relative;
-					 top:2rpx;
+					 // position:relative;
+					 // top:2rpx;
 				 }
 			 }
 			 .noimg{

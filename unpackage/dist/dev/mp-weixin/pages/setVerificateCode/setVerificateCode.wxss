@@ -24,36 +24,36 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.uni-setverCode .uni-msg.data-v-507b4016 {
+.uni-setverCode .uni-msg.data-v-7b4f907c {
   width: 630rpx;
   margin: 90rpx  auto 0rpx;
 }
-.uni-setverCode .uni-msg .uni-title.data-v-507b4016 {
+.uni-setverCode .uni-msg .uni-title.data-v-7b4f907c {
   color: #303133;
   font-size: 50rpx;
   font-weight: bold;
 }
-.uni-setverCode .uni-msg .uni-code-phone.data-v-507b4016 {
+.uni-setverCode .uni-msg .uni-code-phone.data-v-7b4f907c {
   margin-top: 33rpx;
 }
-.uni-setverCode .uni-msg .uni-code-phone .small-style.data-v-507b4016 {
+.uni-setverCode .uni-msg .uni-code-phone .small-style.data-v-7b4f907c {
   color: #000000;
   font-size: 26rpx;
   font-weight: Medium;
 }
-.uni-setverCode .uni-msg .setCode.data-v-507b4016 {
+.uni-setverCode .uni-msg .setCode.data-v-7b4f907c {
   margin-top: 86rpx;
   margin-bottom: 67rpx;
 }
-.uni-setverCode .uni-msg .uni-tips.data-v-507b4016 {
+.uni-setverCode .uni-msg .uni-tips.data-v-7b4f907c {
   font-size: 26rpx;
   font-weight: Medium;
   text-align: center;
 }
-.uni-setverCode .uni-msg .uni-tips .left.data-v-507b4016 {
+.uni-setverCode .uni-msg .uni-tips .left.data-v-7b4f907c {
   color: #B7BAC4;
 }
-.uni-setverCode .uni-msg .uni-tips .right.data-v-507b4016 {
+.uni-setverCode .uni-msg .uni-tips .right.data-v-7b4f907c {
   color: #1159D2;
 }
 
