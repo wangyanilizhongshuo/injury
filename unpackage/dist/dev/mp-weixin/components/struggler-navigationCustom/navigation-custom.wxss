@@ -26,15 +26,13 @@
 /* 文章场景相关 */
 .navigation-bar {
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .navigation-bar .navigation-bar-fixed {
   width: 100%;
   position: fixed;
   top: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   z-index: 999;
   background: #fff;
   display: -webkit-box;
@@ -45,8 +43,7 @@
 .navigation-bar .navigation-bar-fixed .navigation-bar-linear {
   width: 100%;
   position: absolute;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   z-index: -1;
 }
 .navigation-bar .navigation-bar-fixed .navigation-bar-title {
@@ -78,8 +75,7 @@
   left: 10px;
   border-radius: 16px;
   padding: 0 23rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   overflow: hidden;
   z-index: 9;
 }
@@ -104,8 +100,7 @@
   height: 32px;
   left: 0px;
   padding: 0 23rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   overflow: hidden;
   z-index: 9;
 }
@@ -132,8 +127,7 @@
   font-size: 30rpx;
   width: 85px;
   left: 0px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   overflow: hidden;
   z-index: 9;
 }
@@ -166,8 +160,7 @@
   width: 60rpx;
   height: 60rpx;
   padding: 6rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .navigation-bar .navigation-bar-fixed .navigation-bar-textbox .button-v-line {
   width: 0.5px;
@@ -192,8 +185,7 @@
   left: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   overflow: hidden;
   z-index: 9;
 }
@@ -216,8 +208,7 @@
   width: 60rpx;
   height: 60rpx;
   padding: 10rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .navigation-bar .navigation-bar-fixed .navigation-bar-capsule .button-action .button_clear {
   line-height: 1;

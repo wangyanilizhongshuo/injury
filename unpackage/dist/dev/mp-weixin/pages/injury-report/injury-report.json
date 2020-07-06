@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "工伤报案",
   "usingComponents": {
-    "e-picker": "/components/e-picker/e-picker"
+    "e-picker": "/components/e-picker/e-picker",
+    "level-linkage": "/components/three-level-linkage/linkage"
   }
 }

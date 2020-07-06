@@ -29,7 +29,6 @@
 					</view>
 					 </view>
 					
-						
 					</picker>
 					
 					<!-- <view class="right">
@@ -68,8 +67,9 @@
 									如该员工已录入个人信息，则会直接显示
 								 </view>
 						     </view>
-						<view>
+						<view class="IDImg">
 							<image @tap="previewImageID"  v-if="idPhoteUrl" class="img" :src="idPhoteUrl"></image>
+							<image  v-if="idPhoteUrl" @click="delIDImg()" class="cancel"  src="../../static/image/pic_del.png"></image>
 						</view>
 						
 					</view>
@@ -80,8 +80,7 @@
 						<text class="name">商业保险</text>
 					</view>
 					<view class="right noimgswitch">
-						 <switch  style="transform: scale(0.7,0.7)" @change="switchChange" checked class="word"/>
-						<!-- <input class="word" type="text" :value="commercialnsurance" placeholder="请输入手机号码" placeholder-style="color:#B7BAC4;"/> -->
+						 <switch  style="transform: scale(0.7,0.7);width: 175rpx;" @change="switchChange" checked class="word"/>
 					</view>
 				</view>
 				<e-picker  mode="dateTime" :showValue="accidentTime" @change="acciPickerTime" >
@@ -98,13 +97,13 @@
 						</view>
 					</view>	
 				</e-picker>
-				<view class="uni-form-item sixth">
-					<view class="left">
+				<view class="uni-form-item sixth" @tap="openLevel" >
+					 <view class="left">
 						<text class="name">事故地点</text>
 						<text class="neceWrite">(必填)</text>
 					</view>
-					<view class="right">
-						<input class="word" type="text" :value="accidentReason" placeholder="请选择事故地点" placeholder-style="color:#B7BAC4;"/>
+					<view class="right" >
+						<input class="word" type="text" :value="accidentAddress" @click.stop.native="accidPlace()" placeholder="请选择事故地点" placeholder-style="color:#B7BAC4;"/>
 						<image  class="img" src="../../static/image/inter.png"></image>
 					</view>
 				</view>
@@ -132,13 +131,13 @@
 						<input class="word" type="number" :value="witnessPhone" placeholder="请输入见证人手机号" placeholder-style="color:#B7BAC4;"/>
 					</view>
 				</view>
-				<view class="uni-form-item nine">
+				<view class="uni-form-item nine" @tap="openLevels">
 					<view class="left">
 						<text class="name">医院选择 </text>
 						<text class="neceWrite">(必填)</text>
 					</view>
 					<view class="right">
-						<input class="word" type="text" :value="hospitalAddress" placeholder="请选择医院" placeholder-style="color:#B7BAC4;"/>
+						<input class="word" type="text" :value="hospitalAddress"  @focus.stop.native="hosiInput()" placeholder="请选择医院" placeholder-style="color:#B7BAC4;"/>
 						<image  class="img" src="../../static/image/inter.png"></image>
 					</view>
 				</view>
@@ -148,8 +147,16 @@
 							<text class="name">受伤部位</text>
 							<text class="neceWrite">(必填)</text>
 					    </view>
-					    <view class="right">
-							<input class="word" type="text" :value="choiceBody" placeholder="请选择受伤的部位(可多选)" placeholder-style="color:#B7BAC4;"/>
+					    <view  class="right">
+							<view v-if="choiceBody" class="word" @click="injurybodyJump()" >
+								 <view class="list">
+									  <view class="listStyle" v-for="(item,index) in injuryBodyList " :key="index">
+											{{item}}
+									  </view>
+								 </view>
+							</view>
+							<view @click="injurybodyJump()" v-if="!choiceBody" class="word" style="color:#B7BAC4;">请选择受伤的部位(可多选)</view>
+							<!-- <input class="word" type="text" :value="choiceBody" placeholder="请选择受伤的部位(可多选)" placeholder-style="color:#B7BAC4;"/> -->
 							<image  class="img" src="../../static/image/inter.png"></image>
 					    </view>
 				    </view>
@@ -170,7 +177,11 @@
 						<view class="ele-pic">
 							<image v-if="!bodyPhotoUrl" @click="bodyPhoto()" class="img" src="../../static/image/pic_uplloads.png"></image>
 							<view class="getPhone" v-else-if="bodyPhotoUrl">
-								<image @tap="injuryPreviewImage(index)"  v-for="(item,index) in bodyPhotoUrl" :key="index" class="img" :src="item"></image>
+								<view class="boxImg"   v-for="(item,index) in bodyPhotoUrl" :key="index"> 
+									<image @tap="injuryPreviewImage(index)"  class="img" :src="item"></image>
+									<image @click="delImg(index)" class="cancel"  src="../../static/image/pic_del.png"></image>
+								</view>
+								
 								<image v-if="bodyPhotoUrl.length>=0 && bodyPhotoUrl.length<9" @click="bodyPhotoAdd()" class="img" src="../../static/image/pic_uplloads.png"></image>
 							</view>
 						</view>
@@ -178,43 +189,133 @@
 				
 			</form>
 		</view>
+	  <!-- 事故选择地址的组件 -->
+		<level-linkage  ref="levelLinkage"
+		          :pickerValueDefault="pickerValueDefault" 
+		          :allData="addTreeData"
+		         @onConfirm="accidentAddChoice" themeColor='#007AFF'>	
+		</level-linkage >
+		<level-linkage  ref="hosilevelLinkage"
+			  :pickerValueDefault="pickerValueDefault" 
+			  :allData="addTreeData"
+			 @onConfirm="hospiAddChoice" themeColor='#007AFF'>	
+		</level-linkage >
 		<button class="subBtn" @click="submit()">提交</button>
 	</view>
 </template>
 
 <script>
 	import ePicker from "../../components/e-picker/e-picker.vue"
+	import levelLinkage  from "@/components/three-level-linkage/linkage.nvue"
 	export default {
 		data() {
 			  
 			return {
 				//companyAddress:'杭州市杭州彼信信息科技有限公司'
+				//公司选择的列表以及显示的数据
 				companyAddress:'',
 				companyList: ['北京市乐华娱乐有限公司', '北京市哇唧唧哇有限公司', '北京市华谊兄弟有限公司', '北京市新湃传媒有限公司'],
 				companyListIndex:-1,
+				// 手机号码的输入
 				phone:'',
+				//选择人员 以及下拉的列表数据
 				person:'',
 				personList:['张伟','王伟','李伟','刘伟','李娜'],
 				personListIndex:-1,
+			    //身份证号码
 				ID:'',
-				commercialnsurance:'',
-				accidentTime:'',
-				accidentReason:'',
-				witness:'',
-				witnessPhone:'',
-				hospitalAddress:'',
-				choiceBody:'',
+				//身份证的url
 				idPhoteUrl:'',
+				//商业保险
+				commercialnsurance:'',
+				//事故时间
+				accidentTime:'',
+				//事故原因
+				accidentReason:'',
+				// 事故地址
+				accidentAddress:'',
+			    // 目击者
+				witness:'',
+				// 见证人号码
+				witnessPhone:'',
+				// 选择的医院
+				hospitalAddress:'',
+				//选择身体受伤部位
+				choiceBody:'',
+				//身体受伤部位的url  列表
 				bodyPhotoUrl:'',
 				injuryBodyList:['头部鼻梁骨折','胸部肋骨骨折','头部鼻梁骨折','胸部肋骨骨折','头部鼻梁骨折',
 				               '胸部肋骨骨折','头部鼻梁骨折','胸部肋骨骨折','头部鼻梁骨折','胸部肋骨骨折'],
-				date:"",
+				 // 受伤地址的三级联动
+				 pickerValueDefault: [0, 0, 0],
+				 addTreeData: [
+				              {
+								"id":"1",
+								"name":"北京",
+								"code":"11",
+								"children":[
+									{
+										"id":"12300858",
+										"name":"北京大学",
+										"code":"10001",
+										"children":[
+											{
+												"id":"111",
+												"name":"植物园林",
+												"code":"111"
+											},
+											{
+												"id":"122",
+												"name":"动物园林",
+												"code":"122"
+											},
+											{
+												"id":"133",
+												"name":"野生动物园林",
+												"code":"133"
+											},
+											{
+												"id":"144",
+												"name":"野生植物园林",
+												"code":"144"
+											}
+											
+										]
+				                     },
+									 {
+									 	"id":"12300402763",
+									 	"name":"清华大学",
+									 	"code":"10002",
+									 	"children":[
+									 		{
+									 			"id":"211",
+									 			"name":"园林风景",
+									 			"code":"211"
+									 		},
+											{
+												"id":"222",
+												"name":"野生动物园林",
+												"code":"222"
+											},
+											{
+												"id":"233",
+												"name":"野生植物园林",
+												"code":"233"
+											}
+									 	]
+									  }
+				                 ]
+				               }
+				           ],
+						   
 		
 		
 			}
+		        
 		},
 		components:{
-			 ePicker
+			 ePicker,
+			levelLinkage 
 		},
 		methods: {
 			// form的提交
@@ -229,6 +330,7 @@
 				    success: function (res) {
 				        const tempFilePaths = res.tempFilePaths;    //拿到选择的图片，是一个数组
 						_that.idPhoteUrl=res.tempFilePaths[0]
+						
 				    }
 				});
 				
@@ -239,12 +341,15 @@
 				  current: this.idPhoteUrl,
 				  urls: [this.idPhoteUrl],
 				  indicator:"number"
-				  
 				})
 			  },
-		
-			switchChange(){
-				
+			  //对身份证进行删除
+			  delIDImg(){
+				  this.idPhoteUrl=''
+			  },
+		    //商业保险是否选择
+			switchChange(e){
+				this.commercialnsurance=e;
 			},
 			//选择公司的picker的弹框
 			comPickerChange(e) {
@@ -258,12 +363,20 @@
 			},
 			//选择事故发生的时间
 			acciPickerTime(e){
-				this.accidentTime=e;
+				 this.accidentTime=e;
 			},
 			//选择人员input 输入框
 			choicePerson(){
 				
 			
+			},
+			//事故地点选择的输入框
+			accidPlace(){},
+			//受伤部位的描述以及跳转
+			injurybodyJump(){
+				uni.navigateTo({
+					url:'../injuryBodyChoice/injuryBodyChoice'
+				})
 			},
 			//身体受伤部位照片的List
 			bodyPhoto(){
@@ -283,7 +396,6 @@
 			 bodyPhotoAdd(){
 				 let _that=this;
 				 let lls=_that.bodyPhotoUrl
-				 console.log(lls.length)
 				 uni.chooseImage({
 				     count:9-lls.length, //上传图片的数量，默认是9
 				     sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
@@ -291,20 +403,44 @@
 				     success: function (res) {
 				         const tempFilePaths = res.tempFilePaths;     //拿到选择的图片，是一个数组
 				 		 _that.bodyPhotoUrl=lls.concat(res.tempFilePaths)
-						 console.log(res.tempFilePaths)
-						console.log(_that.bodyPhotoUrl)
+						
 				     }
 				 });
 			 },
 			 // 受伤部位照片预览
 			 injuryPreviewImage(index){
-			 	console.log(this.bodyPhotoUrl)
 			 	uni.previewImage({
 			 	  current: this.bodyPhotoUrl[index],
 			 	  urls: this.bodyPhotoUrl,
 			 	  indicator:"number"
 			 	})
 			 },
+			 //删除某一项
+			 delImg(index){
+				 let  arr=this.bodyPhotoUrl
+				 arr.splice(index,1)
+				 this.bodyPhotoUrl=arr
+			 },
+			  // 选择事故地点 弹框出现 以及数据赋值
+			 openLevel() {
+			      this.$refs.levelLinkage.open();
+			  },
+			 accidentAddChoice(e) {
+			     // this.accidentAddress = JSON.stringify(e)
+				  this.accidentAddress = e.name;
+			 },
+			 //选择医院
+			 hospiAddChoice(e) {
+			     // this.accidentAddress = JSON.stringify(e)
+			     this.hospitalAddress = e.name;
+			 },
+			 openLevels() {
+			      this.$refs.hosilevelLinkage.open();
+			  },
+			  // input输入的医院
+			  hosiInput(e){
+				   console.log(this.hospitalAddress)
+			  },
 			submit(){
 				
 			}
@@ -390,6 +526,16 @@
 				 position: relative;
 				 margin-left:24rpx;
 				 padding-bottom: 35rpx;
+				 .IDImg{
+					 position: relative;
+					 .cancel{
+					   position: absolute;
+						top:-20rpx;
+						right:40rpx;
+						width: 40rpx;
+						height:40rpx;
+					 }
+				 }
 				.img{
 					width: 620rpx;
 			        height: 390rpx;
@@ -406,10 +552,6 @@
 			 }
 		 }
 		 .ten{
-			 // .uni-form-item{
-				//  height:94rpx;
-				//  margin-bottom: 0rpx;
-			 // }
 			 background:rgba(255,255,255,1);
 			 .reasonList{
 				 width:630rpx;
@@ -459,9 +601,23 @@
 					 display: flex;
 					 flex-wrap: wrap;
 					 .img{
+						 
+						 border-radius:10rpx;
+					 }
+					 .boxImg{
+						 position: relative;
+						 width:200rpx;
+						 height:200rpx;
 						 margin-bottom: 24rpx;
 						 margin-right:10rpx;
-						 border-radius:10rpx;
+					 }
+					 .cancel{
+						 width: 40rpx;
+						 height: 40rpx;
+						 position: absolute;
+						 right:0rpx;
+						 top: -10rpx;
+						
 					 }
 					 
 				 }

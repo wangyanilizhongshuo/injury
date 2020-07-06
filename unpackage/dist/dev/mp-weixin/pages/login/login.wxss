@@ -24,77 +24,76 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.uni-login.data-v-92800b80 {
+.uni-login.data-v-b237504c {
   margin-top: 25px;
 }
-.uni-login .uni-nav.data-v-92800b80 {
+.uni-login .uni-nav.data-v-b237504c {
   height: 80rpx;
   line-height: 80rpx;
   width: 500rpx;
 }
-.uni-login .uni-nav .uni-img.data-v-92800b80 {
+.uni-login .uni-nav .uni-img.data-v-b237504c {
   width: 36rpx;
   height: 36rpx;
   margin-left: 30rpx;
 }
-.uni-msg.data-v-92800b80 {
+.uni-msg.data-v-b237504c {
   width: 630rpx;
   margin: 110rpx auto 198rpx auto;
 }
-.uni-msg .uni-msg-title.data-v-92800b80 {
+.uni-msg .uni-msg-title.data-v-b237504c {
   margin-bottom: 100rpx;
   position: relative;
 }
-.uni-msg .uni-msg-title .login1.data-v-92800b80 {
+.uni-msg .uni-msg-title .login1.data-v-b237504c {
   font-size: 50rpx;
   font-weight: bold;
   color: #303133;
 }
-.uni-msg .uni-msg-title .login2.data-v-92800b80 {
+.uni-msg .uni-msg-title .login2.data-v-b237504c {
   font-size: 34rpx;
   color: #92959A;
 }
-.uni-msg .uni-msg-title .register.data-v-92800b80 {
+.uni-msg .uni-msg-title .register.data-v-b237504c {
   margin-left: 43rpx;
 }
-.uni-msg .uni-msg-title .register1.data-v-92800b80 {
+.uni-msg .uni-msg-title .register1.data-v-b237504c {
   font-size: 50rpx;
   font-weight: bold;
   color: #303133;
 }
-.uni-msg .uni-msg-title .register2.data-v-92800b80 {
+.uni-msg .uni-msg-title .register2.data-v-b237504c {
   font-size: 34rpx;
   color: #92959A;
 }
-.uni-msg .uni-msg-title .line.data-v-92800b80 {
+.uni-msg .uni-msg-title .line.data-v-b237504c {
   position: absolute;
   bottom: 0rpx;
   width: 110rpx;
   height: 16rpx;
-  background: -webkit-gradient(linear, left top, right top, from(#125cd4), to(rgba(34, 165, 255, 0)));
   background: -webkit-linear-gradient(left, #125cd4 0%, rgba(34, 165, 255, 0) 100%);
   background: linear-gradient(90deg, #125cd4 0%, rgba(34, 165, 255, 0) 100%);
   border-radius: 2rpx;
 }
-.uni-msg .uni-msg-title .line1.data-v-92800b80 {
+.uni-msg .uni-msg-title .line1.data-v-b237504c {
   left: 0rpx;
 }
-.uni-msg .uni-msg-title .line2.data-v-92800b80 {
+.uni-msg .uni-msg-title .line2.data-v-b237504c {
   left: 110rpx;
 }
-.uni-msg .login-msg .inStyle.data-v-92800b80 {
+.uni-msg .login-msg .inStyle.data-v-b237504c {
   padding-left: 24rpx;
   margin-bottom: 36rpx;
 }
-.uni-msg .login-msg .uni-input.data-v-92800b80 {
+.uni-msg .login-msg .uni-input.data-v-b237504c {
   position: relative;
   width: 630rpx;
   border-bottom: 2rpx solid #ECECEC;
 }
-.uni-msg .login-msg .uni-input .passWord.data-v-92800b80 {
+.uni-msg .login-msg .uni-input .passWord.data-v-b237504c {
   margin-top: 72rpx;
 }
-.uni-msg .login-msg .uni-input .img.data-v-92800b80 {
+.uni-msg .login-msg .uni-input .img.data-v-b237504c {
   width: 30rpx;
   height: 30rpx;
   position: absolute;
@@ -102,7 +101,7 @@
   bottom: 36rpx;
   z-index: 3;
 }
-.uni-msg .login-msg .choice-login.data-v-92800b80 {
+.uni-msg .login-msg .choice-login.data-v-b237504c {
   width: 630rpx;
   display: -webkit-box;
   display: -webkit-flex;
@@ -112,12 +111,12 @@
           justify-content: space-between;
   margin: 33rpx 0rpx 112rpx;
 }
-.uni-msg .login-msg .choice-login .word-style.data-v-92800b80 {
+.uni-msg .login-msg .choice-login .word-style.data-v-b237504c {
   font-family: "PingFang-SC-Medium";
   font-size: 26rpx;
   color: #44464A;
 }
-.uni-msg .login-msg .uni-btn.data-v-92800b80 {
+.uni-msg .login-msg .uni-btn.data-v-b237504c {
   width: 540rpx;
   margin: 0 auto;
   height: 90rpx;
@@ -127,24 +126,24 @@
   color: #FFFFFF;
   text-align: center;
 }
-.uni-msg .login-msg .unibtn2.data-v-92800b80 {
+.uni-msg .login-msg .unibtn2.data-v-b237504c {
   background-color: #D1E0FF;
 }
-.uni-msg .login-msg .unibtn1.data-v-92800b80 {
+.uni-msg .login-msg .unibtn1.data-v-b237504c {
   background-color: #125CD4;
 }
-.uni-msg .login-msg .protocol.data-v-92800b80 {
+.uni-msg .login-msg .protocol.data-v-b237504c {
   text-align: center;
 }
-.uni-msg .login-msg .protocol .left-1.data-v-92800b80 {
+.uni-msg .login-msg .protocol .left-1.data-v-b237504c {
   font-size: 28rpx;
   color: #747F9B;
 }
-.uni-msg .login-msg .protocol .left-2.data-v-92800b80 {
+.uni-msg .login-msg .protocol .left-2.data-v-b237504c {
   color: #125CD4;
   font-size: 28rpx;
 }
-.uni-msg .login-msg .weixin-login.data-v-92800b80 {
+.uni-msg .login-msg .weixin-login.data-v-b237504c {
   width: 150rpx;
   margin: 150rpx auto 100rpx;
   display: -webkit-box;
@@ -158,32 +157,32 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.uni-msg .login-msg .weixin-login .img.data-v-92800b80 {
+.uni-msg .login-msg .weixin-login .img.data-v-b237504c {
   width: 78rpx;
   height: 78rpx;
   margin-bottom: 31rpx;
 }
-.uni-msg .login-msg .weixin-login .word.data-v-92800b80 {
+.uni-msg .login-msg .weixin-login .word.data-v-b237504c {
   color: #44464A;
   font-size: 26rpx;
 }
-.uni-msg .register-msg .uni-input.data-v-92800b80 {
+.uni-msg .register-msg .uni-input.data-v-b237504c {
   position: relative;
   width: 630rpx;
   border-bottom: 2rpx solid #ECECEC;
 }
-.uni-msg .register-msg .uni-input .reg-phone.data-v-92800b80 {
+.uni-msg .register-msg .uni-input .reg-phone.data-v-b237504c {
   padding-left: 130rpx;
   margin-bottom: 25rpx;
 }
-.uni-msg .register-msg .uni-input .in-Sty86.data-v-92800b80 {
+.uni-msg .register-msg .uni-input .in-Sty86.data-v-b237504c {
   position: absolute;
   top: 0rpx;
   left: 20rpx;
   color: #010101;
   font-size: 30rpx;
 }
-.uni-msg .register-msg .uni-input .img.data-v-92800b80 {
+.uni-msg .register-msg .uni-input .img.data-v-b237504c {
   width: 30rpx;
   height: 30rpx;
   position: absolute;
@@ -191,10 +190,10 @@
   top: 0rpx;
   z-index: 2;
 }
-.uni-msg .register-msg .next-btn.data-v-92800b80 {
+.uni-msg .register-msg .next-btn.data-v-b237504c {
   margin: 64rpx auto 27rpx;
 }
-.uni-msg .register-msg .next-btn .next-jump.data-v-92800b80 {
+.uni-msg .register-msg .next-btn .next-jump.data-v-b237504c {
   width: 540rpx;
   margin: 0 auto;
   height: 90rpx;
@@ -204,22 +203,22 @@
   color: #fff;
   text-align: center;
 }
-.uni-msg .register-msg .next-btn .next-jump2.data-v-92800b80 {
+.uni-msg .register-msg .next-btn .next-jump2.data-v-b237504c {
   background-color: #D1E0FF;
 }
-.uni-msg .register-msg .next-btn .next-jump1.data-v-92800b80 {
+.uni-msg .register-msg .next-btn .next-jump1.data-v-b237504c {
   background-color: #125CD4;
 }
-.uni-msg .register-msg .protocol.data-v-92800b80 {
+.uni-msg .register-msg .protocol.data-v-b237504c {
   width: 630rpx;
   text-align: center;
   font-size: 28rpx;
   text-indent: 15rpx;
 }
-.uni-msg .register-msg .protocol .left.data-v-92800b80 {
+.uni-msg .register-msg .protocol .left.data-v-b237504c {
   color: #747F9B;
 }
-.uni-msg .register-msg .protocol .right.data-v-92800b80 {
+.uni-msg .register-msg .protocol .right.data-v-b237504c {
   color: #125CD4;
 }
 

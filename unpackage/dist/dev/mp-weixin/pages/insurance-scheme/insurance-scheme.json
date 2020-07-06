@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "保险方案",
-  "usingComponents": {}
+  "usingComponents": {
+    "level-linkage": "/components/three-level-linkage/linkage"
+  }
 }

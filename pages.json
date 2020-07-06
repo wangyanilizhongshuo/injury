@@ -1,6 +1,12 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-     
+     {
+         "path" : "pages/injuryBodyChoice/injuryBodyChoice",
+         "style" : {
+     		"navigationBarTitleText": "受伤部位",
+      		 "navigationBarBackgroundColor":"#fff",
+      		 "navigationBarTextStyle":"black"}
+     },
     
 		{
             "path" : "pages/home-page/home-page",
@@ -91,13 +97,6 @@
 		 }
        
        
-        ,{
-            "path" : "pages/injuryBodyChoice/injuryBodyChoice",
-            "style" : {
-				"navigationBarTitleText": "受伤部位",
-		 		 "navigationBarBackgroundColor":"#fff",
-		 		 "navigationBarTextStyle":"black"}
-        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

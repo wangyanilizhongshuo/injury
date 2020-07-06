@@ -1,1 +1,1 @@
-<view></view>
+<view><button type="primary" data-event-opts="{{[['tap',[['openLevel',['$event']]]]]}}" bindtap="__e">打开地址</button><text>{{pickerText}}</text><level-linkage class="vue-ref" vue-id="f9286d80-1" pickerValueDefault="{{pickerValueDefault}}" allData="{{treeData}}" themeColor="#007AFF" data-ref="levelLinkage" data-event-opts="{{[['^onConfirm',[['onConfirm']]]]}}" bind:onConfirm="__e" bind:__l="__l"></level-linkage></view>
