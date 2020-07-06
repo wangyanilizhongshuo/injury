@@ -205,11 +205,12 @@
 </template>
 
 <script>
-	import ePicker from "../../components/e-picker/e-picker.vue"
+	// https://ext.dcloud.net.cn/plugin?id=1328
+	// https://ext.dcloud.net.cn/plugin?id=1349
+	import ePicker from "@/components/e-picker/e-picker.vue"
 	import levelLinkage  from "@/components/three-level-linkage/linkage.nvue"
 	export default {
-		data() {
-			  
+		data() {  
 			return {
 				//companyAddress:'杭州市杭州彼信信息科技有限公司'
 				//公司选择的列表以及显示的数据
@@ -314,7 +315,7 @@
 		        
 		},
 		components:{
-			 ePicker,
+			ePicker,
 			levelLinkage 
 		},
 		methods: {
@@ -333,7 +334,6 @@
 						
 				    }
 				});
-				
 			},
 			// 对身份证的图片进行预览
 			  previewImageID() {
@@ -375,7 +375,7 @@
 			//受伤部位的描述以及跳转
 			injurybodyJump(){
 				uni.navigateTo({
-					url:'../injuryBodyChoice/injuryBodyChoice'
+					url:'../injuryChoiceBody/injuryChoiceBody'
 				})
 			},
 			//身体受伤部位照片的List

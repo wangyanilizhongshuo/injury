@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/injuryBodyChoice/injuryBodyChoice",
     "pages/home-page/home-page",
     "pages/index/index",
     "pages/injury-report/injury-report",
@@ -13,7 +12,8 @@
     "pages/setVerificateCode/setVerificateCode",
     "pages/resetLoginPwd/resetLoginPwd",
     "pages/home-hotDataDetail/home-hotDataDetail",
-    "pages/home-hotDataList/home-hotDataList"
+    "pages/home-hotDataList/home-hotDataList",
+    "pages/injuryChoiceBody/injuryChoiceBody"
   ],
   "subPackages": [],
   "window": {

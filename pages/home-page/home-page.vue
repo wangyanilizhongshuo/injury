@@ -106,7 +106,7 @@
 	</view>
 </template>
 <script>
-	import navigationCustom from "../../components/struggler-navigationCustom/navigation-custom.vue"
+	import navigationCustom from "@/components/struggler-navigationCustom/navigation-custom.vue"
 	export default {
 		data() {
 			return {

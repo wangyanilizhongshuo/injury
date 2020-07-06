@@ -2,5 +2,7 @@
   "navigationBarTitleText": "受伤部位",
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTextStyle": "black",
-  "usingComponents": {}
+  "usingComponents": {
+    "level-linkage": "/components/three-level-linkage/linkage"
+  }
 }
