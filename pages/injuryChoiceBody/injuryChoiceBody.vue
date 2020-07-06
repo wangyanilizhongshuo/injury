@@ -8,7 +8,9 @@
 			  </view>
 			  <view class="describe">请点击受伤部位进行选择</view>
 			  <view class="detailChoice">
-				  
+				  <view class="list">
+					  <text></text>
+				  </view>
 				  
 			  </view>
 			  <view class="btn" style="background:url(../../static/image/btn.png) no-repeat 0 0 ;background-size: 589rpx 136rpx;">
@@ -30,8 +32,9 @@
 		data() {
 			return {
 				 pickerValueDefault: [0, 0],
-				  pickerText: '',
-				       treeData: [
+				 pickerText: '',
+				 list:['111','222','333','444','555','666','777']
+				 treeData: [
 				            {
 				                        "id":"1",
 				                        "name":"头部骨折",
