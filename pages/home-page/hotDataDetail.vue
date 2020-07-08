@@ -3,7 +3,7 @@
 		<view class="uni-title">大都会人寿推出都会赢家终身寿会赢家终身寿险（分红型）保障方案</view>             
 		<view class="uni-time">2020.6.23 13:54</view>
 		<view class="banner">
-			<image class="bann-img" src="../../static/image/pic.png"></image>
+			<image class="bann-img" src="../../static/image/pic1.png"></image>
 		</view>
 		<view class="uni-content">据招商银行和贝恩公司联合发布的《2019中国私人财富报大都会集团152年的业经验——以客户需
 			告》显示，高净值人群对市场的不确定性认识加深，避险情绪加强."保证财富安全”和"财富传承"持续成为这一人东行求为

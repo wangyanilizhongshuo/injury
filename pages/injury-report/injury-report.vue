@@ -374,8 +374,9 @@
 			accidPlace(){},
 			//受伤部位的描述以及跳转
 			injurybodyJump(){
+				console.log(11111)
 				uni.navigateTo({
-					url:'../injuryChoiceBody/injuryChoiceBody'
+					url:'./injuryChoiceBody'
 				})
 			},
 			//身体受伤部位照片的List

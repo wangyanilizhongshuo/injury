@@ -151,13 +151,13 @@
 			//咨询列表页面
 			dataListJump(){
 				uni.navigateTo({
-					url:'../home-hotDataList/home-hotDataList'
+					url:'./hotDataList'
 				})
 			},
 			//资讯详情页
 			dataDetaiJump(){
 				uni.navigateTo({
-					url:'../home-hotDataDetail/home-hotDataDetail'
+					url:'./hotDataDetail'
 				})
 			}
 			

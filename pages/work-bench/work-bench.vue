@@ -3,7 +3,7 @@
 		<view class="injury-manager">
 			 <view class="injury-title uni-title">工伤管理</view>
 			 <view class="injurt-list lists">
-				 <view class="list-one">
+				 <view class="list-one" @click="jumpList()">
 					 <image class="img" src="../../static/image/workbench_report.png"></image>
 					 <text class="word">工伤报案</text>
 				 </view>
@@ -46,7 +46,13 @@
 			}
 		},
 		methods: {
-			
+			//跳转到报案列表
+			jumpList(){
+				console.log(1111)
+				uni.navigateTo({
+					url:'./policeList'
+				})
+			}
 		}
 	}
 </script>

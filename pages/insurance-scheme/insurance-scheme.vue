@@ -4,9 +4,9 @@
 		        <text>{{pickerText}}</text>
 		
 			 <level-linkage  ref="levelLinkage" 
-			            :pickerValueDefault="pickerValueDefault" 
-			            :allData="treeData"
-			            @onConfirm="onConfirm" themeColor='#007AFF'></level-linkage >
+			           :pickerValueDefault="pickerValueDefault" 
+			           :allData="treeData"
+			          @onConfirm="onConfirm" themeColor='#007AFF'></level-linkage >
 		</view>
 		
 		</view>  

@@ -24,7 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.uni-homeDataDetail .uni-title.data-v-301e3006 {
+.uni-homeDataDetail .uni-title.data-v-d44f70e6 {
   width: 714rpx;
   margin: 0 auto;
   color: #000000;
@@ -32,20 +32,20 @@
   font-weight: Bold;
   font-family: "PingFang-SC-Bold";
 }
-.uni-homeDataDetail .uni-time.data-v-301e3006 {
+.uni-homeDataDetail .uni-time.data-v-d44f70e6 {
   margin: 40rpx 0rpx 36rpx 20rpx;
   color: #AAAAAA;
   font-size: 24rpx;
   font-family: "PingFang-SC-Medium";
 }
-.uni-homeDataDetail .banner.data-v-301e3006 {
+.uni-homeDataDetail .banner.data-v-d44f70e6 {
   font-size: 0rpx;
 }
-.uni-homeDataDetail .banner .bann-img.data-v-301e3006 {
+.uni-homeDataDetail .banner .bann-img.data-v-d44f70e6 {
   width: 750rpx;
   height: 400rpx;
 }
-.uni-homeDataDetail .uni-content.data-v-301e3006 {
+.uni-homeDataDetail .uni-content.data-v-d44f70e6 {
   color: #2B2B2B;
   font-size: 28rpx;
   margin: 16rpx 18rpx 20rpx;

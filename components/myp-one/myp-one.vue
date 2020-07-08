@@ -110,7 +110,7 @@
 	}
 </script>
 
-<style scoped>
+<style scoped >
 	@keyframes twinkling {
 		0% {
 			opacity: 0.2;
@@ -156,8 +156,8 @@
 		font-weight: bold;
 		color: #000;
 		background:rgba(247,250,255,1);
-		border:2rpx solid rgba(149,189,255,1);
-		border-radius:4rpx;
+		border:2upx solid rgba(149,189,255,1);
+		border-radius:4upx;
 		line-height: 100upx;
 	}
 

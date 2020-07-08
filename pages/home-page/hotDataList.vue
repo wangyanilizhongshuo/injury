@@ -24,7 +24,7 @@
 		methods: {
 			jumpDetail(){
 				uni.navigateTo({
-					url:'../home-hotDataDetail/home-hotDataDetail'
+					url:'./hotDataDetail'
 				})
 			}
 		}

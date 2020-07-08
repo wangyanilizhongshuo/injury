@@ -24,7 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.injurybodyChoice .content.data-v-735ca4c6 {
+.injurybodyChoice .content.data-v-42fe5018 {
   width: 690rpx;
   margin: 0 auto;
   position: relative;
@@ -32,42 +32,91 @@
   font-weight: Medium;
   padding-top: 66rpx;
 }
-.injurybodyChoice .content .delImg.data-v-735ca4c6 {
+.injurybodyChoice .content .delImg.data-v-42fe5018 {
   position: absolute;
   right: 0rpx;
   top: -5rpx;
+  width: 140rpx;
+  height: 140rpx;
+  text-align: center;
+}
+.injurybodyChoice .content .delImg .img.data-v-42fe5018 {
   width: 129rpx;
   height: 129rpx;
 }
-.injurybodyChoice .content .bgImg.data-v-735ca4c6 {
+.injurybodyChoice .content .delImg .word.data-v-42fe5018 {
+  font-size: 28rpx;
+  color: #303133;
+  margin-top: -20rpx;
+}
+.injurybodyChoice .content .bgImg.data-v-42fe5018 {
   width: 184.8rpx;
   margin: 0rpx auto 50rpx;
+  position: relative;
   font-size: 0;
 }
-.injurybodyChoice .content .bgImg .bodyImg.data-v-735ca4c6 {
+.injurybodyChoice .content .bgImg .bodyImg.data-v-42fe5018 {
   width: 184.8rpx;
   height: 539rpx;
 }
-.injurybodyChoice .content .describe.data-v-735ca4c6 {
+.injurybodyChoice .content .bgImg .headerPoint.data-v-42fe5018 {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 25rpx;
+  left: 50rpx;
+}
+.injurybodyChoice .content .bgImg .upPoint.data-v-42fe5018 {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 200rpx;
+  left: 70rpx;
+}
+.injurybodyChoice .content .bgImg .downPoint.data-v-42fe5018 {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 400rpx;
+  left: 120rpx;
+}
+.injurybodyChoice .content .describe.data-v-42fe5018 {
   font-size: 30rpx;
   color: #303133;
   text-align: center;
 }
-.injurybodyChoice .content .detailChoice.data-v-735ca4c6 {
+.injurybodyChoice .content .detailChoice.data-v-42fe5018 {
   width: 690rpx;
   height: 300rpx;
   background: #f7f7f7;
   border-radius: 8px;
   margin: 50rpx auto 38rpx;
 }
-.injurybodyChoice .content .btn.data-v-735ca4c6 {
+.injurybodyChoice .content .detailChoice .list.data-v-42fe5018 {
+  padding-top: 28rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.injurybodyChoice .content .detailChoice .list .point.data-v-42fe5018 {
+  width: 170rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  color: #303133;
+  font-size: 24rpx;
+  margin-bottom: 25rpx;
+}
+.injurybodyChoice .content .btn.data-v-42fe5018 {
   width: 589rpx;
   height: 136rpx;
-  height: 110rpx;
+  line-height: 110rpx;
   margin: 0 auto 0rpx;
   text-align: center;
 }
-.injurybodyChoice .content .btn .word.data-v-735ca4c6 {
+.injurybodyChoice .content .btn .word.data-v-42fe5018 {
   font-size: 36rpx;
   color: #fff;
 }

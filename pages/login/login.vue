@@ -80,8 +80,9 @@
 			},
 			//忘记密码
 			forPwd(){
+				console.log(213)
 				uni.navigateTo({
-					  url: '../forgetPassword/forgetPassword'
+					  url: './forgetPassword'
 				})
 			},
 			//手机验证码登录

@@ -1,6 +1,11 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-    
+    {
+    	 "path" : "pages/login/login",
+    	 "style" : {
+    		 "navigationStyle":"custom"
+    	}
+    } ,
     
 		{
             "path" : "pages/home-page/home-page",
@@ -20,7 +25,15 @@
             "style" : {
 				"navigationBarTitleText": "工伤报案"
 			}
-        }
+        },
+		{
+		     "path" : "pages/injury-report/injuryChoiceBody",
+		     "style" : {
+		 		"navigationBarTitleText": "受伤部位",
+		 		"navigationBarBackgroundColor":"#fff",
+		 		"navigationBarTextStyle":"black"
+		 	}
+		 }
         ,{
             "path" : "pages/insurance-scheme/insurance-scheme",
             "style" : {
@@ -33,14 +46,9 @@
 				"navigationBarTitleText": "工作台"
 			}
         },
+		
 		{
-			 "path" : "pages/login/login",
-			 "style" : {
-				 "navigationStyle":"custom"
-			}
-		} ,
-		{
-		     "path" : "pages/forgetPassword/forgetPassword",
+		     "path" : "pages/login/forgetPassword",
 		     "style" : {
 		 		"navigationBarBackgroundColor":"#fff",
 		 		"navigationBarTextStyle":"black"
@@ -75,7 +83,7 @@
 		 	}
 		 },
 		 {
-		     "path" : "pages/home-hotDataDetail/home-hotDataDetail",
+		     "path" : "pages/home-page/hotDataDetail",
 		     "style" : {
 		 		"navigationBarTitleText": "资讯详情",
 		 		"navigationBarBackgroundColor":"#fff",
@@ -83,23 +91,22 @@
 		 	}
 		 },
 		 {
-		     "path" : "pages/home-hotDataList/home-hotDataList",
+		     "path" : "pages/home-page/hotDataList",
 		     "style" : {
 		 		 "navigationBarTitleText": "资讯列表",
 		 		 "navigationBarBackgroundColor":"#fff",
 		 		 "navigationBarTextStyle":"black"
 		 	}
 		 },
+		
 		 {
-		     "path" : "pages/injuryChoiceBody/injuryChoiceBody",
+		     "path" : "pages/work-bench/policeList",
 		     "style" : {
-		 		"navigationBarTitleText": "受伤部位",
+		 		"navigationBarTitleText": "报案列表",
 		 		"navigationBarBackgroundColor":"#fff",
 		 		"navigationBarTextStyle":"black"
 		 	}
 		 }
-       
-       
         
     ],
 	"globalStyle": {

@@ -1,19 +1,20 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/home-page/home-page",
     "pages/index/index",
     "pages/injury-report/injury-report",
+    "pages/injury-report/injuryChoiceBody",
     "pages/insurance-scheme/insurance-scheme",
     "pages/work-bench/work-bench",
-    "pages/login/login",
-    "pages/forgetPassword/forgetPassword",
+    "pages/login/forgetPassword",
     "pages/phoneVerification/phoneVerification",
     "pages/setLoginPwd/setLoginPwd",
     "pages/setVerificateCode/setVerificateCode",
     "pages/resetLoginPwd/resetLoginPwd",
-    "pages/home-hotDataDetail/home-hotDataDetail",
-    "pages/home-hotDataList/home-hotDataList",
-    "pages/injuryChoiceBody/injuryChoiceBody"
+    "pages/home-page/hotDataDetail",
+    "pages/home-page/hotDataList",
+    "pages/work-bench/policeList"
   ],
   "subPackages": [],
   "window": {
