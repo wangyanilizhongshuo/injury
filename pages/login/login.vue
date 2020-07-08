@@ -80,7 +80,7 @@
 			},
 			//忘记密码
 			forPwd(){
-				console.log(213)
+				// console.log(213)
 				uni.navigateTo({
 					  url: './forgetPassword'
 				})
@@ -88,20 +88,21 @@
 			//手机验证码登录
 			phoneVerifi(){
 				uni.navigateTo({
-					  url: '../phoneVerification/phoneVerification'
-				})
+					  url: './phoneVerification'
+				});
+				console.log('999')
 			},
 			//注册成功之后 重新设置登录密码
 			jumps(){
 				uni.navigateTo({
-					url:'../setLoginPwd/setLoginPwd'
+					url:'./setLoginPwd'
 				})
 			},
 			loginclearPhone(){
 				this.phone='';
 			},
 			switchTab(type){
-				   console.log(type)
+				   // console.log(type)
 					uni.hideKeyboard();//隐藏软键盘
 					this.type=type;
 					this.phone='';

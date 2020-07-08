@@ -1,8 +1,8 @@
 <template>
-	<view  class="uni-forgetPwd">
+	<view  class="uni-phoneverfication">
 		<view class="uni-msg">
 			 <view class="uni-title">
-				 忘记密码
+				 手机验证
 			 </view>
 			<view class="uni-input" >
 				<input v-model="phoneNumber" class="reg-phone" type="text"  placeholder="请输入您的手机号"  placeholder-style="color:#B7BAC4;font-size:30rpx;"  />
@@ -10,9 +10,14 @@
 				<image  v-if="phoneNumber" class="img"@click="clearPhone()"  src="../../static/image/del_icon.png"></image>
 			</view>
 			<view class="uni-jump">
-				<view :class="phoneNumber?'nextJump2':'nextJump1'" @click="jumps()" class="next-jump">下一步</view>
+				<view :class="phoneNumber?'nextJump2':'nextJump1'" class="next-jump" @click="jumps()">下一步</view>
 			</view>
-			
+			<view class="protocol">
+			    <text class="left">点击"下一步"即同意</text>
+			    <text class="right">《用户协议》</text> 
+			    <text class="left">和</text>
+			    <text class="right">《隐私政策》</text>           
+			</view>
 		</view>
 	</view>
 </template>
@@ -28,10 +33,10 @@
 			clearPhone(){
 				this.phoneNumber=''
 			},
-			//重置登录密码
 			jumps(){
+				// console.log(33)
 				uni.navigateTo({
-					url:'../resetLoginPwd/resetLoginPwd'
+					url:'./setVerificateCode'
 				})
 			}
 		}
@@ -39,7 +44,14 @@
 </script>
 
 <style scoped lang="scss">
- .uni-forgetPwd{
+ .uni-phoneverfication{
+	 .back{
+		 width: 300rpx;
+		 height: 80rpx;
+		 line-height: 80rpx;
+		 background-color: #000;
+		 margin-top:var(--status-bar-height);
+	 }
 	 .uni-msg{
 		 width: 630rpx;
 		 margin:0 auto;
@@ -64,9 +76,12 @@
 				 font-size: 30rpx;
 				 color:#010101;
 			 }
+			 .box-img{
+				
+			 }
 			 .img{
-			 	 width:30rpx;
-			 	 height: 30rpx;
+			 	  width:30rpx;
+			 	  height: 30rpx;
 				 position: absolute;
 				 right:0rpx;
 				 top:0rpx;
@@ -92,6 +107,19 @@
 			 	  background-color: #125CD4;
 			 }
 		 }
+	     .protocol{
+			 width: 630rpx;
+			 text-align: center;
+			 font-size: 28rpx;
+			 text-indent: 15rpx;
+			 margin-top: 27rpx;
+			 .left{
+			    color:#747F9B;
+			 }
+			 .right{
+			 	color: #125CD4;
+			 }
+		  }
 	 }
  }
 </style>

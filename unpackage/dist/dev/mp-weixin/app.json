@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/login/resetLoginPwd",
     "pages/home-page/home-page",
     "pages/index/index",
     "pages/injury-report/injury-report",
@@ -8,10 +9,9 @@
     "pages/insurance-scheme/insurance-scheme",
     "pages/work-bench/work-bench",
     "pages/login/forgetPassword",
-    "pages/phoneVerification/phoneVerification",
-    "pages/setLoginPwd/setLoginPwd",
-    "pages/setVerificateCode/setVerificateCode",
-    "pages/resetLoginPwd/resetLoginPwd",
+    "pages/login/phoneVerification",
+    "pages/login/setLoginPwd",
+    "pages/login/setVerificateCode",
     "pages/home-page/hotDataDetail",
     "pages/home-page/hotDataList",
     "pages/work-bench/policeList"

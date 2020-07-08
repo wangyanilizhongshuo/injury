@@ -1,8 +1,8 @@
 <template>
-	<view  class="uni-Login-Pwd">
+	<view  class="uni-reset-loginPwd">
 		<view class="uni-msg">
 			 <view class="uni-title">
-				设置登录密码 
+				重置登录密码 
 			 </view>
 			<view class="uni-input" >
 				<input v-model="password" class="reg-phone" type="text"  password="true" placeholder="请设置您的登录密码"  placeholder-style="color:#B7BAC4;font-size:30rpx;"  />	
@@ -11,7 +11,7 @@
 				<input v-model="repassword" class="re-phone" type="text" password="true" placeholder="请设置您的登录密码"  placeholder-style="color:#B7BAC4;font-size:30rpx;"  />	
 			</view>
 			<view class="uni-jump">
-				<view :class="(password || repassword)?'nextJump2':'nextJump1'" class="next-jump">注册</view>
+				<view :class="(password || repassword)?'nextJump2':'nextJump1'" class="next-jump" @click="jump()" >确定</view>
 			</view>
 		</view>
 	</view>
@@ -26,14 +26,18 @@
 			}
 		},
 		methods: {
-			
+			jump(){
+				uni.navigateTo({
+					url:'./login'
+				})
+			}
 		}
 		
 	}
 </script>
 
 <style scoped lang="scss">
- .uni-Login-Pwd{
+ .uni-reset-loginPwd{
 	 .uni-msg{
 		 width: 630rpx;
 		 margin:0 auto;
@@ -53,6 +57,7 @@
 			 .re-phone{
 				 margin:69rpx 0rpx 25rpx 24rpx;
 			 }
+			 
 		 }
 	     .uni-jump{
 			 margin-top:170rpx;

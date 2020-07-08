@@ -24,36 +24,44 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.uni-setverCode .uni-msg.data-v-507b4016 {
+.uni-Login-Pwd .uni-msg.data-v-2a55e8c7 {
   width: 630rpx;
-  margin: 90rpx  auto 0rpx;
+  margin: 0 auto;
 }
-.uni-setverCode .uni-msg .uni-title.data-v-507b4016 {
+.uni-Login-Pwd .uni-msg .uni-title.data-v-2a55e8c7 {
   color: #303133;
   font-size: 50rpx;
   font-weight: bold;
+  margin-top: 90rpx;
 }
-.uni-setverCode .uni-msg .uni-code-phone.data-v-507b4016 {
-  margin-top: 33rpx;
+.uni-Login-Pwd .uni-msg .uni-input.data-v-2a55e8c7 {
+  position: relative;
+  width: 630rpx;
+  border-bottom: 2rpx solid #ECECEC;
 }
-.uni-setverCode .uni-msg .uni-code-phone .small-style.data-v-507b4016 {
-  color: #000000;
-  font-size: 26rpx;
-  font-weight: Medium;
+.uni-Login-Pwd .uni-msg .uni-input .reg-phone.data-v-2a55e8c7 {
+  margin: 109rpx 0rpx 25rpx 24rpx;
 }
-.uni-setverCode .uni-msg .setCode.data-v-507b4016 {
-  margin-top: 86rpx;
-  margin-bottom: 67rpx;
+.uni-Login-Pwd .uni-msg .uni-input .re-phone.data-v-2a55e8c7 {
+  margin: 69rpx 0rpx 25rpx 24rpx;
 }
-.uni-setverCode .uni-msg .uni-tips.data-v-507b4016 {
-  font-size: 26rpx;
-  font-weight: Medium;
+.uni-Login-Pwd .uni-msg .uni-jump.data-v-2a55e8c7 {
+  margin-top: 170rpx;
+}
+.uni-Login-Pwd .uni-msg .uni-jump .next-jump.data-v-2a55e8c7 {
+  width: 540rpx;
+  margin: 0 auto;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 45rpx;
+  color: #fff;
+  font-size: 36rpx;
   text-align: center;
 }
-.uni-setverCode .uni-msg .uni-tips .left.data-v-507b4016 {
-  color: #B7BAC4;
+.uni-Login-Pwd .uni-msg .uni-jump .nextJump1.data-v-2a55e8c7 {
+  background-color: #D1E0FF;
 }
-.uni-setverCode .uni-msg .uni-tips .right.data-v-507b4016 {
-  color: #1159D2;
+.uni-Login-Pwd .uni-msg .uni-jump .nextJump2.data-v-2a55e8c7 {
+  background-color: #125CD4;
 }
 
