@@ -163,7 +163,6 @@ var _default =
     },
     //重置登录密码
     jumps: function jumps() {
-      console.log('eeee');
       uni.navigateTo({
         url: './resetLoginPwd' });
 

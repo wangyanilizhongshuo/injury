@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/home-page/home-page",
     "pages/login/login",
     "pages/login/resetLoginPwd",
-    "pages/home-page/home-page",
     "pages/index/index",
     "pages/injury-report/injury-report",
     "pages/injury-report/injuryChoiceBody",

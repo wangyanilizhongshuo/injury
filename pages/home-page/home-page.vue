@@ -1,9 +1,6 @@
 <template>
 	<view class="uni-home">
-	   <!-- <view  style="width:200rpx;height:var(--status-bar-height);background-color: red;;">sdfsd</view> -->
 		<view class="uni-title">
-			<!-- :style="{height:naveHeight+'px'}" -->
-			
 			<navigation-custom class="navigationCustom" style="background-color: red;"  :config="config"  @customConduct="customConduct" :scrollMaxHeight="scrollMaxHeight"/>
 			 <!-- <view class="gettAddress"   :style="{height:naviHeight+'rpx'}">
 			 </view> -->
@@ -142,7 +139,8 @@
 		  
 		methods: {
 			 customConduct(){
-				 // console.log(2222)
+				
+				
 			 },
 			 // 获取navigation的高度
 			getdata(){
@@ -172,31 +170,6 @@
 .uni-title{
 	background-color:#1159D2 ;
 	height: auto;
-	.gettAddress{
-		   height:88rpx;
-		   
-		.uni-add-box{
-			position: fixed;
-			display: flex;
-			align-items: center;
-			z-index:10;
-			 height:88rpx;
-			width:750rpx;
-			background-color:#1159D2 ;
-			padding-top:(var(--status-bar-height));
-		.image{
-			width:26rpx;
-			height:30rpx;
-			margin-right:22rpx;
-			margin-left:30rpx;
-		}
-		.uni-text{
-			font-weight: bold;
-			color:#fff;
-			font-size:30rpx;
-		}
-	}
-	}
 	.uni-up{
 		.first{
 		  margin-top:20rpx;
@@ -397,5 +370,4 @@
 		}
 	}
 }
-
 </style>

@@ -31,7 +31,6 @@
 			},
 			//重置登录密码
 			jumps(){
-				console.log('eeee')
 				uni.navigateTo({
 					url:'./resetLoginPwd'
 				})

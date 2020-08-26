@@ -236,9 +236,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
 {
   data: function data() {
     return {
@@ -274,7 +271,8 @@ __webpack_require__.r(__webpack_exports__);
 
   methods: {
     customConduct: function customConduct() {
-      // console.log(2222)
+
+
     },
     // 获取navigation的高度
     getdata: function getdata() {
