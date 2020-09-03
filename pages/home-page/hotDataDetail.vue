@@ -28,32 +28,27 @@
 </script>
 
 <style scoped lang="scss">
+	@import "../../static/scss/common.scss";
 .uni-homeDataDetail{
 	.uni-title{
 		width: 714rpx;
 		margin:0 auto;
-		color:#000000 ;         
-		font-size: 42rpx;
-		font-weight: Bold;
-		font-family:"PingFang-SC-Bold";
+		@include  font-style("PingFang-SC-Bold",Bold,42rpx,#000000);
+		
 	}
 	.uni-time{
 		margin: 40rpx 0rpx 36rpx 20rpx;
-		color: #AAAAAA;
-		font-size: 24rpx;
-		font-family: "PingFang-SC-Medium";
+		@include  font-style("PingFang-SC-Medium",Medium,24rpx,#AAAAAA);
 	}
 	.banner{
 		font-size: 0rpx;
 		.bann-img{
-			width: 750rpx;
-			height: 400rpx;
+			@include  w_h(750rpx,400rpx)
 		}
 	}
 	.uni-content{
-		color:#2B2B2B;
-		font-size: 28rpx;
 		margin:16rpx 18rpx 20rpx;
+		@include  font-style("PingFang-SC-Medium",Medium,28rpx,#2B2B2B);
 	}
 }
 </style>

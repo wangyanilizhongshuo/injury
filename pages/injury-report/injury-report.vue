@@ -24,7 +24,8 @@
 						<text class="neceWrite">(必填)</text>
 					</view>
 					<view class="right">
-						  <input class="word" type="text" @click.stop.native="choicePerson()" :value="person" placeholder="请选择或者输入受伤员工" placeholder-style="color:#B7BAC4;"/>
+						 <!-- @tap.stop.native -->
+						  <input class="word" type="text" @tap.stop="choicePerson()" :value="person" placeholder="请选择或者输入受伤员工" placeholder-style="color:#B7BAC4;"/>
 						  <image  class="img" src="../../static/image/inter.png"></image>
 					</view>
 					 </view>
@@ -58,7 +59,7 @@
 					</view>
 					<view style="width:620rpx;height:1rpx;background:rgba(229,229,229,1);margin:0 0 28rpx 24rpx;"></view>
 					<view class="uploadimg"   >
-							 <image v-if="!idPhoteUrl"  @click="getidPicture()" class="img" src="../../static/image/pic_upload.png"></image>
+							 <image v-if="!idPhoteUrl"  @tap.stop="getidPicture()" class="img" src="../../static/image/pic_upload.png"></image>
 						     <view v-if="!idPhoteUrl" class="explain">
 								 <view>
 									请上传受伤人员的身份证正面照片
@@ -69,7 +70,7 @@
 						     </view>
 						<view class="IDImg">
 							<image @tap="previewImageID"  v-if="idPhoteUrl" class="img" :src="idPhoteUrl"></image>
-							<image  v-if="idPhoteUrl" @click="delIDImg()" class="cancel"  src="../../static/image/pic_del.png"></image>
+							<image  v-if="idPhoteUrl" @tap.stop="delIDImg" class="cancel"  src="../../static/image/pic_del.png"></image>
 						</view>
 						
 					</view>
@@ -103,7 +104,8 @@
 						<text class="neceWrite">(必填)</text>
 					</view>
 					<view class="right" >
-						<input class="word" type="text" :value="accidentAddress" @click.stop.native="accidPlace()" placeholder="请选择事故地点" placeholder-style="color:#B7BAC4;"/>
+						<!-- click.stop.native -->
+						<input class="word" type="text" :value="accidentAddress" @tap.stop="accidPlace()" placeholder="请选择事故地点" placeholder-style="color:#B7BAC4;"/>
 						<image  class="img" src="../../static/image/inter.png"></image>
 					</view>
 				</view>
@@ -148,14 +150,14 @@
 							<text class="neceWrite">(必填)</text>
 					    </view>
 					    <view  class="right">
-							<view v-if="choiceBody" class="word" @click="injurybodyJump()" >
+							<view v-if="choiceBody" class="word" @tap.stop="injurybodyJump()" >
 								 <view class="list">
 									  <view class="listStyle" v-for="(item,index) in injuryBodyList " :key="index">
 											{{item}}
 									  </view>
 								 </view>
 							</view>
-							<view @click="injurybodyJump()" v-if="!choiceBody" class="word" style="color:#B7BAC4;">请选择受伤的部位(可多选)</view>
+							<view @tap.stop="injurybodyJump" v-if="!choiceBody" class="word" style="color:#B7BAC4;">请选择受伤的部位(可多选)</view>
 							<!-- <input class="word" type="text" :value="choiceBody" placeholder="请选择受伤的部位(可多选)" placeholder-style="color:#B7BAC4;"/> -->
 							<image  class="img" src="../../static/image/inter.png"></image>
 					    </view>
@@ -175,14 +177,14 @@
 								<text class="nece">(必填)</text>
 						</view>
 						<view class="ele-pic">
-							<image v-if="!bodyPhotoUrl" @click="bodyPhoto()" class="img" src="../../static/image/pic_uplloads.png"></image>
+							<image v-if="!bodyPhotoUrl" @tap.stop="bodyPhoto()" class="img" src="../../static/image/pic_uplloads.png"></image>
 							<view class="getPhone" v-else-if="bodyPhotoUrl">
 								<view class="boxImg"   v-for="(item,index) in bodyPhotoUrl" :key="index"> 
-									<image @tap="injuryPreviewImage(index)"  class="img" :src="item"></image>
-									<image @click="delImg(index)" class="cancel"  src="../../static/image/pic_del.png"></image>
+									<image @tap.stop="injuryPreviewImage(index)"  class="img" :src="item"></image>
+									<image @tap.stop="delImg(index)" class="cancel"  src="../../static/image/pic_del.png"></image>
 								</view>
 								
-								<image v-if="bodyPhotoUrl.length>=0 && bodyPhotoUrl.length<9" @click="bodyPhotoAdd()" class="img" src="../../static/image/pic_uplloads.png"></image>
+								<image v-if="bodyPhotoUrl.length>=0 && bodyPhotoUrl.length<9" @tap.stop="bodyPhotoAdd()" class="img" src="../../static/image/pic_uplloads.png"></image>
 							</view>
 						</view>
 					</view>
@@ -200,7 +202,7 @@
 			  :allData="addTreeData"
 			 @onConfirm="hospiAddChoice" themeColor='#007AFF'>	
 		</level-linkage >
-		<button class="subBtn" @click="submit()">提交</button>
+		<button class="subBtn" @tap.stop="submit()">提交</button>
 	</view>
 </template>
 
@@ -451,33 +453,28 @@
 </script>
 
 <style scoped lang="scss">
+	@import "../../static/scss/common.scss";
  .uni-injury{
 	 position: relative;
-	 width:750rpx;
-	 height:auto;
 	 background-color: #e5e5e5;
 	 padding-top:10rpx;
+	 @include w_h(750rpx,auto);
 	 .uni-content{
 		 width:690rpx;
 		 margin-top:10rpx;
 		 margin:0 auto;
 		 .uni-form{
 			 display: block;
-			 height: auto;
-			 width: 690rpx;
+			 @include w_h(690rpx,auto);
 		 }
 		 .uni-form-item{
-			 display: flex;
-			 align-items: center;
-			 font-family: "PingFang-SC-Medium";       
 		 	 height:98rpx;
 			 padding-left:24rpx;
-			 justify-content: space-between;
 			 background:rgba(255,255,255,1);
 			 border-radius:8rpx;
-			 font-size: 28rpx;
-			 color: #303133;
 			 margin-bottom: 12rpx;
+			 @extend %flex-style;
+			 @include  font-style("PingFang-SC-Medium",Medium,28rpx,#303133);
 			 .left{
 				 .neceWrite{
 					 color: #FF0000;
@@ -498,20 +495,15 @@
 					 white-space: nowrap;
 				 }
 				 .img{
-					 width: 12rpx;
-					 height: 20rpx;
 					 margin-left:18rpx;
-					 // position:relative;
-					 // top:2rpx;
+					 @include w_h(12rpx,20rpx);
 				 }
 			 }
 			 .noimg{
 				margin-right:67rpx; 
 			 }
 			 .noimgswitch{
-				 position: relative;
-				 left:30rpx;
-				 
+				   @include  posi_left_top(relative,30rpx,0rpx);
 			 }
 		  }
 		 //身份证重新定义css
@@ -533,14 +525,13 @@
 					   position: absolute;
 						top:-20rpx;
 						right:40rpx;
-						width: 40rpx;
-						height:40rpx;
+						@include w_h(40rpx,40rpx);
+					
 					 }
 				 }
 				.img{
-					width: 620rpx;
-			        height: 390rpx;
 					margin-left:6rpx;
+					@include w_h(620rpx,390rpx);
 				}
 				 .explain{
 					 width:620rpx;
@@ -561,11 +552,11 @@
 				 .list{
 					 display: flex;
 					 justify-content: space-between;
+					 @extend %flex-style-justify;
 					 flex-wrap: wrap;
 					 padding-top:27rpx;
 					 .listStyle{
-						 width:180rpx;
-						 height: 60rpx;
+						 @include w_h(180rpx,60rpx);
 						 line-height: 60rpx;
 						 background:rgba(241,246,255,1);
 						 border:2px solid rgba(65,137,255,1);
@@ -593,8 +584,7 @@
 			 .ele-pic{
 				 padding-top: 53rpx;
 				 .img{
-					 width:200rpx;
-					 height:200rpx;
+					 @include w_h(200rpx,200rpx);
 					 border-radius:10rpx;
 				 }
 				 .getPhone{
@@ -607,14 +597,12 @@
 					 }
 					 .boxImg{
 						 position: relative;
-						 width:200rpx;
-						 height:200rpx;
+						 @include w_h(200rpx,200rpx);
 						 margin-bottom: 24rpx;
 						 margin-right:10rpx;
 					 }
 					 .cancel{
-						 width: 40rpx;
-						 height: 40rpx;
+						 @include w_h(40rpx,40rpx);
 						 position: absolute;
 						 right:0rpx;
 						 top: -10rpx;
@@ -627,8 +615,7 @@
    }
  }
  .subBtn{
-	 width:750rpx;
-	 height:98rpx;
+	 @include w_h(750rpx,98rpx);
 	 line-height:98rpx;
 	 background-color: #125CD4;
 	 font-size: 36rpx;

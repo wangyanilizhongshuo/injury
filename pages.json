@@ -1,24 +1,54 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+		    "path" : "pages/work-bench/police-detail",
+		    "style" : {
+				"navigationBarTitleText": "报案详情"
+			}
+		},
+		{
 		    "path" : "pages/home-page/home-page",
 		    "style" : {
 				// "navigationBarTitleText": "首页",
 				 "navigationStyle":"custom"
-				
 			}
 		},
 		{
-			 "path" : "pages/login/login",
-			 "style" : {
-				 "navigationStyle":"custom"
+		    "path" : "pages/home-page/hotDataDetail",
+		    "style" : {
+				"navigationBarTitleText": "资讯详情"
+				// "navigationBarBackgroundColor":"#fff",
+				// "navigationBarTextStyle":"black"
 			}
-		} 
-		,{
+		},
+		{
+		    "path" : "pages/home-page/hotDataList",
+		    "style" : {
+				 "navigationBarTitleText": "资讯列表"
+				 // "navigationBarBackgroundColor":"#fff",
+				 // "navigationBarTextStyle":"black"
+			}
+		},
+		{
+		    "path" : "pages/home-page/location-search",
+		    "style" : {
+		   	   "navigationStyle":"custom"
+		    }
+		},
+		{
+		    "path" : "pages/home-page/location",
+		    "style" : {
+				 "navigationBarTitleText": "定位选择"
+				 // "navigationBarBackgroundColor":"#fff",
+				 // "navigationBarTextStyle":"black"
+			}
+		},
+		
+		{
 		     "path" : "pages/login/resetLoginPwd",
 		     "style" : {
-		 		"navigationBarBackgroundColor":"#fff",
-		 		"navigationBarTextStyle":"black"
+		 		// "navigationBarBackgroundColor":"#fff",
+		 		// "navigationBarTextStyle":"black"
 		 	}
 		 },
     
@@ -37,9 +67,9 @@
 		{
 		     "path" : "pages/injury-report/injuryChoiceBody",
 		     "style" : {
-		 		"navigationBarTitleText": "受伤部位",
-		 		"navigationBarBackgroundColor":"#fff",
-		 		"navigationBarTextStyle":"black"
+		 		"navigationBarTitleText": "受伤部位"
+		 		// "navigationBarBackgroundColor":"#fff",
+		 		// "navigationBarTextStyle":"black"
 		 	}
 		 }
         ,{
@@ -54,6 +84,16 @@
 				"navigationBarTitleText": "工作台"
 			}
         },
+		{
+			 "path" : "pages/login/login",
+			 "style" : {
+				 // "navigationStyle":"custom",
+				 "navigationBarTitleText": "登录"
+				 // "navigationBarBackgroundColor":"#fff",
+				 // "navigationBarTextStyle":"black"
+			}
+		} 
+		,
 		
 		{
 		     "path" : "pages/login/forgetPassword",
@@ -65,56 +105,43 @@
         ,{
             "path" : "pages/login/phoneVerification",
             "style" : {
-				"navigationBarBackgroundColor":"#fff",
-				"navigationBarTextStyle":"black"
+				"navigationBarBackgroundColor":"#fff"
+				// "navigationBarTextStyle":"black"
 			}
         }
         ,{
             "path" : "pages/login/setLoginPwd",
             "style" : {
-				"navigationBarBackgroundColor":"#fff",
-				"navigationBarTextStyle":"black"
+				"navigationBarBackgroundColor":"#fff"
+				
 			}
         },
 		{
 		    "path" : "pages/login/setVerificateCode",
 		    "style" : {
-				"navigationBarBackgroundColor":"#fff",
-				"navigationBarTextStyle":"black"
+				"navigationBarBackgroundColor":"#fff"
+				
 			}
 		},
+		{
+		    "path" : "pages/work-bench/policeList",
+		    "style" : {
+				"navigationBarTitleText": "报案列表"
+			}
+		}
 		
-		 {
-		     "path" : "pages/home-page/hotDataDetail",
-		     "style" : {
-		 		"navigationBarTitleText": "资讯详情",
-		 		"navigationBarBackgroundColor":"#fff",
-		 		"navigationBarTextStyle":"black"
-		 	}
-		 },
-		 {
-		     "path" : "pages/home-page/hotDataList",
-		     "style" : {
-		 		 "navigationBarTitleText": "资讯列表",
-		 		 "navigationBarBackgroundColor":"#fff",
-		 		 "navigationBarTextStyle":"black"
-		 	}
-		 },
 		
-		 {
-		     "path" : "pages/work-bench/policeList",
-		     "style" : {
-		 		"navigationBarTitleText": "报案列表",
-		 		"navigationBarBackgroundColor":"#fff",
-		 		"navigationBarTextStyle":"black"
-		 	}
-		 }
+		
+		
+		
+		
         
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarBackgroundColor": "#fff",
 		"backgroundColor": "#fff"
+		
 	},
 	"tabBar": {
 			"color" : "#656565",

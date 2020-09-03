@@ -27,16 +27,17 @@
 .uni-homeDataDetail .uni-title.data-v-d44f70e6 {
   width: 714rpx;
   margin: 0 auto;
-  color: #000000;
-  font-size: 42rpx;
-  font-weight: Bold;
   font-family: "PingFang-SC-Bold";
+  font-weight: Bold;
+  font-size: 42rpx;
+  color: #000000;
 }
 .uni-homeDataDetail .uni-time.data-v-d44f70e6 {
   margin: 40rpx 0rpx 36rpx 20rpx;
-  color: #AAAAAA;
-  font-size: 24rpx;
   font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
+  font-size: 24rpx;
+  color: #AAAAAA;
 }
 .uni-homeDataDetail .banner.data-v-d44f70e6 {
   font-size: 0rpx;
@@ -46,8 +47,10 @@
   height: 400rpx;
 }
 .uni-homeDataDetail .uni-content.data-v-d44f70e6 {
-  color: #2B2B2B;
-  font-size: 28rpx;
   margin: 16rpx 18rpx 20rpx;
+  font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
+  font-size: 28rpx;
+  color: #2B2B2B;
 }
 

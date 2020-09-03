@@ -24,33 +24,55 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.uni-msg .login-msg .weixin-login.data-v-b237504c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.uni-msg .login-msg .choice-login.data-v-b237504c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
 .uni-login.data-v-b237504c {
   margin-top: 25px;
 }
 .uni-login .uni-nav.data-v-b237504c {
-  height: 80rpx;
   line-height: 80rpx;
   width: 500rpx;
+  height: 80rpx;
 }
 .uni-login .uni-nav .uni-img.data-v-b237504c {
+  margin-left: 30rpx;
   width: 36rpx;
   height: 36rpx;
-  margin-left: 30rpx;
 }
 .uni-msg.data-v-b237504c {
   width: 630rpx;
-  margin: 110rpx auto 198rpx auto;
+  margin: 110rpx auto 0rpx auto;
 }
 .uni-msg .uni-msg-title.data-v-b237504c {
   margin-bottom: 100rpx;
   position: relative;
 }
 .uni-msg .uni-msg-title .login1.data-v-b237504c {
+  font-family: "PingFang-SC-Bold";
+  font-weight: Bold;
   font-size: 50rpx;
-  font-weight: bold;
   color: #303133;
 }
 .uni-msg .uni-msg-title .login2.data-v-b237504c {
+  font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
   font-size: 34rpx;
   color: #92959A;
 }
@@ -58,8 +80,9 @@
   margin-left: 43rpx;
 }
 .uni-msg .uni-msg-title .register1.data-v-b237504c {
+  font-family: "PingFang-SC-Bold";
+  font-weight: Bold;
   font-size: 50rpx;
-  font-weight: bold;
   color: #303133;
 }
 .uni-msg .uni-msg-title .register2.data-v-b237504c {
@@ -103,28 +126,25 @@
 }
 .uni-msg .login-msg .choice-login.data-v-b237504c {
   width: 630rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
   margin: 33rpx 0rpx 112rpx;
 }
 .uni-msg .login-msg .choice-login .word-style.data-v-b237504c {
   font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
   font-size: 26rpx;
   color: #44464A;
 }
 .uni-msg .login-msg .uni-btn.data-v-b237504c {
-  width: 540rpx;
   margin: 0 auto;
-  height: 90rpx;
   line-height: 90rpx;
   border-radius: 45rpx;
+  text-align: center;
+  width: 540rpx;
+  height: 90rpx;
+  font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
   font-size: 36rpx;
   color: #FFFFFF;
-  text-align: center;
 }
 .uni-msg .login-msg .unibtn2.data-v-b237504c {
   background-color: #D1E0FF;
@@ -145,17 +165,11 @@
 }
 .uni-msg .login-msg .weixin-login.data-v-b237504c {
   width: 150rpx;
-  margin: 150rpx auto 100rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
+  margin: 150rpx auto 50rpx;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
 }
 .uni-msg .login-msg .weixin-login .img.data-v-b237504c {
   width: 78rpx;
@@ -177,10 +191,12 @@
 }
 .uni-msg .register-msg .uni-input .in-Sty86.data-v-b237504c {
   position: absolute;
-  top: 0rpx;
   left: 20rpx;
-  color: #010101;
+  top: 0rpx;
+  font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
   font-size: 30rpx;
+  color: #010101;
 }
 .uni-msg .register-msg .uni-input .img.data-v-b237504c {
   width: 30rpx;
@@ -195,12 +211,14 @@
 }
 .uni-msg .register-msg .next-btn .next-jump.data-v-b237504c {
   width: 540rpx;
-  margin: 0 auto;
   height: 90rpx;
-  line-height: 90rpx;
-  border-radius: 45rpx;
+  font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
   font-size: 36rpx;
   color: #fff;
+  margin: 0 auto;
+  line-height: 90rpx;
+  border-radius: 45rpx;
   text-align: center;
 }
 .uni-msg .register-msg .next-btn .next-jump2.data-v-b237504c {

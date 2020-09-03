@@ -4,13 +4,6 @@
 			<navigation-custom class="navigationCustom" style="background-color: red;"  :config="config"  @customConduct="customConduct" :scrollMaxHeight="scrollMaxHeight"/>
 			 <!-- <view class="gettAddress"   :style="{height:naviHeight+'rpx'}">
 			 </view> -->
-			<!-- <view class="gettAddress"   :style="{height:naveHeight+'px'}">
-				 <view class="uni-add-box" :style="{height:naveHeight+'px'}" > 
-					 <image class="image" src="../../static/image/location.png" ></image>
-			        
-					 <text class="uni-text"> 浙江省杭州市江干区</text>
-				</view> 
-			 </view> -->
 			<view class="uni-up">
 				<view class="first up-style">
 					<view class="first-input">
@@ -84,7 +77,7 @@
 					   <text >热点资讯</text>
 					   <image class="img-right" src="../../static/image/decorate2.png"></image>
 					</view>
-					<view class="right" @click="dataListJump()">查看更多>></view>
+					<view class="right" @tap.stop="dataListJump()">查看更多>></view>
 				</view>
 				<view class="hot-content">
 					<view class="bgp">
@@ -92,7 +85,7 @@
 						 <view class="word">签订定金协议有哪些注意事项</view>
 					</view>
                     <view class="list-content" v-for="i in loop" :key="i">
-						 <view class="list" @click="dataDetaiJump()">
+						 <view class="list" @tap.stop="dataDetaiJump()">
 							 <view class="word">签订定金协议时为减少纠纷和避免不必要的经济损失的发生，主要应注意以下几方面问题,定金协议是主...</view>
 						     <image class="img" src="../../static/image/news_pic.png"></image>
 						 </view>
@@ -103,6 +96,7 @@
 	</view>
 </template>
 <script>
+	// https://ext.dcloud.net.cn/plugin?id=464
 	import navigationCustom from "@/components/struggler-navigationCustom/navigation-custom.vue"
 	export default {
 		data() {
@@ -111,20 +105,20 @@
 				loop:4,
 				loginFlag:false,
 				naviHeight:'',
-				 config:{
-				                    title:"我是标题我是标题我是标题", //title
-				                    bgcolor:"#1159D2", //背景颜色
-				                    // fontcolor:"red", //文字颜色，默认白色
-				                    type:3, //type 1，3胶囊 2，4无胶囊模式
-				                    transparent:true, //是否背景透明 默认白色
-				                    linear:true, //是为开启下滑渐变
-				                    share:true, //是否将主页按钮显示为分享按钮
-				                     menuIcon:"../../static/image/location.png", 
-									 // 当type为3或者4的时候左边的icon文件位置，注意位置与当前页面不一样
-				                    //menuText:"返回", 当type为3或4的时候icon右边的文字
-				                },
-				                scrollTop:0 ,// 当linear为true的时候需要通过onpagescroll传递参数
-				                scrollMaxHeight:200 //滑动的高度限制，超过这个高度即背景全部显示
+				config:{
+						title:"我是标题我是标题我是标题", //title
+						bgcolor:"#1159D2", //背景颜色
+						// fontcolor:"red", //文字颜色，默认白色
+						type:3, //type 1，3胶囊 2，4无胶囊模式
+						transparent:true, //是否背景透明 默认白色
+						linear:true, //是为开启下滑渐变
+						share:true, //是否将主页按钮显示为分享按钮
+						menuIcon:"/static/image/location.png", 
+						 // 当type为3或者4的时候左边的icon文件位置，注意位置与当前页面不一样
+						//menuText:"返回", 当type为3或4的时候icon右边的文字
+				},
+					scrollTop:0 ,// 当linear为true的时候需要通过onpagescroll传递参数
+					scrollMaxHeight:200 //滑动的高度限制，超过这个高度即背景全部显示
 			}
 		},
 		components: { 
@@ -134,18 +128,16 @@
 		    
 		},
 		onLoad(){
-			 this.getdata();
-		},
-		  
+			this.$nextTick(()=>{
+			})
+		}, 
 		methods: {
+			// 定位 页面跳转 
 			 customConduct(){
-				
-				
+				 uni.navigateTo({
+				 	url:'/pages/home-page/location'
+				 })
 			 },
-			 // 获取navigation的高度
-			getdata(){
-				
-			},
 			//咨询列表页面
 			dataListJump(){
 				uni.navigateTo({
@@ -158,12 +150,12 @@
 					url:'./hotDataDetail'
 				})
 			}
-			
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
+@import "../../static/scss/common.scss";
 .uni-home{
 	width: 750rpx;
 }
@@ -176,46 +168,33 @@
 		  .first-input{
 			  position: relative;
 			  .img{
-				  width:20rpx;
-				  height:20rpx;
-				  position: absolute;
-				  top:31rpx;
-				  right:29rpx
+				  @include w_h(20rpx,20rpx);
+				  @include  posi_left_top(absolute,29rpx,31rpx)
 			  }
 		  }
 		}
 		.up-style{
-			display: flex;
 			width:625rpx;
 			margin-left:30rpx;
-			justify-content: space-between;
 			margin-bottom: 25rpx;
+			@extend %flex-style-justify;
 			.uni-input{
-				width:500rpx;
-				height:80rpx;
 				background:rgba(255,255,255,1);
 				box-shadow:0px 17px 13px 0px rgba(1,68,181,0.6);
 				border-radius:6px;
 				text-align: center;
-				font-family: "PingFang-SC-Medium";
-				color:#0061E5;
-				font-size: 34rpx;
+				@include w_h(500rpx,80rpx);
+				@include  font-style("PingFang-SC-Medium",Medium,34rpx,#0061E5);
 			}
 			.right{
-				display: flex;
+				@extend %flex-style;
+				@include w_h(80rpx,80rpx);
 				flex-direction: column;
-				width:80rpx;
-				height: 80rpx;
-				justify-content: space-between;
-				align-items: center;
 				.img{
-					width:42rpx;
-					height:42rpx;
+					@include w_h(42rpx,42rpx);
 				}
 				.word-login{
-					font-size:20rpx;
-					color:#fff ;
-					font-family: "PingFang-SC-Medium";
+					@include  font-style("PingFang-SC-Medium",Medium,20rpx,#fff);
 				}
 			}
 		}
@@ -224,13 +203,10 @@
 		margin-top:15rpx;
 		height:157rpx;
 		.img{
-			height:157rpx;
-			width: 750rpx;
+			@include w_h(750rpx,157rpx);
 			.con-pic{
-				width:260rpx;
-				height: 200rpx;
+				@include w_h(260rpx,200rpx);
 			}
-			
 		}
 	}
 }
@@ -239,35 +215,26 @@
 	.uni-title-style{
 	 	width: 650rpx;
 	 	margin:0 auto;
-	 	display: flex;
-	 	justify-content: space-between;
+		@extend %flex-style-justify;
 	 	position: relative;
 	 	.left{
-	 		font-family: "PingFang-SC-Bold";
-	 		font-weight: bold;
-	 		color: #2B2B2B;
-	 		font-size: 36rpx;
+			@include  font-style("PingFang-SC-Bold",Bold,36rpx,#2B2B2B);
 	 		.img-left{
-	 			width:50rpx;
-	 			height:40rpx;
-	 			position:absolute;
+				@include w_h(50rpx,40rpx);
 	 			z-index: -1;
-	 			left:-26rpx;
+				@include posi_left_top(absolute,-26rpx,0);
+				
 	 		}
 	 		.img-right{
 	 			position:relative;
 	 			z-index: -1;
-	 			width: 14rpx;
-	 			height: 14rpx;
 	 			bottom:-6rpx;
+				@include w_h(14rpx,14rpx);
 	 			
 	 		}
 	 	}
 	    .right{
-	 		font-family: "PingFang-SC-Medium";
-	 		font-weight: Medium;
-	 		color: #AAAAAA;
-	 		font-size: 28rpx;
+			@include  font-style("PingFang-SC-Medium",Medium,28rpx,#AAAAAA);
 	 	}
     }
 	//推荐
@@ -280,32 +247,21 @@
 			   .con-list{
 				width: 650rpx;
 				margin:20rpx auto;
-				display: flex;
-				justify-content: space-between;
+				@extend %flex-style-justify;
 				.con-pic{
-					width: 260rpx;
-					height:200rpx;
+					@include w_h(260rpx,260rpx);
 				}
 				.right{
 					width:360rpx;
-					display: flex;
+					@extend %flex-style-justify;
 					flex-direction: column;
-					justify-content: space-between;
 					.up{
-						font-weight: Bold;
-						color:#2B2B2B;
-						font-size: 36rpx;;
+						@include font-style("PingFang-SC-Medium",Bold,36rpx,#2B2B2B);
 					}
 					.down{
 						width: 360rpx;
-						// height:64rpx;
-						color: #AAA;
-						font-size: 24rpx;
-						display: -webkit-box;
-						-webkit-box-orient: vertical;
-						-webkit-line-clamp: 2;
-						overflow: hidden;
-						
+						@include  dh_ellipsis(2);
+						@include font-style("PingFang-SC-Medium",Medium,24rpx,#AAA);
 					}
 				}
 			  }
@@ -325,22 +281,18 @@
 				margin:0rpx auto 30rpx auto;
 				font-size: 0rpx;
 			  .hot-banner{
-				// display: block;
-				width:690rpx;
-				height:300rpx;
+				@include w_h(690rpx,300rpx);
 	          }
 			  .word{
-				 width: 690rpx;
-				 height: 68rpx;
+				 @include w_h(690rpx,68rpx);
 				 line-height: 68rpx;
-				 font-size: 30rpx;
 				 background-color: #000;
 				 opacity:0.5;
 				 border-radius: 10rpx;
 				 position: absolute;
 				 bottom:0rpx;
-				 color:#fff;
 				 text-indent: 20rpx; 
+				 @include font-style("PingFang-SC-Medium",Medium,30rpx,#fff);
 			 }
 		      }
 		    .list-content{
@@ -348,22 +300,14 @@
 				 .list{
 					 width: 645rpx;
 					 margin:26rpx auto;
-					 display: flex;
-					 justify-content: space-between;
-					 align-items: center;
+					 @extend %flex-style;
 					 .word{
-						 color:#2B2B2B;
-						 font-size: 28rpx;
-						 font-family: "PingFang-SC-Medium";
 						 width: 360rpx;
-						 display: -webkit-box;
-						 -webkit-box-orient: vertical;
-						 -webkit-line-clamp: 4;
-						 overflow: hidden;
+						 @include font-style("PingFang-SC-Medium",Medium,28rpx,#2B2B2B);
+						 @include  dh_ellipsis(4)
 					 }
 					 .img{
-						 width:230rpx;
-						 height:160rpx;
+						 @include w_h(230rpx,160rpx);
 					 }
 				 }
 			}

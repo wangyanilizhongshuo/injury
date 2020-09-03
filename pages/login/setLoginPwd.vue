@@ -11,7 +11,7 @@
 				<input v-model="repassword" class="re-phone" type="text" password="true" placeholder="请设置您的登录密码"  placeholder-style="color:#B7BAC4;font-size:30rpx;"  />	
 			</view>
 			<view class="uni-jump">
-				<view :class="(password || repassword)?'nextJump2':'nextJump1'" class="next-jump" @click="jump()">注册</view>
+				<view :class="(password || repassword)?'nextJump2':'nextJump1'" class="next-jump" @tap.stop="jump()">注册</view>
 			</view>
 		</view>
 	</view>

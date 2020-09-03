@@ -1,19 +1,22 @@
 {
   "pages": [
+    "pages/work-bench/police-detail",
     "pages/home-page/home-page",
-    "pages/login/login",
+    "pages/home-page/hotDataDetail",
+    "pages/home-page/hotDataList",
+    "pages/home-page/location-search",
+    "pages/home-page/location",
     "pages/login/resetLoginPwd",
     "pages/index/index",
     "pages/injury-report/injury-report",
     "pages/injury-report/injuryChoiceBody",
     "pages/insurance-scheme/insurance-scheme",
     "pages/work-bench/work-bench",
+    "pages/login/login",
     "pages/login/forgetPassword",
     "pages/login/phoneVerification",
     "pages/login/setLoginPwd",
     "pages/login/setVerificateCode",
-    "pages/home-page/hotDataDetail",
-    "pages/home-page/hotDataList",
     "pages/work-bench/policeList"
   ],
   "subPackages": [],
@@ -65,5 +68,6 @@
       "desc": "你的位置将作为我们的依据对其进行访问"
     }
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap5.json"
 }

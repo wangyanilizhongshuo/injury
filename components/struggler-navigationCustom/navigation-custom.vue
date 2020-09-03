@@ -23,8 +23,10 @@
 				<text class="custom-describe">{{config.menuText}}</text>
 			</view>
 			<!-- title -->
-			<view class="navigation-bar-title" :style="'margin-top:'+marginTop+';color:'+config.fontcolor">{{config.title}}
-			<image style="width:20rpx;height:20rpx;position: absolute;right:5rpx;top:25rpx;" src="../../static/image/location_sel.png"></image>
+			<view class="navigation-bar-title" @click="conduct_" :style="'margin-top:'+marginTop+';color:'+config.fontcolor">{{config.title}}
+			<!-- <image style="width:20rpx;height:20rpx;position: absolute;right:5rpx;top:25rpx;" src="../../static/image/location_sel.png"></image> -->
+			<!-- <image style="width:20rpx;height:20rpx;position: absolute;right:5rpx;top:25rpx;" src="../../static/image/location_sel.png"></image> -->
+			<image @click="conduct_" style="width:20rpx;height:20rpx;position: absolute;right:5rpx;top:25rpx;" src="../../static/image/location_sel.png"></image>
 			</view>
 			<!-- linear background -->
 			

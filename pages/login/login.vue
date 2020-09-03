@@ -5,7 +5,7 @@
 		 </view>
 		 <view class="uni-msg">
 			  <view class="uni-msg-title">
-				  <text  :class="type ==='login'? 'login1':'login2'"  @click="switchTab('login')">登录
+				  <text  :class="type ==='login'? 'login1':'login2'"  @tap.stop="switchTab('login')">登录
 				  </text>
 				  <text :class="type ==='register'? 'register1':'register2'" class="register" @click="switchTab('register')">注册</text>
 				  <text :class="type ==='login'? 'line1':'line2'"   class="line"></text>
@@ -15,14 +15,14 @@
 			  <view class="login-msg" v-if="type==='login'" >
 				  <view class="uni-input">
 					  <input v-model="phone" class="username inStyle" type="text"   placeholder="请输入您的账号" @input='inputPhone' placeholder-style="color:#B7BAC4;font-size:30rpx;"  />
-				      <image  v-if="phone" class="img" @click="loginclearPhone()" src="../../static/image/del_icon.png"></image>
+				      <image  v-if="phone" class="img" @tap.stop="loginclearPhone()" src="../../static/image/del_icon.png"></image>
 				  </view>
 				  <view class="uni-input">
 					 <input v-model="password" class="passWord inStyle" password="true"  type="text"  placeholder="请输入您的密码" placeholder-style="color:#B7BAC4;font-size:30rpx;" /> 
 				  </view>
 				  <view class="choice-login">
-					  <text class="word-style" @click="phoneVerifi()">手机验证码登录</text>
-					  <text class="word-style" @click="forPwd()" >忘记密码</text>
+					  <text class="word-style" @tap.stop="phoneVerifi()">手机验证码登录</text>
+					  <text class="word-style" @tap.stop="forPwd()" >忘记密码</text>
 				  </view>
 				  <view :class="(phone||password)?'unibtn1':'unibtn2'" class="uni-btn">
 					  登录
@@ -39,13 +39,13 @@
 				  </view>
 			  </view>
 			  <view class="register-msg" v-else-if="type==='register'">
-               <view class="uni-input" @click="loginclearPhone()">
+               <view class="uni-input" @tap.stop="loginclearPhone()">
                		 <input v-model="phone" class="reg-phone" type="text"   placeholder="请输入您的账号" @input='inputPhone' placeholder-style="color:#B7BAC4;font-size:30rpx;"  />
                      <text class="in-Sty86">+86</text>
-					 <image  v-if="phone" class="img" @click="loginclearPhone()" src="../../static/image/del_icon.png"></image>
+					 <image  v-if="phone" class="img" @tap.stop="loginclearPhone" src="../../static/image/del_icon.png"></image>
 			   </view>
 			   <view class="next-btn">
-				    <view :class="phone?'next-jump1':'next-jump2'" @click="jumps()" class="next-jump">下一步</view>
+				    <view :class="phone?'next-jump1':'next-jump2'" @tap.stop="jumps" class="next-jump">下一步</view>
 			   </view>
 			   <view class="protocol">
 				   <text class="left">点击"下一步"即同意</text>
@@ -113,44 +113,38 @@
 </script>
 
 <style scoped lang="scss">
+	@import "../../static/scss/common.scss";
  .uni-login{
 	margin-top:var(--status-bar-height);
 	// 导航
 	.uni-nav{
-		  height:80rpx;
 		  line-height: 80rpx;
-		  width:500rpx;
+		   @include w_h(500rpx,80rpx);
 		  .uni-img{
-			  width: 36rpx;
-			  height: 36rpx;
 			  margin-left:30rpx;
+			  @include w_h(36rpx,36rpx);
 		  }
 	 }
  }
   // 登录注册信息开始
   .uni-msg{
 	  width:630rpx;
-	  margin: 110rpx auto 198rpx auto ;
+	  margin: 110rpx auto 0rpx auto ;
 	  // title
 	  .uni-msg-title{
 		  margin-bottom:100rpx;
 		  position: relative;
 		  .login1{
-			  font-size: 50rpx;
-			  font-weight: bold;
-			  color:#303133;
+			  @include  font-style("PingFang-SC-Bold",Bold,50rpx,#303133);
 		  }
 		  .login2{
-			   font-size: 34rpx;
-			   color:#92959A;
+			   @include  font-style("PingFang-SC-Medium",Medium,34rpx,#92959A);
 		  }
 		  .register{
 			   margin-left:43rpx;
 		  }
 		  .register1{
-			  font-size: 50rpx;
-			  font-weight: bold;
-			  color:#303133;
+			  @include  font-style("PingFang-SC-Bold",Bold,50rpx,#303133);
 		  }
 		  .register2{
 		  	  font-size: 34rpx;
@@ -159,8 +153,7 @@
 		  .line{
 			  position: absolute;
 			  bottom: 0rpx;
-			  width:110rpx;
-			  height:16rpx;
+			  @include w_h(110rpx,16rpx);
 			  background:linear-gradient(90deg,rgba(18,92,212,1) 0%,rgba(34,165,255,0) 100%);
 			  border-radius:2rpx;
 		  }
@@ -186,8 +179,7 @@
 				   margin-top:72rpx;
 			  }
 			  .img{
-				  width: 30rpx;
-				  height:30rpx;
+				  @include w_h(30rpx,30rpx);
 				  position: absolute;
 				  right:0rpx;
 				  bottom:36rpx;
@@ -196,24 +188,19 @@
 		  }
 		  .choice-login{
 			  width:630rpx;
-			  display: flex;
-			  justify-content: space-between;
 			  margin: 33rpx 0rpx 112rpx;
+			  @extend %flex-style-justify;
 			  .word-style{
-				  font-family: "PingFang-SC-Medium";
-				  font-size: 26rpx;
-				  color:#44464A;
+				  @include  font-style("PingFang-SC-Medium",Medium,26rpx,#44464A); 
 			  }
 		  }
 		  .uni-btn{
-			  width: 540rpx;
               margin :0 auto;
-			  height:90rpx;
 			  line-height:90rpx;
 			  border-radius:45rpx;
-			  font-size: 36rpx;
-			  color: #FFFFFF;
 			  text-align: center;
+			  @include w_h(540rpx,90rpx);
+			  @include  font-style("PingFang-SC-Medium",Medium,36rpx,#FFFFFF);
 		  }
 		  .unibtn2{
 			   background-color:#D1E0FF;
@@ -235,13 +222,11 @@
 		  //微信登录的样式
 		  .weixin-login{
 			  width: 150rpx;
-			  margin: 150rpx auto 100rpx;
-			  display: flex;
+			  margin: 150rpx auto 50rpx;
+			  @extend %flex-style;
 			  flex-direction: column;
-			  align-items: center;
-			  .img{
-				  width: 78rpx;
-				  height: 78rpx;
+			  .img{ 
+				  @include w_h(78rpx,78rpx);
 				  margin-bottom: 31rpx;
 			  }
 			  .word{
@@ -265,15 +250,12 @@
 				 margin-bottom:25rpx;
 			 }
 			 .in-Sty86{
-				 position: absolute;
-				 top:0rpx;
-				 left:20rpx;
-				 color:#010101;
-				 font-size: 30rpx; 
+				 @include  posi_left_top(absolute,20rpx,0rpx);
+				 @include  font-style("PingFang-SC-Medium",Medium,30rpx,#010101);
+				 
 			 }
 			 .img{
-				 width: 30rpx;
-				 height:30rpx;
+				 @include w_h(30rpx,30rpx);
 				 position: absolute;
 				 right:0rpx;
 				 top:0rpx;
@@ -283,13 +265,11 @@
           .next-btn{
 			  margin:64rpx auto 27rpx;
 			  .next-jump{
-				  width:540rpx;
+				  @include w_h(540rpx,90rpx);
+				  @include  font-style("PingFang-SC-Medium",Medium,36rpx,#fff);
 				  margin:0 auto;
-				  height:90rpx;
 				  line-height:90rpx;
 				  border-radius:45rpx;
-				  font-size: 36rpx;
-				  color:#fff;
 				  text-align: center;
 			  }
 			  .next-jump2{

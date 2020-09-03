@@ -24,6 +24,17 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.uni-hotData .list-content .list.data-v-1d7aea5a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
 .uni-hotData .bgp.data-v-1d7aea5a {
   width: 690rpx;
   position: relative;
@@ -38,14 +49,16 @@
   width: 690rpx;
   height: 68rpx;
   line-height: 68rpx;
-  font-size: 30rpx;
   background-color: #000;
   opacity: 0.5;
   border-radius: 10rpx;
   position: absolute;
   bottom: 0rpx;
-  color: #fff;
   text-indent: 20rpx;
+  font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
+  font-size: 30rpx;
+  color: #fff;
 }
 .uni-hotData .list-content.data-v-1d7aea5a {
   border-bottom: 1rpx solid #eee;
@@ -53,25 +66,17 @@
 .uni-hotData .list-content .list.data-v-1d7aea5a {
   width: 645rpx;
   margin: 26rpx auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
 }
 .uni-hotData .list-content .list .word.data-v-1d7aea5a {
-  color: #2B2B2B;
-  font-size: 28rpx;
-  font-family: "PingFang-SC-Medium";
   width: 398rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   overflow: hidden;
+  font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
+  font-size: 28rpx;
+  color: #2B2B2B;
 }
 .uni-hotData .list-content .list .img.data-v-1d7aea5a {
   width: 230rpx;

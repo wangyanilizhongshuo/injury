@@ -760,7 +760,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1696,15 +1696,520 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 141:
-/*!**************************************************************************!*\
-  !*** C:/Users/19217/Desktop/work/injury/components/e-picker/e-picker.js ***!
-  \**************************************************************************/
+/***/ 11:
+/*!**********************************************************!*\
+  !*** C:/Users/19217/Desktop/works/injury/common/ajax.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _util = _interopRequireDefault(__webpack_require__(/*! ./util.js */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var siteroot = "";
+if (true) {
+  // 开发环境
+  // siteroot="https://test.china-matcha.com";
+} else {}
+var api_root = siteroot + '/api/';
+//token放在信息中
+var request = {
+  /**
+                   * 显示成功提示框
+                   */
+  showSuccess: function showSuccess(msg, callback) {
+    uni.showToast({
+      title: msg,
+      icon: 'success',
+      mask: true,
+      duration: 1500,
+      success: function success() {
+        callback && setTimeout(function () {
+          callback();
+        }, 1500);
+      } });
+
+  },
+  /**
+      * 显示失败提示框
+      */
+  showError: function showError(msg, callback) {
+    uni.showModal({
+      title: '友情提示',
+      content: msg,
+      showCancel: false,
+      success: function success(res) {
+        callback && callback();
+      } });
+
+  },
+  /**
+      * 执行用户登录
+     */
+  doLogin: function doLogin() {
+    // 跳转授权页面
+    uni.navigateTo({
+      url: "/pages/login/index/index" });
+
+  },
+  /**
+      *get请求
+     */
+  _get: function _get(url, data, _success, _fail, _complete) {
+    uni.showNavigationBarLoading();
+    var _this = this;
+    // 构造请求参数
+    data = data || {};
+    // 构造get请求
+    var request = function request() {
+      uni.request({
+        url: api_root + url,
+        header: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + uni.getStorageSync('token') },
+
+        data: data,
+        success: function success(res) {
+          if ((res.statusCode !== 200 || typeof res.data !== 'object') && res.statusCode !== 401 && res.statusCode !== 402 && res.statusCode !== 201 && res.statusCode !== 400 && res.statusCode !== 403 && res.statusCode !== 503 && res.statusCode !== 422) {
+            _this.showError('您的网络开小差了，请重试');
+            return false;
+          }
+          if (res.statusCode === 401) {
+            // 登录态失效, 重新登录
+            uni.hideNavigationBarLoading();
+            _this.doLogin();
+          } else if (res.statusCode === 402) {
+            _this.showError(res.data.err_msg, function () {
+              // 跳转授权页面
+              uni.navigateTo({
+                url: "/pages/login/login" });
+
+            });
+          } else if (res.statusCode === 400) {
+            _this.showError(res.data.err_msg, function () {
+              _fail && _fail(res);
+            });
+            return false;
+          } else if (res.statusCode === 503 || res.statusCode === 403) {
+            _success && _success(res);
+          } else {
+            _success && _success(res.data);
+          }
+        },
+        fail: function fail(res) {
+          console.log(res);
+          _this.showError(res.errMsg, function () {
+            _fail && _fail(res);
+          });
+        },
+        complete: function complete(res) {
+          uni.hideNavigationBarLoading();
+          _complete && _complete(res);
+        } });
+
+    };
+    request();
+  },
+  /**
+      *post请求
+     */
+  _post: function _post(url, data, _success2, _fail2, _complete2, isShowNavBarLoading) {
+    var _this = this;
+    isShowNavBarLoading || true;
+    // 在当前页面显示导航条加载动画
+    if (isShowNavBarLoading == true) {
+      uni.showNavigationBarLoading();
+    }
+    uni.request({
+      url: api_root + url,
+      header: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + uni.getStorageSync('token') },
+
+      method: 'POST',
+      data: data,
+      success: function success(res) {
+        if ((res.statusCode !== 200 || typeof res.data !== 'object') && res.statusCode !== 402 && res.statusCode !== 401 && res.statusCode !== 201 && res.statusCode !== 400 && res.statusCode !== 422) {
+          _this.showError('您的网络开小差了，请重试');
+          return false;
+        }
+        if (res.statusCode === 401) {
+          // 登录态失效, 重新登录
+          _this.doLogin();
+          return false;
+        } else if (res.statusCode === 402) {
+          _this.showError(res.data.err_msg, function () {
+            // 跳转授权页面
+            uni.navigateTo({
+              url: "/pages/login/login" });
+
+          });
+          return false;
+        } else if (res.statusCode === 400) {
+          _this.showError(res.data.err_msg, function () {
+            _fail2 && _fail2(res);
+          });
+          return false;
+        } else if (res.statusCode === 422) {
+          _this.showError(res.data.err_msg, function () {
+            _fail2 && _fail2(res);
+          });
+          return false;
+        }
+        _success2 && _success2(res.data);
+      },
+      fail: function fail(res) {
+        _this.showError(res.errMsg, function () {
+          _fail2 && _fail2(res);
+        });
+      },
+      complete: function complete(res) {
+        uni.hideNavigationBarLoading();
+        _complete2 && _complete2(res);
+      } });
+
+  },
+  /**
+      *put请求
+     */
+  _put_form: function _put_form(url, data, _success3, _fail3, _complete3, isShowNavBarLoading) {
+    var _this = this;
+    isShowNavBarLoading || true;
+    // 在当前页面显示导航条加载动画
+    if (isShowNavBarLoading == true) {
+      uni.showNavigationBarLoading();
+    }
+    uni.request({
+      url: api_root + url,
+      header: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + uni.getStorageSync('token') },
+
+      method: 'PUT',
+      data: data,
+      success: function success(res) {
+        if ((res.statusCode !== 200 || typeof res.data !== 'object') && res.statusCode !== 402 && res.statusCode !== 401 && res.statusCode !== 201 && res.statusCode !== 400) {
+          _this.showError('您的网络开小差了，请重试');
+          return false;
+        }
+        if (res.statusCode === 401) {
+          // 登录态失效, 重新登录
+          _this.doLogin();
+          return false;
+        } else if (res.statusCode === 402) {
+          _this.showError(res.data.err_msg, function () {
+            // 跳转授权页面
+            uni.navigateTo({
+              url: "/pages/login/login" });
+
+          });
+        } else if (res.statusCode === 400) {
+          _this.showError(res.data.err_msg, function () {
+            _fail3 && _fail3(res);
+          });
+          return false;
+        }
+        _success3 && _success3(res.data);
+      },
+      fail: function fail(res) {
+        _this.showError(res.data.err_msg, function () {
+          _fail3 && _fail3(res);
+        });
+      },
+      complete: function complete(res) {
+        uni.hideNavigationBarLoading();
+        _complete3 && _complete3(res);
+      } });
+
+  },
+  _delete: function _delete(url, data, _success4, _fail4, _complete4) {
+    uni.showNavigationBarLoading();
+    var _this = this;
+    // 构造请求参数
+    data = data || {};
+    // 构造get请求
+    var request = function request() {
+      uni.request({
+        url: api_root + url,
+        header: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + uni.getStorageSync('token') },
+
+        method: 'DELETE',
+        data: data,
+        success: function success(res) {
+          if ((res.statusCode !== 200 || typeof res.data !== 'object') && res.statusCode !== 402 && res.statusCode !== 401 && res.statusCode !== 201 && res.statusCode !== 400) {
+            _this.showError('您的网络开小差了，请重试');
+            return false;
+          }
+          if (res.statusCode === 401) {
+            // 登录态失效, 重新登录
+            uni.hideNavigationBarLoading();
+            _this.doLogin();
+          } else if (res.statusCode === 402) {
+            _this.showError(res.data.err_msg, function () {
+              // 跳转授权页面
+              uni.navigateTo({
+                url: "/pages/login/wxlogin" });
+
+            });
+          } else if (res.statusCode === 400) {
+            _this.showError(res.data.err_msg, function () {
+              _fail4 && _fail4(res);
+            });
+            return false;
+          } else {
+            _success4 && _success4(res.data);
+          }
+        },
+        fail: function fail(res) {
+          _this.showError(res.errMsg, function () {
+            _fail4 && _fail4(res);
+          });
+        },
+        complete: function complete(res) {
+          uni.hideNavigationBarLoading();
+          _complete4 && _complete4(res);
+        } });
+
+    };
+    // 判断是否需要验证登录
+    request();
+  },
+  /**
+     * 当前用户id
+     */
+  getUserId: function getUserId() {
+    return uni.getStorageSync('invite_id');
+  },
+  /**
+     * 生成转发的url参数
+     */
+  getShareUrlParams: function getShareUrlParams(params) {
+    var _this = this;
+    return _util.default.urlEncode(Object.assign({
+      invite_id: _this.getUserId() },
+    params));
+  },
+  /**
+     * 发起微信支付
+     */
+  wxPayment: function wxPayment(option) {
+    var options = Object.assign({
+      result: {},
+      success: function success() {},
+      fail: function fail() {},
+      complete: function complete() {} },
+    option);
+    uni.requestPayment({
+      'timeStamp': options.result.timeStamp,
+      'nonceStr': options.result.nonceStr,
+      'package': options.result.package,
+      'signType': options.result.signType,
+      'paySign': options.result.paySign,
+      success: function success(res) {
+        options.success(res);
+      },
+      fail: function fail(res) {
+        options.fail(res);
+      },
+      complete: function complete(res) {
+        options.complete(res);
+      } });
+
+  } };var _default =
+
+
+request;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 12:
+/*!**********************************************************!*\
+  !*** C:/Users/19217/Desktop/works/injury/common/util.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * 工具类
+ */
+var minute = 1000 * 60;
+var hour = minute * 60;
+var day = hour * 24;
+var halfamonth = day * 15;
+var month = day * 30;
+module.exports = {
+
+  //   * 对象转URL
+  urlEncode: function urlEncode(data) {
+    var _result = [];
+    for (var key in data) {
+      var value = data[key];
+      if (value.constructor == Array) {
+        value.forEach(function (_value) {
+          _result.push(key + "=" + _value);
+        });
+      } else {
+        _result.push(key + '=' + value);
+      }
+    }
+    return _result.join('&');
+  } };
+
+/***/ }),
+
+/***/ 174:
+/*!***************************************************************************!*\
+  !*** C:/Users/19217/Desktop/works/injury/components/e-picker/e-picker.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 function getDayArr(e, t) {for (var r = e % 4 == 0 && e % 100 != 0 && e % 400 != 0, a = [31, r ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], n = [], o = 0; o < a[t - 1]; o++) {n.push(fmt(o + 1) + "日");}return n;}function getArr(e) {var t = [],r = 1,a = 13,n = "月";e > 2 && (r = 0, 3 == e && (a = 24, n = "时"), e > 3 && (a = 60, 4 == e && (n = "分"), 5 == e && (n = "秒")));for (var o = r; o < a; o++) {t.push(fmt(o) + n);}return t;}function fmt(e) {return e > 9 ? e : "0" + e;}function checkShowValue(e, t) {if ("date" != e && "dateTime" != e && "time" != e) throw Error("mode无" + e + "该选项配置");if ("date" == e && 10 != t.length || "time" == e && 8 != t.length || "dateTime" == e && 19 != t.length) throw Error("'showValue'有误，请根据当前mode 正确设置格式");}function getDateTimeValue(e, t) {var r = fmt(parseInt(e[0])),a = fmt(parseInt(e[1])),n = fmt(parseInt(e[2])),o = fmt(parseInt(e[3])),m = fmt(parseInt(e[4])),u = fmt(parseInt(e[5]));return "date" == t ? r + "-" + a + "-" + n : "dateTime" == t ? r + "-" + a + "-" + n + " " + o + ":" + m + ":" + u : r + ":" + a + ":" + n;}function getLocalTime(e) {var t = new Date();switch (e) {case "dateTime":return t.getFullYear() + "-" + fmt(t.getMonth() + 1) + "-" + fmt(t.getDate()) + " " + fmt(t.getHours()) + ":" + fmt(t.getMinutes()) + ":" + fmt(t.getSeconds());case "time":return fmt(t.getHours()) + ":" + fmt(t.getMinutes()) + ":" + fmt(t.getSeconds());default:return t.getFullYear() + "-" + fmt(t.getMonth() + 1) + "-" + fmt(t.getDate());}}Object.defineProperty(exports, "__esModule", { value: !0 }), exports.getDayArr = getDayArr, exports.getArr = getArr, exports.checkShowValue = checkShowValue, exports.getDateTimeValue = getDateTimeValue, exports.getLocalTime = getLocalTime;
+
+/***/ }),
+
+/***/ 194:
+/*!*************************************************************************!*\
+  !*** C:/Users/19217/Desktop/works/injury/components/uni-icons/icons.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  "pulldown": "\uE588",
+  "refreshempty": "\uE461",
+  "back": "\uE471",
+  "forward": "\uE470",
+  "more": "\uE507",
+  "more-filled": "\uE537",
+  "scan": "\uE612",
+  "qq": "\uE264",
+  "weibo": "\uE260",
+  "weixin": "\uE261",
+  "pengyouquan": "\uE262",
+  "loop": "\uE565",
+  "refresh": "\uE407",
+  "refresh-filled": "\uE437",
+  "arrowthindown": "\uE585",
+  "arrowthinleft": "\uE586",
+  "arrowthinright": "\uE587",
+  "arrowthinup": "\uE584",
+  "undo-filled": "\uE7D6",
+  "undo": "\uE406",
+  "redo": "\uE405",
+  "redo-filled": "\uE7D9",
+  "bars": "\uE563",
+  "chatboxes": "\uE203",
+  "camera": "\uE301",
+  "chatboxes-filled": "\uE233",
+  "camera-filled": "\uE7EF",
+  "cart-filled": "\uE7F4",
+  "cart": "\uE7F5",
+  "checkbox-filled": "\uE442",
+  "checkbox": "\uE7FA",
+  "arrowleft": "\uE582",
+  "arrowdown": "\uE581",
+  "arrowright": "\uE583",
+  "smallcircle-filled": "\uE801",
+  "arrowup": "\uE580",
+  "circle": "\uE411",
+  "eye-filled": "\uE568",
+  "eye-slash-filled": "\uE822",
+  "eye-slash": "\uE823",
+  "eye": "\uE824",
+  "flag-filled": "\uE825",
+  "flag": "\uE508",
+  "gear-filled": "\uE532",
+  "reload": "\uE462",
+  "gear": "\uE502",
+  "hand-thumbsdown-filled": "\uE83B",
+  "hand-thumbsdown": "\uE83C",
+  "hand-thumbsup-filled": "\uE83D",
+  "heart-filled": "\uE83E",
+  "hand-thumbsup": "\uE83F",
+  "heart": "\uE840",
+  "home": "\uE500",
+  "info": "\uE504",
+  "home-filled": "\uE530",
+  "info-filled": "\uE534",
+  "circle-filled": "\uE441",
+  "chat-filled": "\uE847",
+  "chat": "\uE263",
+  "mail-open-filled": "\uE84D",
+  "email-filled": "\uE231",
+  "mail-open": "\uE84E",
+  "email": "\uE201",
+  "checkmarkempty": "\uE472",
+  "list": "\uE562",
+  "locked-filled": "\uE856",
+  "locked": "\uE506",
+  "map-filled": "\uE85C",
+  "map-pin": "\uE85E",
+  "map-pin-ellipse": "\uE864",
+  "map": "\uE364",
+  "minus-filled": "\uE440",
+  "mic-filled": "\uE332",
+  "minus": "\uE410",
+  "micoff": "\uE360",
+  "mic": "\uE302",
+  "clear": "\uE434",
+  "smallcircle": "\uE868",
+  "close": "\uE404",
+  "closeempty": "\uE460",
+  "paperclip": "\uE567",
+  "paperplane": "\uE503",
+  "paperplane-filled": "\uE86E",
+  "person-filled": "\uE131",
+  "contact-filled": "\uE130",
+  "person": "\uE101",
+  "contact": "\uE100",
+  "images-filled": "\uE87A",
+  "phone": "\uE200",
+  "images": "\uE87B",
+  "image": "\uE363",
+  "image-filled": "\uE877",
+  "location-filled": "\uE333",
+  "location": "\uE303",
+  "plus-filled": "\uE439",
+  "plus": "\uE409",
+  "plusempty": "\uE468",
+  "help-filled": "\uE535",
+  "help": "\uE505",
+  "navigate-filled": "\uE884",
+  "navigate": "\uE501",
+  "mic-slash-filled": "\uE892",
+  "search": "\uE466",
+  "settings": "\uE560",
+  "sound": "\uE590",
+  "sound-filled": "\uE8A1",
+  "spinner-cycle": "\uE465",
+  "download-filled": "\uE8A4",
+  "personadd-filled": "\uE132",
+  "videocam-filled": "\uE8AF",
+  "personadd": "\uE102",
+  "upload": "\uE402",
+  "upload-filled": "\uE8B1",
+  "starhalf": "\uE463",
+  "star-filled": "\uE438",
+  "star": "\uE408",
+  "trash": "\uE401",
+  "phone-filled": "\uE230",
+  "compose": "\uE400",
+  "videocam": "\uE300",
+  "trash-filled": "\uE8DC",
+  "download": "\uE403",
+  "chatbubble-filled": "\uE232",
+  "chatbubble": "\uE202",
+  "cloud-download": "\uE8E4",
+  "cloud-upload-filled": "\uE8E5",
+  "cloud-upload": "\uE8E6",
+  "cloud-download-filled": "\uE8E9",
+  "headphones": "\uE8BF",
+  "shop": "\uE609" };exports.default = _default;
 
 /***/ }),
 
@@ -7238,7 +7743,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7259,14 +7764,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7342,7 +7847,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -7769,9 +8274,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 4:
-/*!*****************************************************!*\
-  !*** C:/Users/19217/Desktop/work/injury/pages.json ***!
-  \*****************************************************/
+/*!******************************************************!*\
+  !*** C:/Users/19217/Desktop/works/injury/pages.json ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

@@ -7,10 +7,10 @@
 			<view class="uni-input" >
 				<input v-model="phoneNumber" class="reg-phone" type="text"  placeholder="请输入您的手机号"  placeholder-style="color:#B7BAC4;font-size:30rpx;"  />
 			    <text class="in-word">+&nbsp;86</text>
-				<image  v-if="phoneNumber" class="img"@click="clearPhone()"  src="../../static/image/del_icon.png"></image>
+				<image  v-if="phoneNumber" class="img" @tap.stop="clearPhone"  src="../../static/image/del_icon.png"></image>
 			</view>
 			<view class="uni-jump">
-				<view :class="phoneNumber?'nextJump2':'nextJump1'" class="next-jump" @click="jumps()">下一步</view>
+				<view :class="phoneNumber?'nextJump2':'nextJump1'" class="next-jump" @tap.stop="jumps">下一步</view>
 			</view>
 			<view class="protocol">
 			    <text class="left">点击"下一步"即同意</text>

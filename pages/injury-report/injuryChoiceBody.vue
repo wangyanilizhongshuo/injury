@@ -2,16 +2,16 @@
 	<view  class="injurybodyChoice">
 		<!-- <image></image> -->
 		<view class="content">
-			  <view class="delImg" @click="del()">  
+			  <view class="delImg" @tap.stop="del()">  
 				  <image class="img" src="../../static/image/reset.png" ></image>
 				  <view class="word" > 重置</view>
 			  </view>
 			 
 			  <view class="bgImg"  >
 				  <image class="bodyImg" src="../../static/image/human.png"></image>
-				  <image class="headerPoint" src="../../static/image/point.png" @click="header()"></image>
-				  <image class="upPoint" src="../../static/image/point.png" @click="upperLimb()"></image>
-				  <image class="downPoint" src="../../static/image/point.png" @click="lowerLimb()"></image>
+				  <image class="headerPoint" src="../../static/image/point.png" @tap.stop="header()"></image>
+				  <image class="upPoint" src="../../static/image/point.png" @tap.stop="upperLimb()"></image>
+				  <image class="downPoint" src="../../static/image/point.png" @tap.stop="lowerLimb()"></image>
 			  </view>
 			  <view class="describe">请点击受伤部位进行选择</view>
 			  <view class="detailChoice">

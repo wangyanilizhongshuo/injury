@@ -1,0 +1,33 @@
+	%flex-style {
+	 display: flex;
+	 justify-content: space-between;
+	 align-items: center;
+	}
+	%flex-style-justify{
+		display: flex;
+		justify-content: space-between;
+	}
+	@mixin w_h($w,$h) {
+	        width:$w;
+			height:$h;		
+	}
+	@mixin posi_left_top($position,$left,$top) {
+	        position:$position;
+			left:$left;		
+			top:$top
+	}
+	// 多行省略号
+	@mixin dh_ellipsis($num) {
+	       display: -webkit-box;
+	       -webkit-box-orient: vertical;
+	       -webkit-line-clamp: $num;
+	       overflow: hidden;
+	}
+	@mixin font-style($font-family,$font-weight,$font-size,$color) {
+	      font-family: $font-family;
+	      font-weight: $font-weight;
+	      font-size: $font-size;
+		  color:$color
+	}
+	
+	
