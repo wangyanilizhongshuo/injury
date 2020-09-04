@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/work-bench/police-detail",
+    "pages/insurance-scheme/insurance-scheme",
+    "pages/insurance-scheme/intellge-recommand",
     "pages/home-page/home-page",
     "pages/home-page/hotDataDetail",
     "pages/home-page/hotDataList",
@@ -10,14 +11,17 @@
     "pages/index/index",
     "pages/injury-report/injury-report",
     "pages/injury-report/injuryChoiceBody",
-    "pages/insurance-scheme/insurance-scheme",
     "pages/work-bench/work-bench",
+    "pages/work-bench/case-manage/police-detail",
+    "pages/work-bench/case-manage/time-axis",
+    "pages/work-bench/case-manage/policeList",
+    "pages/work-bench/commercial-insurance/commercial-insurance",
     "pages/login/login",
     "pages/login/forgetPassword",
     "pages/login/phoneVerification",
     "pages/login/setLoginPwd",
     "pages/login/setVerificateCode",
-    "pages/work-bench/policeList"
+    "pages/work-bench/case-manage/case-manage"
   ],
   "subPackages": [],
   "window": {
@@ -68,6 +72,5 @@
       "desc": "你的位置将作为我们的依据对其进行访问"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap5.json"
+  "usingComponents": {}
 }

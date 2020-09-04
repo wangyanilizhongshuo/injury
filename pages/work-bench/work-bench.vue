@@ -7,7 +7,7 @@
 					 <image class="img" src="../../static/image/workbench_report.png"></image>
 					 <text class="word">工伤报案</text>
 				 </view>
-				 <view class="list-one" @tap.stop="jumpList">
+				 <view class="list-one" @tap.stop="jumpList(2)">
 					 <image class="img" src="../../static/image/workbench_cases.png"></image>
 					 <text class="word">案件管理</text>
 				 </view>
@@ -20,7 +20,7 @@
 					 <image class="img" src="../../static/image/workbench_punch.png"></image>
 					 <text class="word">员工打卡</text>
 				 </view>
-				 <view class="list-one">
+				 <view class="list-one" @tap.stop="jumpList(5)" >
 					 <image class="img" src="../../static/image/workbench_policy.png"></image>
 					 <text class="word">商业保单</text>
 				 </view>
@@ -47,10 +47,33 @@
 		},
 		methods: {
 			//跳转到报案列表
-			jumpList(){
-				uni.navigateTo({
-					url:'./policeList'
-				})
+			jumpList(mes){
+				if(mes ===1){
+					uni.navigateTo({
+						url:'/pages/work-bench/case-manage/policeList'
+					})
+				}
+				else if(mes===2){
+					uni.navigateTo({
+						url:'/pages/work-bench/case-manage/policeList'
+					})
+				}
+				else if(mes===3){
+					uni.navigateTo({
+						url:'/pages/work-bench/case-manage/policeList'
+					})
+				}
+				else if(mes===4){
+					uni.navigateTo({
+						url:'/pages/work-bench/case-manage/policeList'
+					})
+				}
+				else if(mes===5){
+					uni.navigateTo({
+						url:'/pages/work-bench/commercial-insurance/commercial-insurance'
+					})
+				}
+				
 			}
 		}
 	}

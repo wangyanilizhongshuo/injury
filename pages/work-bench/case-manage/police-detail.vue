@@ -59,7 +59,7 @@
 						 </view>
 						 <view class="acc-form acc-form-style">
 							 <view class="uni-left">
-								 <image class="image" src="../../static/image/icon_exl.png"></image>
+								 <image class="image" src="../../../static/image/icon_exl.png"></image>
 								 <view class="uni-word">
 									 <view  class="up"> 工伤认定申请表</view>
 									 <view  class="down"> 表格说明表格说明表格</view>
@@ -91,7 +91,7 @@
 						 </view>
 						 <view class="acc-form acc-form-style">
 							 <view class="uni-left">
-								 <image class="image" src="../../static/image/icon_exl.png"></image>
+								 <image class="image" src="../../../static/image/icon_exl.png"></image>
 								 <view class="uni-word">
 									 <view  class="up"> 劳动能力鉴定申请表</view>
 									 <view  class="down"> 表格说明表格说明表格</view>
@@ -106,7 +106,7 @@
 					 <view class="acci-reason uni-exam" v-if="tobestepAppraiseFlag">
 						 <view class="describe">请上传伤者的一寸照照片</view>
 						 <view class="photo">
-							 <image v-if="!photoUrl" class="image" @tap.stop="getImage" src="../../static/image/upload_pics.png"></image>
+							 <image v-if="!photoUrl" class="image" @tap.stop="getImage" src="../../../static/image/upload_pics.png"></image>
 							 <image v-if="photoUrl"  class="image" :src="photoUrl"></image> 
 							 <view v-if="raiseSubmitFlag"  class="btn" @tap.stop="raiseSubmitFlag=false">提交</view>
 							 <view v-if="!raiseSubmitFlag"  class="btn" style="background:#b7bac4;"  @tap.stop="raiseSubmitFlag=true">已提交</view>
@@ -122,7 +122,7 @@
 						
 						 <view class="acc-form acc-form-style">
 							 <view class="uni-left">
-								 <image class="image" src="../../static/image/icon_exl.png"></image>
+								 <image class="image" src="../../../static/image/icon_exl.png"></image>
 								 <view class="uni-word">
 									 <view  class="up"> 劳动能力鉴定申请表</view>
 									 <view  class="down"> 表格说明表格说明表格</view>
@@ -159,7 +159,7 @@
 						 </view>
 						 <view class="acc-form acc-form-style">
 							 <view class="uni-left">
-								 <image class="image" src="../../static/image/icon_exl.png"></image>
+								 <image class="image" src="../../../static/image/icon_exl.png"></image>
 								 <view class="uni-word">
 									 <view  class="up"> 工伤待遇申请表</view>
 									 <view  class="down"> 表格说明表格说明表格</view>
@@ -174,7 +174,7 @@
 						 </view>
 						 <view class="acc-form acc-form-style">
 							 <view class="uni-left">
-								 <image class="image" src="../../static/image/icon_word.png"></image>
+								 <image class="image" src="../../../static/image/icon_word.png"></image>
 								 <view class="uni-word">
 									 <view  class="up"> 工伤待遇申请表</view>
 									 <view  class="down"> 表格说明表格说明表格</view>
@@ -227,8 +227,8 @@
 		        </view>
 			</view>
 		</view>
-		<image v-if="tobeAcceptFlag" class="uni-service" src="../../static/image/service.png"></image>
-		<view class="uni-btn-bottom">查看案件时间轴</view>
+		<image v-if="tobeAcceptFlag" class="uni-service" src="../../../static/image/service.png"></image>
+		<view class="uni-btn-bottom" @tap="jumpTime">查看案件时间轴</view>
 	</view>
 </template>
 <script>
@@ -303,13 +303,19 @@
 						
 					}
 				});
+			},
+			// 时间轴的跳转
+			jumpTime(){
+				uni.navigateTo({
+					url:'/pages/work-bench/case-manage/time-axis'
+				})
 			}
 		}
 	}
 </script>
 
 <style scoped lang="scss">
-	@import "../../static/scss/common.scss";
+	@import "../../../static/scss/common.scss";
 	.uni-policeDetail{
 		background-color: #f5f5f5;
 		height: 100vh;
@@ -476,10 +482,10 @@
 			 line-height: 70rpx;
 		}
 		.btn-need{	
-			background-image: url(../../static/image/btn2.png)   ;	
+			background-image: url(../../../static/image/btn2.png)   ;	
 		}
 		.btn-inneed{
-			background-image: url(../../static/image/check_btn.png) ;
+			background-image: url(../../../static/image/check_btn.png) ;
 		}		
 	}
     .uni-stepappraise{

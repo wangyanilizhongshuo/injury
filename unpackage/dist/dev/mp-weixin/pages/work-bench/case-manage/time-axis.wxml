@@ -1,0 +1,1 @@
+<view class="uni-timerAxis data-v-6b029e12"><uni-steps vue-id="155cb598-1" options="{{progress}}" direction="column" active="{{progressNum}}" class="data-v-6b029e12" bind:__l="__l"></uni-steps></view>

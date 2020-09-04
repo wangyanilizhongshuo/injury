@@ -3,15 +3,15 @@
 	    <view class="title">
 			<view class="dealing" @tap.stop="dealFlag=(!dealFlag),finishFlag=true,closeFlag=true">
 				 <view :class="dealFlag===false?'bigword':'smallword'" >处理中</view>
-				 <image v-show="dealFlag===false" class="tag" src="../../static/image/tag.png"></image>
+				 <image v-show="dealFlag===false" class="tag" src="../../../static/image/tag.png"></image>
 			</view>
 			<view class="finished" @tap.stop="finishFlag=(!finishFlag),dealFlag=true,closeFlag=true">
 				 <view :class="finishFlag===false?'bigword':'smallword'" >已完成</view>
-				 <image v-show="finishFlag===false" class="tag" src="../../static/image/tag.png"></image>
+				 <image v-show="finishFlag===false" class="tag" src="../../../static/image/tag.png"></image>
 			</view>
 			<view class="close" @tap.stop="closeFlag=(!closeFlag),finishFlag=true,dealFlag=true">
 				 <view  :class="closeFlag===false?'bigword':'smallword'" >已关闭</view>
-				 <image v-show="closeFlag===false" class="tag" src="../../static/image/tag.png"></image>
+				 <image v-show="closeFlag===false" class="tag" src="../../../static/image/tag.png"></image>
 			</view>
 		</view>
 		<view class="uni-content" v-if="dealFlag===false">
@@ -29,22 +29,22 @@
 						   </view>
 					       <view class="li-contents">
 							   <view class="li-first li-style">
-								   <image class="img" src="../../static/image/menber.png"></image>
+								   <image class="img" src="../../../static/image/menber.png"></image>
 							       <view class="titles">员工姓名 :</view>
 								   <view class="name">王妮娜</view>
 							   </view>
 							   <view class="li-second li-style">
-								    <image class="img" src="../../static/image/time.png"></image>
+								    <image class="img" src="../../../static/image/time.png"></image>
 							        <view class="titles">身份证号 :</view>
 							        <view class="name">340321199703062834</view>
 							   </view>
 							   <view class="li-three li-style">
-								   <image  class="img"src="../../static/image/idcard.png"></image>
+								   <image  class="img"src="../../../static/image/idcard.png"></image>
 								   <view class="titles">报案时间 :</view>
 								   <view class="name">2020-09-01   16.06</view>
 							   </view>
 							   <view class="li-fourth" @tap.stop="jumpDetail">
-								   <image class="img" src="../../static/image/check_btn.png"></image>
+								   <image class="img" src="../../../static/image/check_btn.png"></image>
 							       <text class="word">查看详情</text> 
 							   </view>
 						   </view>
@@ -82,7 +82,7 @@
 								   <view class="name">2020-09-01   16.06</view>
 							   </view>
 							   <view class="li-fourth">
-								   <image class="img" src="../../static/image/check_btn.png"></image>
+								   <image class="img" src="../../../static/image/check_btn.png"></image>
 							       <text class="word">查看详情</text> 
 							   </view>
 						   </view>
@@ -105,17 +105,17 @@
 						   </view>
 					       <view class="li-contents">
 							   <view class="li-first li-style">
-								   <image class="img" src="../../static/image/menber.png"></image>
+								   <image class="img" src="../../../static/image/menber.png"></image>
 							       <view class="titles">员工姓名 :</view>
 								   <view class="name">王妮娜</view>
 							   </view>
 							   <view class="li-second li-style">
-								    <image class="img" src="../../static/image/time.png"></image>
+								    <image class="img" src="../../../static/image/time.png"></image>
 							        <view class="titles">身份证号 :</view>
 							        <view class="name">340321199703062834</view>
 							   </view>
 							   <view class="li-three li-style">
-								   <image  class="img"src="../../static/image/idcard.png"></image>
+								   <image  class="img"src="../../../static/image/idcard.png"></image>
 								   <view class="titles">报案时间 :</view>
 								   <view class="name">2020-09-01   16.06</view>
 							   </view>
@@ -145,7 +145,7 @@
 			 // 跳转到详情页
 			 jumpDetail(){
 				 uni.navigateTo({
-				 	url:'/pages/work-bench/police-detail'
+				 	url:'/pages/work-bench/case-manage/police-detail'
 				 })
 			 }
 			
@@ -154,7 +154,7 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "../../static/scss/common.scss";
+	@import "../../../static/scss/common.scss";
 .work-police-list{
 	height: 100vh;
 	background-color: #f5f5f5;

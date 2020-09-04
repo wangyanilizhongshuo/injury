@@ -3,8 +3,8 @@
 		<view :class="[direction==='column'?'uni-steps__column':'uni-steps__row']">
 			<view :class="[direction==='column'?'uni-steps__column-text-container':'uni-steps__row-text-container']">
 				<view v-for="(item,index) in options" :key="index" :class="[direction==='column'?'uni-steps__column-text':'uni-steps__row-text']">
-					<text :style="{color:index<=active?activeColor:deactiveColor}" :class="[direction==='column'?'uni-steps__column-title':'uni-steps__row-title']">{{item.title}}</text>
-					<text :style="{color:index<=active?activeColor:deactiveColor}" :class="[direction==='column'?'uni-steps__column-desc':'uni-steps__row-desc']">{{item.desc}}</text>
+				<!-- <text :style="{color:index<=active?activeColor:deactiveColor}" :class="[direction==='column'?'uni-steps__column-desc':'uni-steps__row-desc',index<=active?'desc-stylesss':'desc-styleeee']">{{item.desc}}</text> -->
+					<text :style="{color:index<=active?activeColor:deactiveColor}" :class="[direction==='column'?'uni-steps__column-desc':'uni-steps__row-desc',index<=active?'desc-stylesss':'desc-styleeee']">{{item.desc}}</text>
 				</view>
 			</view>
 			<view :class="[direction==='column'?'uni-steps__column-container':'uni-steps__row-container']">
@@ -13,14 +13,20 @@
 					<view :class="[direction==='column'?'uni-steps__column-line':'uni-steps__row-line',direction==='column'?'uni-steps__column-line--before':'uni-steps__row-line--before']"
 					 :style="{backgroundColor:index<=active&&index!==0?activeColor:index===0?'transparent':deactiveColor}"></view>
 					<view :class="[direction==='column'?'uni-steps__column-check':'uni-steps__row-check']" v-if="index === active">
-						<uni-icons :color="activeColor" type="checkbox-filled" size="14"></uni-icons>
+						<!-- <uni-icons :color="activeColor" type="checkbox-filled" size="14"></uni-icons> -->
+				         <!-- active的时候 Logo的大小 -->
+						<image style="width: 21px;height: 21px;" src="../../static/image/activation.png"></image> 
+					      
 					</view>
-					<view :class="[direction==='column'?'uni-steps__column-circle':'uni-steps__row-circle']" v-else :style="{backgroundColor:index<active?activeColor:deactiveColor}"></view>
+					
+				    <image  style="width:21px;height:21px;" :src="index<active?  '../../static/image/activation.png':'../../static/image/unactivation.png'" v-else ></image>
+					<text class="words" :style="index<active ? 'color:rgba(18, 92, 212, 1)':'color:rgba(184, 186, 196, 1)'">{{item.title}}</text>
+					<!-- <view :class="[direction==='column'?'uni-steps__column-circle':'uni-steps__row-circle']" v-else :style="{backgroundColor:index<active?activeColor:deactiveColor}"></view> -->
 					<view :class="[direction==='column'?'uni-steps__column-line':'uni-steps__row-line',direction==='column'?'uni-steps__column-line--after':'uni-steps__row-line--after']"
 					 :style="{backgroundColor:index<active&&index!==options.length-1?activeColor:index===options.length-1?'transparent':deactiveColor}"></view>
 				</view>
 			</view>
-		</view>
+		</view> 
 	</view>
 </template>
 
@@ -40,7 +46,7 @@
 			activeColor: {
 				// 激活状态颜色
 				type: String,
-				default: '#1aad19'
+				default: 'rgba(18, 92, 212, 1)'
 			},
 			deactiveColor: {
 				// 未激活状态颜色
@@ -116,9 +122,9 @@
 
 	.uni-steps__column-text {
 		padding: 6px 0px;
-		border-bottom-style: solid;
-		border-bottom-width: 1px;
-		border-bottom-color: $uni-border-color;
+		// border-bottom-style: solid;
+		// border-bottom-width: 1px;
+		// border-bottom-color: $uni-border-color;
 		/* #ifndef APP-NVUE */
 		display: flex;
 		/* #endif */
@@ -142,12 +148,36 @@
 		line-height: 14px;
 		text-align: center;
 	}
-
-	.uni-steps__column-desc {
-		font-size: $uni-font-size-sm;
-		text-align: left;
-		line-height: 18px;
+    .desc-stylesss{
+		border-bottom:10px solid  #e7eefb;
+		background-color:#e7eefb;
+		padding:9px 18px  0px 10px;
+		
+		
 	}
+	.desc-styleeee{
+		padding-top:25px;
+		border-bottom:10px solid  #fff;
+		// margin-top:10px;
+		
+	}
+	.uni-steps__column-desc {
+		display: flex;
+		// align-items: center;
+		justify-content: center;
+		height:55px;
+		width:300px;
+		text-align: left;
+		color:#2368d7;
+		font-size: 14px;;
+		box-sizing: border-box;
+		line-height: 18px;
+		overflow : hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}   
 
 	.uni-steps__row-container {
 		/* #ifndef APP-NVUE */
@@ -160,8 +190,9 @@
 		/* #ifndef APP-NVUE */
 		display: inline-flex;
 		/* #endif */
-		width: 30px;
+		width: 60px;
 		flex-direction: column;
+		margin-top:-21px;
 	}
 
 	.uni-steps__row-line-item {
@@ -211,7 +242,7 @@
 	}
 
 	.uni-steps__column-line--before {
-		height: 6px;
+		height: 27px;
 		transform: translate(0px, -1px);
 	}
 
@@ -234,10 +265,17 @@
 	.uni-steps__row-check {
 		margin: 0px 6px;
 	}
-
+  // active  时候logo 的大小
 	.uni-steps__column-check {
-		height: 14px;
-		line-height: 14px;
+		height: 21px;
+		line-height: 21px;
 		margin: 2px 0px;
+	}
+	.words{
+		font-size: 22rpx;
+		color:rgba(18, 92, 212, 1);
+		margin-top:5px;
+		width: 50px;
+		 text-align: center;
 	}
 </style>

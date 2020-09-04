@@ -1,9 +1,21 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-		    "path" : "pages/work-bench/police-detail",
+		    "path" : "pages/insurance-scheme/insurance-scheme",
 		    "style" : {
-				"navigationBarTitleText": "报案详情"
+				"navigationBarTitleText": "保险方案",
+				"navigationBarBackgroundColor":"#1360d6",
+				"navigationBarTextStyle":"#fff"
+				
+			}
+		},
+		{
+		    "path" : "pages/insurance-scheme/intellge-recommand",
+		    "style" : {
+				"navigationBarTitleText": "保险方案",
+				"navigationBarBackgroundColor":"#1360d6",
+				"navigationBarTextStyle":"#fff"
+				
 			}
 		},
 		{
@@ -13,6 +25,7 @@
 				 "navigationStyle":"custom"
 			}
 		},
+		
 		{
 		    "path" : "pages/home-page/hotDataDetail",
 		    "style" : {
@@ -72,18 +85,38 @@
 		 		// "navigationBarTextStyle":"black"
 		 	}
 		 }
-        ,{
-            "path" : "pages/insurance-scheme/insurance-scheme",
-            "style" : {
-				"navigationBarTitleText": "保险方案"
-			}
-        }
+       
         ,{
             "path" : "pages/work-bench/work-bench",
             "style" : {
 				"navigationBarTitleText": "工作台"
 			}
         },
+		{
+		    "path" : "pages/work-bench/case-manage/police-detail",
+		    "style" : {
+				"navigationBarTitleText": "报案详情"
+			}
+		}
+		,{
+		    "path" : "pages/work-bench/case-manage/time-axis",
+		    "style" : {
+				"navigationBarTitleText": "时间轴"
+			}
+		},
+		{
+		    "path" : "pages/work-bench/case-manage/policeList",
+		    "style" : {
+				"navigationBarTitleText": "报案列表"
+			}
+		},
+		{
+		    "path" : "pages/work-bench/commercial-insurance/commercial-insurance",
+		   "style" : {
+		   	"navigationBarTitleText": "商业保险"
+		   }
+		},
+		
 		{
 			 "path" : "pages/login/login",
 			 "style" : {
@@ -122,20 +155,12 @@
 				"navigationBarBackgroundColor":"#fff"
 				
 			}
-		},
-		{
-		    "path" : "pages/work-bench/policeList",
-		    "style" : {
-				"navigationBarTitleText": "报案列表"
-			}
 		}
-		
-		
-		
-		
-		
-		
-        
+       
+        ,{
+            "path" : "pages/work-bench/case-manage/case-manage",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
