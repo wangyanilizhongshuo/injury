@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/insurance-scheme/insurance-scheme",
     "pages/insurance-scheme/intellge-recommand",
     "pages/home-page/home-page",
@@ -8,7 +9,6 @@
     "pages/home-page/location-search",
     "pages/home-page/location",
     "pages/login/resetLoginPwd",
-    "pages/index/index",
     "pages/injury-report/injury-report",
     "pages/injury-report/injuryChoiceBody",
     "pages/work-bench/work-bench",

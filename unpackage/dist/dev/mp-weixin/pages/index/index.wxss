@@ -24,7 +24,63 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-57280228 {
+.conetntsFirst .contents.data-v-57280228 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.uni-extension.data-v-57280228, .uni-titles.data-v-57280228 {
+  width: 750rpx;
+  box-sizing: border-box;
+  padding: 0 32rpx 0 30rpx;
+}
+.uni-imgBg.data-v-57280228 {
+  width: 688rpx;
+  height: 356rpx;
+}
+.uni-titles.data-v-57280228 {
+  width: 688rpx;
+  height: 356rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.uni-titles .noLogin.data-v-57280228 {
+  width: 688rpx;
+  box-sizing: border-box;
+  padding: 95rpx 35rpx 155rpx 35rpx;
+  height: 110rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.uni-titles .noLogin .heads.data-v-57280228 {
+  width: 110rpx;
+  height: 110rpx;
+  margin-right: 20rpx;
+}
+.uni-titles .noLogin .person-right .logins.data-v-57280228 {
+  font-family: "PingFang-SC-Bold";
+  font-weight: Bold;
+  font-size: 36rpx;
+  color: #fff;
+}
+.uni-titles .noLogin .person-right .register.data-v-57280228 {
+  font-family: "PingFang-SC-Bold";
+  font-weight: Bold;
+  font-size: 36rpx;
+  color: #fff;
+}
+.uni-titles .noLogin .person-right .per-login.data-v-57280228 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -32,11 +88,100 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.uni-titles .noLogin .person-right .per-login .titles1.data-v-57280228 {
+  font-family: "PingFang-SC-Bold";
+  font-weight: Bold;
+  font-size: 36rpx;
+  color: #fff;
+}
+.uni-titles .noLogin .person-right .per-login .titles2.data-v-57280228, .uni-titles .noLogin .person-right .per-login .titles3.data-v-57280228 {
+  font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
+  font-size: 22rpx;
+  color: #B9DDFF;
+}
+.uni-titles .noLogin .person-right .per-login .titles3.data-v-57280228 {
+  font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
+  font-size: 22rpx;
+  color: #B9DDFF;
+}
+.uni-titles .person-msgTwo.data-v-57280228 {
+  width: 688rpx;
+  height: 53rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
+}
+.uni-titles .person-msgTwo .styless.data-v-57280228 {
+  width: 343rpx;
+  height: 53rpx;
+  text-align: center;
+}
+.uni-titles .person-msgTwo .styless .values.data-v-57280228 {
+  font-family: "PingFang-SC-Bold";
+  font-weight: Bold;
+  font-size: 32rpx;
+  color: #fff;
+}
+.uni-titles .person-msgTwo .styless .filed.data-v-57280228 {
+  font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
+  font-size: 22rpx;
+  color: #fff;
+}
+.uni-titles .person-msgTwo .lines.data-v-57280228 {
+  width: 2rpx;
+  height: 53rpx;
+  background-color: #fff;
+  position: relative;
+  top: 10rpx;
+  left: 0;
+}
+.conetntsFirst.data-v-57280228 {
+  width: 690rpx;
+  height: 142rpx;
+  margin-top: 24rpx;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.conetntsFirst .conFirstBg.data-v-57280228 {
+  width: 690rpx;
+  height: 142rpx;
+}
+.conetntsFirst .contents.data-v-57280228 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+.conetntsFirst .contents .uni-left .uni-top.data-v-57280228 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.conetntsFirst .contents .uni-left .uni-top .imgs.data-v-57280228 {
+  width: 38rpx;
+  height: 38rpx;
+}
+.conetntsFirst .contents .uni-left .uni-top .field.data-v-57280228 {
+  font-family: "PingFang-SC-Bold";
+  font-weight: Bold;
+  font-size: 30rpx;
+  color: #fff;
+}
+.conetntsFirst .contents .uni-left .uni-down.data-v-57280228 {
+  font-family: "PingFang-SC-Bold";
+  font-weight: Bold;
+  font-size: 30rpx;
+  color: #fff;
 }
 
