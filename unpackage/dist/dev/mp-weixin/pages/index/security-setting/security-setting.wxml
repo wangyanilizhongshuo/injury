@@ -1,0 +1,1 @@
+<view class="uni-securitySetting data-v-0788b929"><view data-event-opts="{{[['tap',[['jumps',['$event']]]]]}}" class="security data-v-0788b929" bindtap="__e"><view class="field data-v-0788b929">交易密码修改</view><image class="img data-v-0788b929" src="../../../static/image/inter.png"></image></view></view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "实名认证",
+  "usingComponents": {
+    "level-linkage": "/components/three-level-linkage/linkage"
+  }
+}

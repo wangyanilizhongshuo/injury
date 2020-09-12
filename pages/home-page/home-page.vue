@@ -18,9 +18,10 @@
 				</view>
 				<view class="second up-style">
 					  <input class="uni-input left" type="text" v-model="input" />
-					  <view class="right">
+					  <view class="right" style="position: relative;left:0 ;top:0;">
 						  <image class="img" src="../../static/image/msg.png"></image>
 						  <text class="word-login">消息</text>
+						  <text style="z-index:100;display:block;width:10rpx;height:10rpx;border-radius:50%;background-color:red;position: absolute;right:10rpx;top:2rpx;"></text>
 					  </view>
 				</view>
 			</view>
@@ -106,7 +107,7 @@
 				loginFlag:false,
 				naviHeight:'',
 				config:{
-						title:"我是标题我是标题我是标题", //title
+						title:"我是标题我dfasdfa", //title
 						bgcolor:"#1159D2", //背景颜色
 						// fontcolor:"red", //文字颜色，默认白色
 						type:3, //type 1，3胶囊 2，4无胶囊模式
@@ -169,7 +170,10 @@
 			  position: relative;
 			  .img{
 				  @include w_h(20rpx,20rpx);
-				  @include  posi_left_top(absolute,29rpx,31rpx)
+				  position: absolute;
+				  top:31rpx;
+				  right:29rpx;
+				 
 			  }
 		  }
 		}

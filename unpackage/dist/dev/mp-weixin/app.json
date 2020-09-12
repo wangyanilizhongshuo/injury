@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/index/my-task/my-task",
     "pages/insurance-scheme/insurance-scheme",
-    "pages/insurance-scheme/intellge-recommand",
+    "pages/work-bench/case-manage/police-detail",
     "pages/home-page/home-page",
+    "pages/insurance-scheme/intellge-recommand",
     "pages/home-page/hotDataDetail",
     "pages/home-page/hotDataList",
     "pages/home-page/location-search",
@@ -12,7 +13,6 @@
     "pages/injury-report/injury-report",
     "pages/injury-report/injuryChoiceBody",
     "pages/work-bench/work-bench",
-    "pages/work-bench/case-manage/police-detail",
     "pages/work-bench/case-manage/time-axis",
     "pages/work-bench/case-manage/policeList",
     "pages/work-bench/commercial-insurance/commercial-insurance",
@@ -21,7 +21,16 @@
     "pages/login/phoneVerification",
     "pages/login/setLoginPwd",
     "pages/login/setVerificateCode",
-    "pages/work-bench/case-manage/case-manage"
+    "pages/index/index",
+    "pages/index/security-setting/security-setting",
+    "pages/index/security-setting/setPassword",
+    "pages/successPage/successPage",
+    "pages/index/security-setting/teleRegister",
+    "pages/index/join-cooperation/join-cooperation",
+    "pages/index/enterprise-extension/enterprise-extension",
+    "pages/index/realName-authenticate/realName-authenticate",
+    "pages/index/realName-authenticate/authenticateSuccess",
+    "pages/index/promoter-apply/promoter-apply"
   ],
   "subPackages": [],
   "window": {

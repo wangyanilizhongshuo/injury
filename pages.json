@@ -1,19 +1,32 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages	     
 		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "我的推广"
+		    "path" : "pages/index/my-task/my-task",
+		    "style" : {
+				"navigationBarTitleText": "我的任务"
 			}
-		}
-		,
+		},
+		
 		{
 		    "path" : "pages/insurance-scheme/insurance-scheme",
 		    "style" : {
 				"navigationBarTitleText": "保险方案",
 				"navigationBarBackgroundColor":"#1360d6",
 				"navigationBarTextStyle":"#fff"
-				
+			}                 
+		},
+		{
+		    "path" : "pages/work-bench/case-manage/police-detail",
+		    "style" : {
+				"navigationBarTitleText": "报案详情"
+			}
+		},
+		
+		{
+		    "path" : "pages/home-page/home-page",
+		    "style" : {
+				// "navigationBarTitleText": "首页",
+				 "navigationStyle":"custom"
 			}
 		},
 		{
@@ -22,16 +35,9 @@
 				"navigationBarTitleText": "保险方案",
 				"navigationBarBackgroundColor":"#1360d6",
 				"navigationBarTextStyle":"#fff"
-				
 			}
 		},
-		{
-		    "path" : "pages/home-page/home-page",
-		    "style" : {
-				// "navigationBarTitleText": "首页",
-				 "navigationStyle":"custom"
-			}
-		},
+		
 		
 		{
 		    "path" : "pages/home-page/hotDataDetail",
@@ -94,12 +100,6 @@
 			}
         },
 		{
-		    "path" : "pages/work-bench/case-manage/police-detail",
-		    "style" : {
-				"navigationBarTitleText": "报案详情"
-			}
-		}
-		,{
 		    "path" : "pages/work-bench/case-manage/time-axis",
 		    "style" : {
 				"navigationBarTitleText": "时间轴"
@@ -156,18 +156,78 @@
 				"navigationBarBackgroundColor":"#fff"
 				
 			}
+		},
+		// index
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "我的推广"
+			}
+		},
+		{
+			"path": "pages/index/security-setting/security-setting",
+			"style": {
+				"navigationBarTitleText": "安全设置"
+			}
+		},
+		{
+			"path": "pages/index/security-setting/setPassword",
+			"style": {
+				"navigationBarTitleText": "设置交易密码"
+			}
+		},
+		
+		{
+			"path": "pages/successPage/successPage"
+			
+		},
+		{
+			"path": "pages/index/security-setting/teleRegister"
+		},
+		{
+			"path":"pages/index/join-cooperation/join-cooperation",
+			 "style" : {
+				 "navigationBarTitleText": "加盟合作",
+				 "navigationBarBackgroundColor":"#1360d6",
+				 "navigationBarTextStyle":"#fff"
+			 }
+		},
+		{
+		    "path" : "pages/index/enterprise-extension/enterprise-extension",
+		    "style" : {
+				 "navigationBarTitleText": "企业推广",
+				 "navigationBarBackgroundColor":"#2e373f",
+				 "navigationBarTextStyle":"#fff"
+				 
+			}
+		},
+		{
+		    "path" : "pages/index/realName-authenticate/realName-authenticate",
+		    "style" : {
+				"navigationBarTitleText": "实名认证"
+			}
+		},
+		{
+		    "path" : "pages/index/realName-authenticate/authenticateSuccess",
+		    "style" : {
+				"navigationBarTitleText": "实名认证"
+			}
+		},
+		{
+		    "path" : "pages/index/promoter-apply/promoter-apply",
+		    "style" : {
+				"navigationBarTitleText": "推广员"
+			}
 		}
+	
+        
        
-        ,{
-            "path" : "pages/work-bench/case-manage/case-manage",
-            "style" : {}
-        }
+        
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarBackgroundColor": "#fff",
 		"backgroundColor": "#fff"
-		
 	},
 	"tabBar": {
 			"color" : "#656565",
@@ -206,8 +266,6 @@
 				        			"text" : "我的推广"
 				        		}
 						]
-				
-							
-							}
+			}
 	
 }

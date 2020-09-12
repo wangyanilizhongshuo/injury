@@ -60,8 +60,8 @@
   width: 20rpx;
   height: 20rpx;
   position: absolute;
-  left: 29rpx;
   top: 31rpx;
+  right: 29rpx;
 }
 .uni-title .uni-up .up-style.data-v-78b9e582 {
   width: 625rpx;

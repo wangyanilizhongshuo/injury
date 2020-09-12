@@ -8,10 +8,10 @@
 				 </view>
 				 <view class="uni-right" v-if="tobeAcceptFlag">待受理</view>
 				 <view class="uni-right" v-if="tobeIdentifyFlag">待认定</view>
-				 <view class="uni-right" v-if="tobeApprasiseFlag">待鉴定</view>
+				 <view class="uni-right" v-if="tobeApprasiseFlag || tobeAppraiseTwoStepFlag ||tobestepAppraiseFlag">待鉴定</view>
 				 <view class="uni-right" v-if="appRasiseSuccessFlag">鉴定成功</view>
 				 <view class="uni-right" v-if="tobeMediateFlag">待调解</view>
-				 <view class="uni-right" v-if="applySuccessFlag">申请成功</view>
+				 <view class="uni-right" v-if="applySuccessFlag || appSuccFirstStepFlag" >申请成功</view>
 			</view>
 			<view class="uni-content" :style="tobeAcceptFlag ===true? 'padding-bottom:69rpx':'padding-bottom:23rpx'">
 				<view class="uni-msg">
@@ -103,13 +103,13 @@
 						 </view>
 					 </view>
 					 <!-- 待鉴定内容下一步 -->
-					 <view class="acci-reason uni-exam" v-if="tobestepAppraiseFlag">
+					 <view class="acci-reason uni-exam uni-stepappraise" v-if="tobestepAppraiseFlag">
 						 <view class="describe">请上传伤者的一寸照照片</view>
 						 <view class="photo">
-							 <image v-if="!photoUrl" class="image" @tap.stop="getImage" src="../../../static/image/upload_pics.png"></image>
-							 <image v-if="photoUrl"  class="image" :src="photoUrl"></image> 
-							 <view v-if="raiseSubmitFlag"  class="btn" @tap.stop="raiseSubmitFlag=false">提交</view>
-							 <view v-if="!raiseSubmitFlag"  class="btn" style="background:#b7bac4;"  @tap.stop="raiseSubmitFlag=true">已提交</view>
+							 <image v-if="!photoUrl" class="images" @tap.stop="getImage" src="../../../static/image/upload_pics.png"></image>
+							 <image v-if="photoUrl"  class="images" :src="photoUrl"></image> 
+							 <view v-if="raiseSubmitFlag"  class="btns" @tap.stop="raiseSubmitFlag=false">提交</view>
+							 <view v-if="!raiseSubmitFlag"  class="btns" style="background:#b7bac4;"  @tap.stop="raiseSubmitFlag=true">已提交</view>
 						 </view>
 					 </view>
 					 <!-- 待鉴定的第二步 -->
@@ -128,8 +128,8 @@
 									 <view  class="down"> 表格说明表格说明表格</view>
 								 </view>
 							 </view>
-							 <view class="uni-right" style="background-color: rgba(65, 136, 246, 0.3);border: 2px solid #125CD4;">
-								 <view class="examProgress" :style="'width:'+examTwoPresent+'rpx'"> 50%</view>
+							 <view class="uni-right progressDiv" style="">
+								 <view class="examProgress" :class="examTwoPresent>110? 'progressBorder':'progressTopRight'"  :style="'width:'+examTwoPresent+'rpx'"> 50%</view>
 								
 							 </view>
 						 </view>
@@ -248,13 +248,13 @@
 				
 				// 待鉴定
 				tobeApprasiseFlag:false,
-				tobestepAppraiseFlag:false,
+				tobestepAppraiseFlag:true,
 				tobeAppraiseTwoStepFlag:false,
 				// 获取受伤人员的url
 				photoUrl:'',
-				raiseSubmitFlag:false,
-				// 进度条的百分比 113 d达到
-				examTwoPresent:95,
+				raiseSubmitFlag:true,
+				// 进度条的百分比 120 d100 的时候变化样式达到
+				examTwoPresent:110,
 				
 				// 带调解
 				tobeMediateFlag:false,
@@ -271,7 +271,7 @@
 				appSuccFirstStepFlag:false,
 				
 				 // 完成
-				hasFinishFlag:true
+				hasFinishFlag:false
 			}
 		},
 		onLoad(options){
@@ -447,13 +447,27 @@
 		.uni-right-has{
           background: #B8BAC4;
 		}
+		.progressDiv{
+			width:120rpx;
+			background-color: rgba(65, 136, 246, 0.3);
+			border: 2px solid #125CD4;
+			box-shadow: 1px 4px 10px 0px rgba(65, 136, 246, 0.3);
+			border-radius: 30px;
+		}
+		.progressBorder{
+			border-radius: 30px;
+		}
+		.progressTopRight{
+			border-top-left-radius: 30rpx;
+			border-bottom-left-radius: 30rpx;
+		}
 		.examProgress{
 			@include w_h(50rpx,52rpx);
 			background: rgba(89, 153, 255, 1);
 			text-align: center;
-			border-top-left-radius: 30rpx;
-			border-bottom-left-radius: 30rpx;
-			// border-radius: 30rpx;
+			
+			box-shadow: 1px 4px 10px 0px rgba(65, 136, 246, 0.3);
+			// border-radius: 30px;
 			box-sizing: border-box;
 			line-height: 60rpx;
 			@include  font-style("PingFang-SC-Medium",Medium,24rpx,rgba(255, 255, 255, 1));
@@ -496,12 +510,12 @@
 			@extend  %flex-style-justify;
 			align-items: flex-end;
 			margin-top:35rpx;
-			.image{
-				@include  w_h(200rpx,200rpx)
+			.images{
+				@include  w_h(200rpx,200rpx);
+				display: block;
 			}
-			.btn{
-				width: 120rpx;
-				height: 60rpx;
+			.btns{
+				@include  w_h(120rpx,60rpx);
 				background: #125CD4;
 				box-shadow: 1rpx 4rpx 10rpx 0rpx rgba(65, 136, 246, 0.3);
 				border-radius: 30rpx;

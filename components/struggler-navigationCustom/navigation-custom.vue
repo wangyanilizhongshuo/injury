@@ -23,13 +23,13 @@
 				<text class="custom-describe">{{config.menuText}}</text>
 			</view>
 			<!-- title -->
-			<view class="navigation-bar-title" @click="conduct_" :style="'margin-top:'+marginTop+';color:'+config.fontcolor">{{config.title}}
+			<view style="width:400rpx;" class="navigation-bar-title" @click="conduct_" :style="'margin-top:'+marginTop+';color:'+config.fontcolor">
+			{{config.title}}
+			
 			<!-- <image style="width:20rpx;height:20rpx;position: absolute;right:5rpx;top:25rpx;" src="../../static/image/location_sel.png"></image> -->
 			<!-- <image style="width:20rpx;height:20rpx;position: absolute;right:5rpx;top:25rpx;" src="../../static/image/location_sel.png"></image> -->
 			<image @click="conduct_" style="width:20rpx;height:20rpx;position: absolute;right:5rpx;top:25rpx;" src="../../static/image/location_sel.png"></image>
 			</view>
-			<!-- linear background -->
-			
 			<view v-if="config.linear" class="navigation-bar-linear" :style="{height:height,background:config.bgcolor,opacity:scrollTop/scrollMaxHeight}"></view>
 		</view>
 	</view>
@@ -53,10 +53,10 @@
 				return height+ 38 + "px"
 			},
 			marginTop(){
-				const {platform,statusBarHeight} = uni.getSystemInfoSync()
-				let height = statusBarHeight +4
+				const {platform,statusBarHeight} = uni.getSystemInfoSync();
+				let height = statusBarHeight +4;
 				if (platform.toLowerCase() == "android" ){
-					height +=4
+					height +=4;
 				}
 				return height + "px"				
 			}
@@ -66,7 +66,6 @@
 		},
 		mounted() {
 			// console.log(this.config)
-			
 		},
 		props:{
 			config:{

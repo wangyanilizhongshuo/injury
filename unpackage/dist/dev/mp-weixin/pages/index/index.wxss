@@ -24,7 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.conetntsFirst .contents.data-v-57280228 {
+.contentsFirst .contents.data-v-57280228 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -43,6 +43,8 @@
 .uni-imgBg.data-v-57280228 {
   width: 688rpx;
   height: 356rpx;
+  display: block;
+  margin-bottom: 24rpx;
 }
 .uni-titles.data-v-57280228 {
   width: 688rpx;
@@ -98,11 +100,12 @@
   font-size: 36rpx;
   color: #fff;
 }
-.uni-titles .noLogin .person-right .per-login .titles2.data-v-57280228, .uni-titles .noLogin .person-right .per-login .titles3.data-v-57280228 {
+.uni-titles .noLogin .person-right .per-login .titles2.data-v-57280228 {
   font-family: "PingFang-SC-Medium";
   font-weight: Medium;
   font-size: 22rpx;
   color: #B9DDFF;
+  margin: 10rpx 0;
 }
 .uni-titles .noLogin .person-right .per-login .titles3.data-v-57280228 {
   font-family: "PingFang-SC-Medium";
@@ -145,43 +148,123 @@
   top: 10rpx;
   left: 0;
 }
-.conetntsFirst.data-v-57280228 {
+.contentsFirst.data-v-57280228 {
   width: 690rpx;
   height: 142rpx;
-  margin-top: 24rpx;
   position: relative;
   top: 0;
   left: 0;
 }
-.conetntsFirst .conFirstBg.data-v-57280228 {
+.contentsFirst .conFirstBg.data-v-57280228 {
   width: 690rpx;
   height: 142rpx;
 }
-.conetntsFirst .contents.data-v-57280228 {
+.contentsFirst .contents.data-v-57280228 {
+  width: 690rpx;
   position: absolute;
   left: 0;
   top: 0;
   z-index: 10;
+  padding: 22rpx 34rpx 26rpx 42rpx;
+  box-sizing: border-box;
 }
-.conetntsFirst .contents .uni-left .uni-top.data-v-57280228 {
+.contentsFirst .contents .uni-left .uni-top.data-v-57280228 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
-.conetntsFirst .contents .uni-left .uni-top .imgs.data-v-57280228 {
+.contentsFirst .contents .uni-left .uni-top .imgs.data-v-57280228 {
   width: 38rpx;
   height: 38rpx;
+  margin-right: 20rpx;
 }
-.conetntsFirst .contents .uni-left .uni-top .field.data-v-57280228 {
+.contentsFirst .contents .uni-left .uni-top .field.data-v-57280228 {
   font-family: "PingFang-SC-Bold";
   font-weight: Bold;
   font-size: 30rpx;
   color: #fff;
 }
-.conetntsFirst .contents .uni-left .uni-down.data-v-57280228 {
+.contentsFirst .contents .uni-left .uni-down.data-v-57280228 {
+  margin-top: 27rpx;
   font-family: "PingFang-SC-Bold";
   font-weight: Bold;
   font-size: 30rpx;
   color: #fff;
+}
+.contentsFirst .contents .uni-right.data-v-57280228 {
+  width: 150rpx;
+  height: 60rpx;
+  background: #FFFFFF;
+  box-shadow: 1rpx 15rpx 32rpx 0rpx rgba(255, 124, 52, 0.66);
+  border-radius: 29rpx;
+  font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
+  font-size: 26rpx;
+  color: #FF9D36;
+  line-height: 60rpx;
+  text-align: center;
+}
+.contentsFirst .contents .vipImg.data-v-57280228 {
+  display: block;
+  width: 95rpx;
+  height: 91rpx;
+}
+.listStyles.data-v-57280228 {
+  margin-top: 46rpx;
+}
+.listStyles .titles.data-v-57280228 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  height: 31rpx;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.listStyles .titles .img.data-v-57280228 {
+  display: block;
+  width: 10rpx;
+  height: 32rpx;
+  margin-right: 21rpx;
+}
+.listStyles .titles .word.data-v-57280228 {
+  font-family: "PingFang-SC-Bold";
+  font-weight: Bold;
+  font-size: 32rpx;
+  color: #000000;
+}
+.listStyles .list-content.data-v-57280228 {
+  margin-top: 47rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.listStyles .list-content .list.data-v-57280228 {
+  width: 120rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.listStyles .list-content .list .img.data-v-57280228 {
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin-bottom: 25rpx;
+}
+.listStyles .list-content .list .word.data-v-57280228 {
+  font-family: "PingFang-SC-Medium";
+  font-weight: Medium;
+  font-size: 28rpx;
+  color: #303234;
 }
 
