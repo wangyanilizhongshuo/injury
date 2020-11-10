@@ -81,5 +81,6 @@
       "desc": "你的位置将作为我们的依据对其进行访问"
     }
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap57.json"
 }

@@ -80,5 +80,9 @@
     },
     "uniStatistics" : {
         "enable" : false
+    },
+    "h5" : {
+        "title" : "injury-service",
+        "domain" : "yaofangme.hzbixin.cn"
     }
 }
